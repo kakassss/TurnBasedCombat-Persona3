@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public abstract class PersonaStatsFactory : ScriptableObject, IPersonaStatInit
@@ -27,12 +26,9 @@ public abstract class PersonaStatsFactory : ScriptableObject, IPersonaStatInit
     
     private void GetPersonaStatTypes()
     {
-        foreach (var currentStat in AllStatsTypes)
+        foreach (var stat in AllStatsTypes)
         {
-            if (currentStat == true)
-            {
-                PersonaStats.Add(currentStat);
-            }
+            if (stat) PersonaStats.Add(stat);
         }
     }
     protected abstract void AddAllPersonaStatTypes();
