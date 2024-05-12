@@ -1,10 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class PersonaStatsFactory : ScriptableObject, IPersonaStatInit
 {
+    public Dictionary<StatTypes, bool> dic;
     [HideInInspector] public List<bool> AllStatsTypes;
-    [HideInInspector] public List<bool> PersonaStats;
+    [HideInInspector] public List<bool> ValidStats;
 
     public StatTypes _stat;
     public virtual void SetPersonaStats()
@@ -28,7 +30,7 @@ public abstract class PersonaStatsFactory : ScriptableObject, IPersonaStatInit
     {
         foreach (var stat in AllStatsTypes)
         {
-            if (stat) PersonaStats.Add(stat);
+            if (stat) ValidStats.Add(stat);
         }
     }
     protected abstract void AddAllPersonaStatTypes();

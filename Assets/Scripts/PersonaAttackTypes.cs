@@ -18,15 +18,15 @@ public class PersonaAttackTypesStats : PersonaStatsFactory
     
     protected override void AddAllPersonaStatTypes()
     {
-        AllStatsTypes.Add(Slash);
-        AllStatsTypes.Add(Strike);
-        AllStatsTypes.Add(Pierce);
-        AllStatsTypes.Add(Fire);
-        AllStatsTypes.Add(Ice);
-        AllStatsTypes.Add(Electricity);
-        AllStatsTypes.Add(Wind);
-        AllStatsTypes.Add(Light);
-        AllStatsTypes.Add(Dark);
+        // AllStatsTypes.Add(Slash);
+        // AllStatsTypes.Add(Strike);
+        // AllStatsTypes.Add(Pierce);
+        // AllStatsTypes.Add(Fire);
+        // AllStatsTypes.Add(Ice);
+        // AllStatsTypes.Add(Electricity);
+        // AllStatsTypes.Add(Wind);
+        // AllStatsTypes.Add(Light);
+        // AllStatsTypes.Add(Dark);
     }
 
     public override void SetStatType()

@@ -4,29 +4,29 @@ using UnityEngine;
 public class PersonaWeaknessStats : PersonaStatsFactory
 {
     [Header("BasicAttack Weakness")]
-    public bool SlashWeakness;
-    public bool StrikeWeakness;
-    public bool PierceWeakness;
+    public bool Slash;
+    public bool Strike;
+    public bool Pierce;
     
     [Header("Skills Weakness")]
-    public bool FireWeakness;
-    public bool IceWeakness;
-    public bool ElectricityWeakness;
-    public bool WindWeakness;
-    public bool LightWeakness;
-    public bool DarkWeakness;
+    public bool Fire;
+    public bool Ice;
+    public bool Electricity;
+    public bool Wind;
+    public bool Light;
+    public bool Dark;
     
     protected override void AddAllPersonaStatTypes()
     {
-        AllStatsTypes.Add(SlashWeakness);
-        AllStatsTypes.Add(StrikeWeakness);
-        AllStatsTypes.Add(PierceWeakness);
-        AllStatsTypes.Add(FireWeakness);
-        AllStatsTypes.Add(IceWeakness);
-        AllStatsTypes.Add(ElectricityWeakness);
-        AllStatsTypes.Add(WindWeakness);
-        AllStatsTypes.Add(LightWeakness);
-        AllStatsTypes.Add(DarkWeakness);
+        // AllStatsTypes.Add(Slash);
+        // AllStatsTypes.Add(Strike);
+        // AllStatsTypes.Add(Pierce);
+        // AllStatsTypes.Add(Fire);
+        // AllStatsTypes.Add(Ice);
+        // AllStatsTypes.Add(Electricity);
+        // AllStatsTypes.Add(Wind);
+        // AllStatsTypes.Add(Light);
+        // AllStatsTypes.Add(Dark);
     }
 
     public override void SetStatType()

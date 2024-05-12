@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PersonaStats", menuName = "ScriptableObjets/PersonaStats")]
@@ -23,5 +24,15 @@ public class PersonaBaseStats : ScriptableObject
             stat.SetPersonaStats();
             stat.SetStatType();
         }
+    }
+
+    public PersonaStatsFactory GetDesiredStatType(StatTypes stat)
+    {
+        foreach (var stats in _allStats.Where(stats => stat == stats.GetStat()))
+        {
+            return stats;
+        }
+
+        return null;
     }
 }

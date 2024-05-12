@@ -4,29 +4,29 @@ using UnityEngine;
 public class PersonaResistanceStats : PersonaStatsFactory
 {
     [Header("BasicAttack Resistance")]
-    public bool SlashResistance;
-    public bool StrikeResistance;
-    public bool PierceResistance;
+    public bool Slash;
+    public bool Strike;
+    public bool Pierce;
     
-    [Header("Skills Resistance")]
-    public bool FireResistance;
-    public bool IceResistance;
-    public bool ElectricityResistance;
-    public bool WindResistance;
-    public bool LightResistance;
-    public bool DarkResistance;
+    [Header("Skill Resistance")]
+    public bool Fire;
+    public bool Ice;
+    public bool Electricity;
+    public bool Wind;
+    public bool Light;
+    public bool Dark;
     
     protected override void AddAllPersonaStatTypes()
     {
-        AllStatsTypes.Add(SlashResistance);
-        AllStatsTypes.Add(StrikeResistance);
-        AllStatsTypes.Add(PierceResistance);
-        AllStatsTypes.Add(FireResistance);
-        AllStatsTypes.Add(IceResistance);
-        AllStatsTypes.Add(ElectricityResistance);
-        AllStatsTypes.Add(WindResistance);
-        AllStatsTypes.Add(LightResistance);
-        AllStatsTypes.Add(DarkResistance);
+        // AllStatsTypes.Add(Slash);
+        // AllStatsTypes.Add(Strike);
+        // AllStatsTypes.Add(Pierce);
+        // AllStatsTypes.Add(Fire);
+        // AllStatsTypes.Add(Ice);
+        // AllStatsTypes.Add(Electricity);
+        // AllStatsTypes.Add(Wind);
+        // AllStatsTypes.Add(Light);
+        // AllStatsTypes.Add(Dark);
     }
 
     public override void SetStatType()

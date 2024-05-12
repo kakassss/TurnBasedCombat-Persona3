@@ -4,29 +4,29 @@ using UnityEngine;
 public class PersonaReflectStats : PersonaStatsFactory
 {
     [Header("BasicAttack Reflect")]
-    public bool SlashReflect;
-    public bool StrikeReflect;
-    public bool PierceReflect;
+    public bool Slash;
+    public bool Strike;
+    public bool Pierce;
     
     [Header("Skills Reflect")]
-    public bool FireReflect;
-    public bool IceReflect;
-    public bool ElectricityReflect;
-    public bool WindReflect;
-    public bool LightReflect;
-    public bool DarkReflect;
+    public bool Fire;
+    public bool Ice;
+    public bool Electricity;
+    public bool Wind;
+    public bool Light;
+    public bool Dark;
     
     protected override void AddAllPersonaStatTypes()
     {
-        AllStatsTypes.Add(SlashReflect);
-        AllStatsTypes.Add(StrikeReflect);
-        AllStatsTypes.Add(PierceReflect);
-        AllStatsTypes.Add(FireReflect);
-        AllStatsTypes.Add(IceReflect);
-        AllStatsTypes.Add(ElectricityReflect);
-        AllStatsTypes.Add(WindReflect);
-        AllStatsTypes.Add(LightReflect);
-        AllStatsTypes.Add(DarkReflect);
+        AllStatsTypes.Add(Slash);
+        AllStatsTypes.Add(Strike);
+        AllStatsTypes.Add(Pierce);
+        AllStatsTypes.Add(Fire);
+        AllStatsTypes.Add(Ice);
+        AllStatsTypes.Add(Electricity);
+        AllStatsTypes.Add(Wind);
+        AllStatsTypes.Add(Light);
+        AllStatsTypes.Add(Dark);
     }
 
     public override void SetStatType()
