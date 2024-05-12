@@ -27,9 +27,14 @@ public abstract class PersonaStatsFactory : ScriptableObject, IPersonaStatInit
     
     private void GetPersonaStatTypes()
     {
-        PersonaStats.AddRange(AllStatsTypes.Where(skill => skill == this));
+        foreach (var currentStat in AllStatsTypes)
+        {
+            if (currentStat == true)
+            {
+                PersonaStats.Add(currentStat);
+            }
+        }
     }
-    
     protected abstract void AddAllPersonaStatTypes();
     
 }

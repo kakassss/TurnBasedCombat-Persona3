@@ -5,7 +5,7 @@ using UnityEngine;
 public class PersonaBaseStats : ScriptableObject
 {
     [Header("Stats")]
-    [SerializeField] private List<PersonaStatsFactory> _allStats;
+    public List<PersonaStatsFactory> _allStats;
     
     [Header("Prefab")]
     public GameObject PersonaPrefab;
