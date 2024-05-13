@@ -1,17 +1,9 @@
-﻿using UnityEngine;
-
-public abstract class CharacterBaseAbilities : ScriptableObject, ICharacterAbilities
+﻿public abstract class CharacterBaseAbilities : EntityBaseAbilities, ICharacterAbilities
 {
     public Stat Stat => _stat;
     
-    public Sprite AbilitySprite;
-    public string AbilityName;
-    
-    [SerializeField] protected Stat _stat;
-    
-    public void AbilityAction()
+    public virtual void AbilityAction()
     {
-        Debug.Log("This persona has " + Stat + " ability");
+        
     }
-
 }
