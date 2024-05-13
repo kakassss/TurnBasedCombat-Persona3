@@ -7,6 +7,4 @@ public class SlashPersonaAbility : PersonaBaseAbility
     {
         Debug.Log("This persona has " + Stat + " ability");
     }
-
-    public Stat Stat => Stat.Slash;
 }

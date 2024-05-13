@@ -10,10 +10,24 @@ public class Persona : MonoBehaviour
     
     private int _currentHealth;
     private int _currentMana;
-    
-    
-    
-   
+
+    [SerializeField] private List<PersonaBaseAbility> _personaBaseAbilities;
+
+    private void Awake()
+    {
+        Abilities();
+    }
+
+    private void Abilities()
+    {
+        foreach (var ability in _personaBaseAbilities)
+        {
+            ability.AbilityAction();
+            
+            Debug.Log(ability.Stat);
+        }
+    }
+
 }
 /*
  * [Header("BasicAttacks")]

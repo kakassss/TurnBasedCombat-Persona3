@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.1555, g: 2263.5764, b: 3287.2114, a: 1}
+  m_IndirectSpecularColor: {r: 2159.1555, g: 2263.639, b: 3287.313, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -655,10 +655,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753e02e8f6860744b98026aef18e647b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 0
-  Level: 0
-  Mana: 0
-  Name: 0
+  personaBase: {fileID: 0}
+  _personaBaseAbilities:
+  - {fileID: 11400000, guid: e318a1fcfae08b942a33bd7c9f554a56, type: 2}
+  - {fileID: 11400000, guid: 55cf412c601e5ec4d84bdb4450b05758, type: 2}
+  - {fileID: 11400000, guid: 5167b0122011f3e45bf54b6ab4a8ddda, type: 2}
 --- !u!1 &2013410473
 GameObject:
   m_ObjectHideFlags: 1

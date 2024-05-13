@@ -2,6 +2,7 @@
 
 public abstract class PersonaBaseAbility : ScriptableObject,IPersonaAbility
 {
+    [SerializeField] protected Stat _stat;
     public string AbilityName;
     public Sprite AbilitySprite;
     
@@ -10,5 +11,5 @@ public abstract class PersonaBaseAbility : ScriptableObject,IPersonaAbility
         
     }
 
-    public Stat Stat { get; }
+    public Stat Stat => _stat;
 }

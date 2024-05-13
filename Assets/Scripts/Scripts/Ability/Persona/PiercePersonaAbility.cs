@@ -7,6 +7,4 @@ public class PiercePersonaAbility : PersonaBaseAbility
     {
         Debug.Log("This persona has " + Stat + " ability");
     }
-
-    public Stat Stat => Stat.Pierce;
 }

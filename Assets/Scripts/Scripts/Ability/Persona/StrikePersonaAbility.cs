@@ -7,6 +7,5 @@ public class StrikePersonaAbility : PersonaBaseAbility
     {
         Debug.Log("This persona has " + Stat + " ability");
     }
-
-    public Stat Stat => Stat.Strike;
+    
 }
