@@ -41,14 +41,14 @@ public class Persona : MonoBehaviour
 
     private List<IPersonaAttack> allPersona = new List<IPersonaAttack>();
 
-    public List<PersonaAbilities> PersonaAbilitiesList = new List<PersonaAbilities>();
+    public List<PersonaAbility> PersonaAbilitiesList = new List<PersonaAbility>();
 
     private List<IPersonaDefence> personaDefence = new List<IPersonaDefence>();
     private void Awake()
     {
-        personaDefence.Add(_slashPersonaStat);
-        personaDefence.Add(_strikePersonaStat);
-        personaDefence.Add(_piercePersonaStat);
+        personaDefence.Add(_slashPersonaDefence);
+        personaDefence.Add(_strikePersonaDefence);
+        personaDefence.Add(_piercePersonaDefence);
         
         
         _slashPersonaAbility.AbilityAction();
@@ -68,9 +68,9 @@ public class Persona : MonoBehaviour
         Checkstat();
     }
 
-    private StrikePersonaStat _strikePersonaStat = new StrikePersonaStat(true, true, false, false);
-    private SlashPersonaStat _slashPersonaStat = new SlashPersonaStat(true, true, true, true);
-    private PiercePersonaStat _piercePersonaStat = new PiercePersonaStat(true, true, true, true);
+    private StrikePersonaDefence _strikePersonaDefence = new StrikePersonaDefence(true, true, false, false);
+    private SlashPersonaDefence _slashPersonaDefence = new SlashPersonaDefence(true, true, true, true);
+    private PiercePersonaDefence _piercePersonaDefence = new PiercePersonaDefence(true, true, true, true);
 
     private SlashPersonaAbility _slashPersonaAbility = new SlashPersonaAbility();
     private CharacterAbilities _characterAbilities = new CharacterAbilities();
@@ -105,12 +105,12 @@ public interface IPersonaDefence
     void Defence();
 }
 
-public interface IPersonaAbilities : IAbility
+public interface IPersonaAbility : IAbility
 {
     
 }
 
-public class PersonaStats
+public class PersonaDefence
 {
     public bool Weakness;
     public bool Resistance;
@@ -118,7 +118,7 @@ public class PersonaStats
     public bool Reflect;
 
 
-    protected PersonaStats(bool weakness, bool resistance, bool normal, bool reflect)
+    protected PersonaDefence(bool weakness, bool resistance, bool normal, bool reflect)
     {
         Weakness = weakness;
         Resistance = resistance;
@@ -132,9 +132,9 @@ public class PersonaStats
      */
 }
 
-public class SlashPersonaStat : PersonaStats, IPersonaDefence
+public class SlashPersonaDefence : PersonaDefence, IPersonaDefence
 {
-    public SlashPersonaStat(bool weakness, bool resistance, bool normal, bool reflect) : base(weakness, resistance, normal, reflect)
+    public SlashPersonaDefence(bool weakness, bool resistance, bool normal, bool reflect) : base(weakness, resistance, normal, reflect)
     {
     }
 
@@ -146,9 +146,9 @@ public class SlashPersonaStat : PersonaStats, IPersonaDefence
         if (Reflect) Debug.Log("This Persona Has Reflect to Slash Attacks");
     }
 }
-public class PiercePersonaStat : PersonaStats, IPersonaDefence
+public class PiercePersonaDefence : PersonaDefence, IPersonaDefence
 {
-    public PiercePersonaStat(bool weakness, bool resistance, bool normal, bool reflect) : base(weakness, resistance, normal, reflect)
+    public PiercePersonaDefence(bool weakness, bool resistance, bool normal, bool reflect) : base(weakness, resistance, normal, reflect)
     {
     }
 
@@ -162,9 +162,9 @@ public class PiercePersonaStat : PersonaStats, IPersonaDefence
 }
 
 
-public class StrikePersonaStat : PersonaStats, IPersonaDefence
+public class StrikePersonaDefence : PersonaDefence, IPersonaDefence
 {
-    public StrikePersonaStat(bool weakness, bool resistance, bool normal, bool reflect) : base(weakness, resistance, normal, reflect)
+    public StrikePersonaDefence(bool weakness, bool resistance, bool normal, bool reflect) : base(weakness, resistance, normal, reflect)
     {
     }
 
@@ -177,15 +177,7 @@ public class StrikePersonaStat : PersonaStats, IPersonaDefence
     }
 }
 
-public class SlashPersonaAbility : PersonaAbilities, IPersonaAbilities
-{
-    public void AbilityAction()
-    {
-        Debug.Log("This persona has " + Ability + " ability");
-    }
 
-    public Abilities Ability { get; }
-}
 
 public enum Abilities
 {
@@ -199,20 +191,28 @@ public enum Abilities
     Light,
     Dark
 }
-public class PersonaAbilities
+
+public class SlashPersonaAbility : PersonaAbility
 {
-    protected Abilities _ability;
+    public override void AbilityAction()
+    {
+        Debug.Log("This persona has " + Ability + " ability");
+        
+    }
+    public Abilities Ability { get; }
+}
+
+public class PersonaAbility : IAbility
+{
+    public string AbilityName;
+    public Sprite AbilitySprite;
     
-    protected bool _slash;
-    protected bool _strike;
-    protected bool _pierce;
-    protected bool _fire;
-    protected bool _ice;
-    protected bool _electricity;
-    protected bool _wind;
-    protected bool _light;
-    protected bool _dark;
-    
+    public virtual void AbilityAction()
+    {
+        
+    }
+
+    public Abilities Ability { get; }
 }
 
 public class Reflect : IPersonaFireAttack,IPersonaIceAttack
