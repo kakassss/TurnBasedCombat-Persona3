@@ -3,13 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Persona : MonoBehaviour
 {
-    public int Health;
-    public int Level;
-    public int Mana;
-    public int Name;
-
+    [SerializeField] private PersonaBase personaBase;
+    
     private List<IPersonaAttack> allPersona = new List<IPersonaAttack>();
 
     public List<PersonaAbility> PersonaAbilitiesList = new List<PersonaAbility>();
