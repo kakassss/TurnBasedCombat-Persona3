@@ -73,15 +73,3 @@ public class Persona : MonoBehaviour
     public bool Light;
     public bool Dark;
  */
-public enum Stat
-{
-    Slash,
-    Strike,
-    Pierce,
-    Fire,
-    Ice,
-    Electricity,
-    Wind,
-    Light,
-    Dark
-}
