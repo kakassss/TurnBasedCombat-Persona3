@@ -1,5 +1,4 @@
-﻿public interface IPersonaDefence
+﻿public interface IPersonaDefence : IDefence
 {
-    void Defence();
-    Stat Stat { get; }
+
 }
