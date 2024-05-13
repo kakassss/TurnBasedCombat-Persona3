@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Persona : MonoBehaviour
 {
+    private int _currentHealth;
+    private int _currentMana;
     [SerializeField] private PersonaBase personaBase;
     
     private List<IPersonaAttack> allPersona = new List<IPersonaAttack>();
@@ -18,7 +20,8 @@ public class Persona : MonoBehaviour
         // personaDefence.Add(_slashPersonaDefence);
         // personaDefence.Add(_strikePersonaDefence);
         // personaDefence.Add(_piercePersonaDefence);
-        
+        _currentHealth = personaBase.Health;
+        _currentMana = personaBase.Mana;
         
         _slashPersonaAbility.AbilityAction();
 
