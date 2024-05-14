@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.1555, g: 2263.639, b: 3287.313, a: 1}
+  m_IndirectSpecularColor: {r: 2161.7825, g: 2265.723, b: 3288.8872, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -621,6 +621,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1891107632}
   - component: {fileID: 1891107633}
+  - component: {fileID: 1891107634}
   m_Layer: 0
   m_Name: Persona
   m_TagString: Untagged
@@ -660,6 +661,24 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e318a1fcfae08b942a33bd7c9f554a56, type: 2}
   - {fileID: 11400000, guid: 55cf412c601e5ec4d84bdb4450b05758, type: 2}
   - {fileID: 11400000, guid: 5167b0122011f3e45bf54b6ab4a8ddda, type: 2}
+--- !u!114 &1891107634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891107631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89dcc595688f4a82b0b5596bcdb47c58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _characterBase: {fileID: 0}
+  _characterBaseAbilities: []
+  _characterDefences:
+  - {fileID: 11400000, guid: c595134757fb3434dbf74c494165df10, type: 2}
+  - {fileID: 11400000, guid: 140c5246cdd5be44fa57f400dfb6d79e, type: 2}
+  - {fileID: 11400000, guid: aa39834b8933ccc40ba178f08617db16, type: 2}
 --- !u!1 &2013410473
 GameObject:
   m_ObjectHideFlags: 1

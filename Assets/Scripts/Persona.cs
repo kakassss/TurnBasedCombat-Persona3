@@ -15,7 +15,6 @@ public class Persona : MonoBehaviour
 
     private void Awake()
     {
-        Abilities();
     }
 
     private void Abilities()

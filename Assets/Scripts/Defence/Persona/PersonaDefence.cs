@@ -6,9 +6,6 @@ namespace Defence.Persona
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
-        public virtual void DefenceAction()
-        {
-        
-        }
+        public abstract void DefenceAction();
     }
 }
