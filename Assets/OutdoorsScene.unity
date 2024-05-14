@@ -656,11 +656,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753e02e8f6860744b98026aef18e647b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  personaBase: {fileID: 0}
   _personaBaseAbilities:
   - {fileID: 11400000, guid: e318a1fcfae08b942a33bd7c9f554a56, type: 2}
   - {fileID: 11400000, guid: 55cf412c601e5ec4d84bdb4450b05758, type: 2}
   - {fileID: 11400000, guid: 5167b0122011f3e45bf54b6ab4a8ddda, type: 2}
+  _personaBaseAttacks:
+  - {fileID: 11400000, guid: 0020032454feeac46a365b7303598e0a, type: 2}
+  - {fileID: 11400000, guid: 092c59b1731efc8459e0fa1d0f8975f8, type: 2}
+  - {fileID: 11400000, guid: e6c837cfba09c184dbdf01c035932f0f, type: 2}
+  _personaBaseDefences:
+  - {fileID: 11400000, guid: f70f666a23510674ab1e2acca1eff123, type: 2}
+  - {fileID: 11400000, guid: 21b262fd4dea79440b973262f3bfb96c, type: 2}
+  - {fileID: 11400000, guid: 7c94a9204c591ad4881ae64c69223f76, type: 2}
 --- !u!114 &1891107634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -673,12 +680,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dcc595688f4a82b0b5596bcdb47c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _characterBase: {fileID: 0}
-  _characterBaseAbilities: []
+  _characterBaseAbilities:
+  - {fileID: 11400000, guid: 0f0437130895b72418b9fe16cf3b8651, type: 2}
+  - {fileID: 11400000, guid: 3b85423b737de1249a9117c21c11e2fb, type: 2}
+  - {fileID: 11400000, guid: 2aae1b062ce4ce04b9c7d5b214c8b0cd, type: 2}
   _characterDefences:
   - {fileID: 11400000, guid: c595134757fb3434dbf74c494165df10, type: 2}
   - {fileID: 11400000, guid: 140c5246cdd5be44fa57f400dfb6d79e, type: 2}
   - {fileID: 11400000, guid: aa39834b8933ccc40ba178f08617db16, type: 2}
+  _characterBaseAttacks:
+  - {fileID: 11400000, guid: f4251ce21378f044898dc4beecbc6b53, type: 2}
+  - {fileID: 11400000, guid: 967bb1fe7d0786d4d98ccc67820064fd, type: 2}
+  - {fileID: 11400000, guid: 4d49d87997cd6364db1d27b9b04a60c5, type: 2}
 --- !u!1 &2013410473
 GameObject:
   m_ObjectHideFlags: 1

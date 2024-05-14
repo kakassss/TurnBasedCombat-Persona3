@@ -1,28 +1,20 @@
 ﻿using System.Collections.Generic;
 using Ability.Character;
+using Attack.Character;
 using Defence.Character;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField] private CharacterBase _characterBase;
-
-    [Header("Stats")] 
-    [SerializeField] private List<CharacterBaseAbilities> _characterBaseAbilities;
-
-    [SerializeField] private List<CharacterBaseDefence> _characterDefences;
-    
+    //[SerializeField] private CharacterBase _characterBase;
     
     private int _currentHealth;
     private int _currentMana;
-
-    private void Awake()
-    {
-        foreach (var defence in _characterDefences)
-        {
-            Debug.Log(defence.DefenceTypes + " " + defence.Stat);
-        }
-    }
-
-
+    
+    [Header("Stats")] 
+    public List<CharacterBaseAbilities> _characterBaseAbilities;
+    public List<CharacterBaseDefence> _characterDefences;
+    public List<CharacterBaseAttack> _characterBaseAttacks;
+    
+    
 }
