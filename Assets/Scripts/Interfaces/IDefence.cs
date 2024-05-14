@@ -1,5 +1,8 @@
-﻿public interface IDefence
+﻿using Defence;
+
+public interface IDefence
 {
-    void Defence();
+    void DefenceAction();
     Stat Stat { get; }
+    DefenceTypes DefenceTypes { get; }
 }

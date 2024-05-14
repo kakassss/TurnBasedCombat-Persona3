@@ -1,4 +1,7 @@
-﻿public interface IPersonaDefence : IDefence
+﻿namespace Interfaces
 {
+    public interface IPersonaDefence : IDefence
+    {
 
+    }
 }
