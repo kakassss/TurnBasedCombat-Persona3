@@ -1,4 +1,7 @@
-﻿public interface ICharacterAttack : IAttack
+﻿namespace Interfaces
 {
+    public interface ICharacterAttack : IAttack
+    {
     
+    }
 }

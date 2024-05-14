@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Attack
+namespace Attack.Character
 {
     [CreateAssetMenu(fileName = "SlashCharacterAttack", menuName = "ScriptableObjets/CharacterAttack/SlashCharacterAttack")]
     public class SlashCharacterAttack : CharacterBaseAttack

@@ -1,6 +1,7 @@
-﻿using Enum;
+﻿using Enums;
+using Interfaces;
 
-namespace Attack
+namespace Attack.Character
 {
     public abstract class CharacterBaseAttack : EntityBaseAttack, IPersonaAttack
     {

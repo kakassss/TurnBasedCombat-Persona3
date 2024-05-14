@@ -1,4 +1,7 @@
-﻿public interface ICharacterAbilities : IAbility
+﻿namespace Interfaces
 {
+    public interface ICharacterAbilities : IAbility
+    {
     
+    }
 }

@@ -1,4 +1,5 @@
-﻿using Enum;
+﻿using Enums;
+using Interfaces;
 
 namespace Defence.Character
 {

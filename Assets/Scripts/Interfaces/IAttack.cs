@@ -1,8 +1,11 @@
-﻿using Enum;
+﻿using Enums;
 
-public interface IAttack
+namespace Interfaces
 {
-    void Attack();
-    Stat Stat { get; }
-    AttackTypes AttackTypes { get; }
+    public interface IAttack
+    {
+        void Attack();
+        Stat Stat { get; }
+        AttackTypes AttackTypes { get; }
+    }
 }

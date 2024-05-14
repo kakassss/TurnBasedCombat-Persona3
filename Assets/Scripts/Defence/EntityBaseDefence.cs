@@ -1,4 +1,4 @@
-﻿using Enum;
+﻿using Enums;
 using UnityEngine;
 
 namespace Defence

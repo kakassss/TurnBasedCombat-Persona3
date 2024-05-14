@@ -1,4 +1,7 @@
-public interface IPersonaAttack : IAttack
+namespace Interfaces
 {
+    public interface IPersonaAttack : IAttack
+    {
     
+    }
 }

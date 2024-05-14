@@ -1,12 +1,12 @@
-﻿using Enum;
+﻿using Enums;
+using Interfaces;
 
-namespace Attack
+namespace Attack.Persona
 {
     public abstract class PersonaBaseAttack : EntityBaseAttack, IPersonaAttack
     {
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
-
         public abstract void Attack();
     }
 }

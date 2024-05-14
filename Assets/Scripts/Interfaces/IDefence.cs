@@ -1,9 +1,11 @@
-﻿using Defence;
-using Enum;
+﻿using Enums;
 
-public interface IDefence
+namespace Interfaces
 {
-    void DefenceAction();
-    Stat Stat { get; }
-    DefenceTypes DefenceTypes { get; }
+    public interface IDefence
+    {
+        void DefenceAction();
+        Stat Stat { get; }
+        DefenceTypes DefenceTypes { get; }
+    }
 }

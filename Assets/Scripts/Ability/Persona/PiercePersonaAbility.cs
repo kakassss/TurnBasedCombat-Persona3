@@ -1,11 +1,13 @@
-﻿using Ability.Persona;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "PiercePersonaAbility", menuName = "ScriptableObjets/PersonaAbility/PiercePersonaAbility")]
-public class PiercePersonaAbility : PersonaBaseAbility
+namespace Ability.Persona
 {
-    public override void AbilityAction()
+    [CreateAssetMenu(fileName = "PiercePersonaAbility", menuName = "ScriptableObjets/PersonaAbility/PiercePersonaAbility")]
+    public class PiercePersonaAbility : PersonaBaseAbility
     {
-        Debug.Log("This persona has " + Stat + " ability");
+        public override void AbilityAction()
+        {
+            Debug.Log("This persona has " + Stat + " ability");
+        }
     }
 }

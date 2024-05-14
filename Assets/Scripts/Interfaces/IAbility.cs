@@ -1,7 +1,10 @@
-﻿using Enum;
+﻿using Enums;
 
-public interface IAbility
+namespace Interfaces
 {
-    Stat Stat { get; }
-    void AbilityAction();
+    public interface IAbility
+    {
+        Stat Stat { get; }
+        void AbilityAction();
+    }
 }

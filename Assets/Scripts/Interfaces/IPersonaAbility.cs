@@ -1,4 +1,7 @@
-﻿public interface IPersonaAbility : IAbility
+﻿namespace Interfaces
 {
+    public interface IPersonaAbility : IAbility
+    {
     
+    }
 }

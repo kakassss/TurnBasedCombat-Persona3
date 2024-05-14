@@ -1,4 +1,7 @@
-﻿public interface ICharacterDefence : IDefence
+﻿namespace Interfaces
 {
+    public interface ICharacterDefence : IDefence
+    {
     
+    }
 }

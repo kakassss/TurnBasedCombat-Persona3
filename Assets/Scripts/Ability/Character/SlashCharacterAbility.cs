@@ -1,11 +1,13 @@
-﻿using Ability.Character;
-using UnityEngine;
+﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "SlashCharacterAbility", menuName = "ScriptableObjets/CharacterAbility/SlashCharacterAbility")]
-public class SlashCharacterAbility : CharacterBaseAbilities
+namespace Ability.Character
 {
-    public override void AbilityAction()
+    [CreateAssetMenu(fileName = "SlashCharacterAbility", menuName = "ScriptableObjets/CharacterAbility/SlashCharacterAbility")]
+    public class SlashCharacterAbility : CharacterBaseAbilities
     {
-        Debug.Log("This persona has " + Stat + " ability");
+        public override void AbilityAction()
+        {
+            Debug.Log("This persona has " + Stat + " ability");
+        }
     }
 }
