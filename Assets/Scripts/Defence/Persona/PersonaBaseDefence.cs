@@ -2,7 +2,7 @@
 
 namespace Defence.Persona
 {
-    public abstract class PersonaDefence : EntityBaseDefence, IPersonaDefence
+    public abstract class PersonaBaseDefence : EntityBaseDefence, IPersonaDefence
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;

@@ -3,7 +3,7 @@
 namespace Defence.Character
 {
     [CreateAssetMenu(fileName = "SlashCharacterDefence", menuName = "ScriptableObjets/CharacterDefence/SlashCharacterDefence")]
-    public class SlashCharacterDefence : CharacterDefence
+    public class SlashCharacterBaseDefence : CharacterBaseDefence
     {
         public override void DefenceAction()
         {

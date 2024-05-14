@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Defence.Character;
-using Defence.Persona;
 using UnityEngine;
 
 public class Character : MonoBehaviour
@@ -11,7 +9,7 @@ public class Character : MonoBehaviour
     [Header("Stats")] 
     [SerializeField] private List<CharacterBaseAbilities> _characterBaseAbilities;
 
-    [SerializeField] private List<CharacterDefence> _characterDefences;
+    [SerializeField] private List<CharacterBaseDefence> _characterDefences;
     
     
     private int _currentHealth;

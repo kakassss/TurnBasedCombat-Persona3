@@ -3,7 +3,7 @@
 namespace Defence.Persona
 {
     [CreateAssetMenu(fileName = "PiercePersonaDefence", menuName = "ScriptableObjets/PersonaDefence/PiercePersonaDefence")]
-    public class PiercePersonaDefence : PersonaDefence
+    public class PiercePersonaDefence : PersonaBaseDefence
     {
         public override void DefenceAction()
         {
