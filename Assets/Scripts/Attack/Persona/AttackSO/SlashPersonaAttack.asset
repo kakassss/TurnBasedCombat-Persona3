@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackName: 
   _stat: 0
-  _attackTypes: 0
+  _attackTypes: 2

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PiercePersonaAttack
   m_EditorClassIdentifier: 
   AttackName: 
-  _stat: 0
-  _attackTypes: 0
+  _stat: 1
+  _attackTypes: 2
