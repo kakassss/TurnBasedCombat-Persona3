@@ -1,11 +1,10 @@
-﻿using UnityEngine;
+﻿using Enum;
 
-public abstract class PersonaBaseAbility : EntityBaseAbilities,IPersonaAbility
+namespace Ability.Persona
 {
-    public Stat Stat => _stat;
-    
-    public virtual void AbilityAction()
+    public abstract class PersonaBaseAbility : EntityBaseAbilities,IPersonaAbility
     {
-        
+        public Stat Stat => _stat;
+        public abstract void AbilityAction();
     }
 }

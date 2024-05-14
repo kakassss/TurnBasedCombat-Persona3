@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ability.Character;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "SlashCharacterAbility", menuName = "ScriptableObjets/CharacterAbility/SlashCharacterAbility")]
 public class SlashCharacterAbility : CharacterBaseAbilities

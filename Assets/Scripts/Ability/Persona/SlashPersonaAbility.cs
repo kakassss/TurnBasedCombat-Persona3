@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ability.Persona;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "SlashPersonaAbility", menuName = "ScriptableObjets/PersonaAbility/SlashPersonaAbility")]
 public class SlashPersonaAbility : PersonaBaseAbility

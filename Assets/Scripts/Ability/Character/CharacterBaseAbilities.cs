@@ -1,9 +1,10 @@
-﻿public abstract class CharacterBaseAbilities : EntityBaseAbilities, ICharacterAbilities
+﻿using Enum;
+
+namespace Ability.Character
 {
-    public Stat Stat => _stat;
-    
-    public virtual void AbilityAction()
+    public abstract class CharacterBaseAbilities : EntityBaseAbilities, ICharacterAbilities
     {
-        
+        public Stat Stat => _stat;
+        public abstract void AbilityAction();
     }
 }

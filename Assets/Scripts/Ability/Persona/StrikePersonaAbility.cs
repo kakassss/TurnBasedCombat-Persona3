@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ability.Persona;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "StrikePersonaAbility", menuName = "ScriptableObjets/PersonaAbility/StrikePersonaAbility")]
 public class StrikePersonaAbility : PersonaBaseAbility

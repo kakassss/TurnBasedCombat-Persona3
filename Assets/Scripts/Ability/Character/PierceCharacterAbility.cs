@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ability.Character;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "PierceCharacterAbility", menuName = "ScriptableObjets/CharacterAbility/PierceCharacterAbility")]
 public class PierceCharacterAbility : CharacterBaseAbilities

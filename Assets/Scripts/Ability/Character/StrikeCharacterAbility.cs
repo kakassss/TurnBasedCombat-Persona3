@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ability.Character;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "StrikeCharacterAbility", menuName = "ScriptableObjets/CharacterAbility/StrikeCharacterAbility")]
 public class StrikeCharacterAbility : CharacterBaseAbilities

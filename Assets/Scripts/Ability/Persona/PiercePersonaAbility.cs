@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Ability.Persona;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "PiercePersonaAbility", menuName = "ScriptableObjets/PersonaAbility/PiercePersonaAbility")]
 public class PiercePersonaAbility : PersonaBaseAbility

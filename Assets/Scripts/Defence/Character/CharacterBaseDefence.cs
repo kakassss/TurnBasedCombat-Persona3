@@ -1,4 +1,6 @@
-﻿namespace Defence.Character
+﻿using Enum;
+
+namespace Defence.Character
 {
     public abstract class CharacterBaseDefence : EntityBaseDefence, ICharacterDefence
     {

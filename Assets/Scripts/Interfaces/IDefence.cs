@@ -1,4 +1,5 @@
 ﻿using Defence;
+using Enum;
 
 public interface IDefence
 {

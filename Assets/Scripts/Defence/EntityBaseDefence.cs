@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Enum;
+using UnityEngine;
 
 namespace Defence
 {
@@ -8,13 +9,5 @@ namespace Defence
     
         [SerializeField] protected Stat _stat;
         [SerializeField] protected DefenceTypes _defenceTypes;
-    }
-
-    public enum DefenceTypes
-    {
-        Weakness,
-        Normal,
-        Resistance,
-        Reflect
     }
 }

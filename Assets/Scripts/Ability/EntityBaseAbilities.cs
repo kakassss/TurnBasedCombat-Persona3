@@ -1,9 +1,13 @@
-﻿using UnityEngine;
+﻿using Enum;
+using UnityEngine;
 
-public abstract class EntityBaseAbilities : ScriptableObject
+namespace Ability
 {
-    public string AbilityName;
-    public Sprite AbilitySprite;
+    public abstract class EntityBaseAbilities : ScriptableObject
+    {
+        public string AbilityName;
+        public Sprite AbilitySprite;
     
-    [SerializeField] protected Stat _stat;
+        [SerializeField] protected Stat _stat;
+    }
 }
