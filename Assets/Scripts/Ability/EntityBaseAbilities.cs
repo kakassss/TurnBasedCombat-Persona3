@@ -9,5 +9,6 @@ namespace Ability
         public Sprite AbilitySprite;
     
         [SerializeField] protected Stat _stat;
+        [SerializeField] protected AttackTypes _attackTypes;
     }
 }

@@ -25,7 +25,7 @@ public class TestBattle : MonoBehaviour
         {
             Debug.Log("Persona has defence system for " + currentCharacter.Stat  + " attack");
             
-            currentCharacter.Attack();
+            currentCharacter.AttackAction();
             targetPersona.DefenceAction();
             
             

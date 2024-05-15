@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37f3a9ecb690450fbcc7bc1a7fabcd4c, type: 3}
-  m_Name: PierceCharacterAbility
+  m_Script: {fileID: 11500000, guid: 98c26d348c6343f59e63dfe418af1fff, type: 3}
+  m_Name: PierceShadowDefence
   m_EditorClassIdentifier: 
-  AbilityName: 
-  AbilitySprite: {fileID: 0}
-  _stat: 0
+  DefenceName: 
+  _stat: 2
+  _defenceTypes: 0

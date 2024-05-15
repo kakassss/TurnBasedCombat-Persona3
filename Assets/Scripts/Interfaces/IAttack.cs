@@ -4,7 +4,7 @@ namespace Interfaces
 {
     public interface IAttack
     {
-        void Attack();
+        void AttackAction();
         Stat Stat { get; }
         AttackTypes AttackTypes { get; }
     }

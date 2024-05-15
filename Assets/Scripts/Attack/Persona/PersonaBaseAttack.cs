@@ -7,6 +7,6 @@ namespace Attack.Persona
     {
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
-        public abstract void Attack();
+        public abstract void AttackAction();
     }
 }
