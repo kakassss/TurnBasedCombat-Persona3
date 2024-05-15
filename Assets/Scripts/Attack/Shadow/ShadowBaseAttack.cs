@@ -1,9 +1,9 @@
 ﻿using Enums;
 using Interfaces;
 
-namespace Attack.Character
+namespace Attack.Shadow
 {
-    public abstract class CharacterBaseAttack : EntityBaseAttack, IPersonaAttack
+    public abstract class ShadowBaseAttack : EntityBaseAttack, IShadowAttack
     {
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
