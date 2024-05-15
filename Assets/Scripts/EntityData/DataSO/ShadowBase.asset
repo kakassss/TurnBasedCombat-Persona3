@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fbb503041b1453ab7aaa234e110fa3b, type: 3}
-  m_Name: CharacterBase
+  m_Name: ShadowBase
   m_EditorClassIdentifier: 
   Name: 0
   Level: 0

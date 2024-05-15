@@ -1,10 +1,12 @@
 using System.Collections.Generic;
+using EntityData;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class Entity : MonoBehaviour, IActiveEntity
 {
-    [SerializeField] private EntityBase _entityBase;
+    [FormerlySerializedAs("_entityBase")] [SerializeField] private EntityBaseSO entityBaseSo;
     
     public int currentHealth;
     public int currentMana;
