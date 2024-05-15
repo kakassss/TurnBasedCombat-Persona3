@@ -8,7 +8,7 @@ using UnityEngine.Serialization;
 public class TestBattle : MonoBehaviour
 {
     [SerializeField] private Persona persona;
-    [FormerlySerializedAs("enemy")] [FormerlySerializedAs("character")] [SerializeField] private Shadow shadow;
+    [SerializeField] private Shadow shadow;
 
 
     private void Awake()
@@ -18,19 +18,19 @@ public class TestBattle : MonoBehaviour
 
     private void CharacterAttack()
     { 
-        var currentCharacter = shadow._characterBaseAttacks[0];
-        var targetPersona = persona._personaBaseDefences[0];
-        
-        if (currentCharacter.Stat == targetPersona.Stat)
-        {
-            Debug.Log("Persona has defence system for " + currentCharacter.Stat  + " attack");
-            
-            currentCharacter.AttackAction();
-            targetPersona.DefenceAction();
-            
-            
-        }
-        
+        // var currentCharacter = shadow._characterBaseAttacks[0];
+        // var targetPersona = persona._personaBaseDefences[0];
+        //
+        // if (currentCharacter.Stat == targetPersona.Stat)
+        // {
+        //     Debug.Log("Persona has defence system for " + currentCharacter.Stat  + " attack");
+        //     
+        //     currentCharacter.AttackAction();
+        //     targetPersona.DefenceAction();
+        //     
+        //     
+        // }
+        //
     }
     
 }

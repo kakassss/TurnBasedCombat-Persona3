@@ -1,20 +1,21 @@
-﻿using System.Collections.Generic;
-using Ability.Shadow;
-using Attack.Shadow;
-using Defence.Shadow;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Shadow : MonoBehaviour
+public class Shadow : Entity
 {
-    //[SerializeField] private CharacterBase _characterBase;
-    
-    private int _currentHealth;
-    private int _currentMana;
-    
-    [Header("Stats")] 
-    public List<ShadowBaseAbilities> _characterBaseAbilities;
-    public List<ShadowBaseDefence> _characterDefences;
-    public List<ShadowBaseAttack> _characterBaseAttacks;
-    
-    
+    private void Awake()
+    {
+        Debug.Log(EntityAttacks[0].Attack.Stat);
+        EntityAttacks[0].Attack.AttackAction();
+        
+        Debug.Log(EntityAbilities[0].Ability.Stat);
+        EntityAbilities[0].Ability.AbilityAction();
+        
+        Debug.Log(EntityDefences[0].Defence.Stat);
+        EntityDefences[0].Defence.DefenceAction();
+    }
+
+    public override void MoveAction()
+    {
+        
+    }
 }

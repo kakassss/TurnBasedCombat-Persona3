@@ -7,7 +7,7 @@ namespace Attack.Shadow
     {
         public override void AttackAction()
         {
-        
+            Debug.Log(Stat + " Attack!");
         }
     }
 }
