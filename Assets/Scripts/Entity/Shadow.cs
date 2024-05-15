@@ -1,21 +1,22 @@
 ﻿using UnityEngine;
 
-public class Shadow : Entity
+namespace Entity
 {
-    private void Awake()
+    public class Shadow : Entity
     {
-        Debug.Log(EntityAttacks[0].Attack.Stat);
-        EntityAttacks[0].Attack.AttackAction();
-        
-        Debug.Log(EntityAbilities[0].Ability.Stat);
-        EntityAbilities[0].Ability.AbilityAction();
-        
-        Debug.Log(EntityDefences[0].Defence.Stat);
-        EntityDefences[0].Defence.DefenceAction();
-    }
+        private void Awake()
+        {
+            SetEntityData();
+        }
 
-    public override void MoveAction()
-    {
+        public override void SetEntityData()
+        {
+            base.SetEntityData();
+        }
+
+        public override void MoveAction()
+        {
         
+        }
     }
 }

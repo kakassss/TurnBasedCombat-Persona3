@@ -655,9 +655,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dcc595688f4a82b0b5596bcdb47c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityBase: {fileID: 0}
-  currentHealth: 0
-  currentMana: 0
+  entityBaseSo: {fileID: 11400000, guid: 2549a7fec2cb79f4ebc0b913e094c894, type: 2}
+  CurrentHealth: 0
+  CurrentMana: 0
+  CurrentAttackPower: 0
+  CurrentAbilityPower: 0
+  CurrentDefencePower: 0
   EntityAbilities:
   - _abilitySO: {fileID: 11400000, guid: 4c3546d5e4a5e45439b1b463fa5284f6, type: 2}
   - _abilitySO: {fileID: 11400000, guid: 5e430ea47e90a5f48a8e20675149ff0e, type: 2}
@@ -714,9 +717,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 753e02e8f6860744b98026aef18e647b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _entityBase: {fileID: 0}
-  currentHealth: 0
-  currentMana: 0
+  entityBaseSo: {fileID: 11400000, guid: 8e5b39b39193da444b5906c3eb4fc28f, type: 2}
+  CurrentHealth: 0
+  CurrentMana: 0
+  CurrentAttackPower: 0
+  CurrentAbilityPower: 0
+  CurrentDefencePower: 0
   EntityAbilities:
   - _abilitySO: {fileID: 11400000, guid: e318a1fcfae08b942a33bd7c9f554a56, type: 2}
   - _abilitySO: {fileID: 11400000, guid: 55cf412c601e5ec4d84bdb4450b05758, type: 2}

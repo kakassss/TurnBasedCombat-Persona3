@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fbb503041b1453ab7aaa234e110fa3b, type: 3}
   m_Name: ShadowBase
   m_EditorClassIdentifier: 
-  Name: 0
-  Level: 0
-  Health: 0
-  Mana: 0
+  Name: ReturnOfWassapDOGG
+  Level: 55
+  Health: 100
+  Mana: 100
   Prefab: {fileID: 0}
+  BaseAttackValue: 15
+  BaseAbilityValue: 10
+  BaseDefenceValue: 25
+  TotalPower: 0

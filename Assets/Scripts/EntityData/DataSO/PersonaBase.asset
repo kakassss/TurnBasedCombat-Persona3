@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88067e9ef8384dd2bd63d07a3bee0b86, type: 3}
   m_Name: PersonaBase
   m_EditorClassIdentifier: 
-  Name: 0
-  Level: 0
-  Health: 0
-  Mana: 0
+  Name: THEOGWASSAPDOG
+  Level: 51
+  Health: 122
+  Mana: 100
   Prefab: {fileID: 0}
+  BaseAttackValue: 22
+  BaseAbilityValue: 3
+  BaseDefenceValue: 15
+  TotalPower: 0
