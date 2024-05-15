@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PersonaBase
   m_EditorClassIdentifier: 
   Name: THEOGWASSAPDOG
-  Level: 51
+  Level: 52
   Health: 122
   Mana: 100
   Prefab: {fileID: 0}
   BaseAttackValue: 22
   BaseAbilityValue: 3
   BaseDefenceValue: 15
-  TotalPower: 0
+  TotalPower: 2040

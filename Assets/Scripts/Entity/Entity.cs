@@ -27,6 +27,7 @@ namespace Entity
         {
             entityBaseSo.SetDatas();
             
+            
             CurrentHealth = entityBaseSo.Health;
             CurrentMana = entityBaseSo.Mana;
 
