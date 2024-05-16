@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using EntityData;
 using Interfaces;
@@ -22,7 +23,13 @@ namespace Entity
         public List<InterfaceWrapperIAbility> EntityAbilities;
         public List<InterfaceWrapperIAttack> EntityAttacks;
         public List<InterfaceWrapperIDefence> EntityDefences;
-        
+
+
+        protected virtual void Awake()
+        {
+            SetEntityData();
+        }
+
         public virtual void SetEntityData()
         {
             entityBaseSo.SetDatas();
