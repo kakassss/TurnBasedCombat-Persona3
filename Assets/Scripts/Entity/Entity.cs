@@ -8,7 +8,7 @@ namespace BaseEntity
 {
     public abstract class Entity : MonoBehaviour, IEntity,IMove
     {
-        [SerializeField] private EntityBaseSO entityBaseSo;
+        public EntityBaseSO entityBaseSo;
     
         public int CurrentHealth;
         public int CurrentMana;

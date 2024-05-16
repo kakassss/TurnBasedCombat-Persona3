@@ -11,7 +11,6 @@ namespace Attack
         [SerializeField] protected int _attackDamageToEnemy;
         [SerializeField] protected int _attackDamageToItself;
         
-        [SerializeField] protected EntityBaseSO _entityBaseSo;
         [SerializeField] protected Stat _stat;
         [SerializeField] protected AttackTypes _attackTypes;
     }

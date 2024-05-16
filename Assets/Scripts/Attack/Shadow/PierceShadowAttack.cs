@@ -7,10 +7,10 @@ namespace Attack.Shadow
     [CreateAssetMenu(fileName = "PierceShadowAttack", menuName = "ScriptableObjets/ShadowAttack/PierceShadowAttack")]
     public class PierceShadowAttack : ShadowBaseAttack
     {
-        public override void AttackAction(IMove deactiveEntity, IMove activeEntity)
+        public override void AttackAction(IMove activeEntity,IMove deactiveEntity)
         {
-            base.AttackAction(deactiveEntity, activeEntity);
-            Debug.Log(Stat + " Attack! " + "Total Damage: " + _entityBaseSo.BaseAttackValue + _attackDamageToEnemy);
+            base.AttackAction(activeEntity,deactiveEntity);
+            Debug.Log(Stat + " Attack! " + "Total Damage: " + activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy);
         }
     }
 }

@@ -1,18 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
+using Interfaces;
 using UnityEngine;
 
 public class BattleDataProvider : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private BattleData _data;
+    
+    public IMove GetActiveEntity()
     {
-        
+        return _data.GetActiveEntity;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public IMove GetDeactiveEntity()
     {
-        
+        return _data.GetDeactiveEntity;
+    }
+    
+    public IMove GetPersona()
+    {
+        return _data.GetPersona;
+    }
+    
+    public IMove GetShadow()
+    {
+        return _data.GetShadow;
     }
 }

@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3100892378591237401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7086383476731197971}
+  - component: {fileID: 9190734334414635931}
+  m_Layer: 0
+  m_Name: Persona
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7086383476731197971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100892378591237401}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9190734334414635931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100892378591237401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 753e02e8f6860744b98026aef18e647b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entityBaseSo: {fileID: 11400000, guid: 8e5b39b39193da444b5906c3eb4fc28f, type: 2}
+  CurrentHealth: 0
+  CurrentMana: 0
+  CurrentAttackPower: 0
+  CurrentAbilityPower: 0
+  CurrentDefencePower: 0
+  EntityAbilities:
+  - _abilitySO: {fileID: 11400000, guid: e318a1fcfae08b942a33bd7c9f554a56, type: 2}
+  - _abilitySO: {fileID: 11400000, guid: 55cf412c601e5ec4d84bdb4450b05758, type: 2}
+  - _abilitySO: {fileID: 11400000, guid: 5167b0122011f3e45bf54b6ab4a8ddda, type: 2}
+  EntityAttacks:
+  - _attackSO: {fileID: 11400000, guid: 0020032454feeac46a365b7303598e0a, type: 2}
+  - _attackSO: {fileID: 11400000, guid: 092c59b1731efc8459e0fa1d0f8975f8, type: 2}
+  - _attackSO: {fileID: 11400000, guid: e6c837cfba09c184dbdf01c035932f0f, type: 2}
+  EntityDefences:
+  - _defenceSO: {fileID: 11400000, guid: f70f666a23510674ab1e2acca1eff123, type: 2}
+  - _defenceSO: {fileID: 11400000, guid: 21b262fd4dea79440b973262f3bfb96c, type: 2}
+  - _defenceSO: {fileID: 11400000, guid: 7c94a9204c591ad4881ae64c69223f76, type: 2}
