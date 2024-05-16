@@ -1,13 +1,12 @@
-using System;
 using System.Collections.Generic;
 using EntityData;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Entity
+
+namespace BaseEntity
 {
-    public abstract class Entity : MonoBehaviour, IActiveEntity
+    public abstract class Entity : MonoBehaviour, IEntity,IMove
     {
         [SerializeField] private EntityBaseSO entityBaseSo;
     
@@ -27,6 +26,7 @@ namespace Entity
 
         protected virtual void Awake()
         {
+            entity = this;
             SetEntityData();
         }
 
@@ -42,10 +42,26 @@ namespace Entity
             CurrentAbilityPower = (entityBaseSo.Level * entityBaseSo.BaseAbilityValue) / 2;
             CurrentDefencePower = (entityBaseSo.Level * entityBaseSo.BaseDefenceValue) / 2;
             
-            Debug.Log("Entity name is " + entityBaseSo.Name);
-            Debug.Log("Entity total power is " + entityBaseSo.TotalPower);
+            //Debug.Log("Entity name is " + entityBaseSo.Name);
+            //Debug.Log("Entity total power is " + entityBaseSo.TotalPower);
         }
-        
-        public abstract void MoveAction();
+
+        public void TakeDamage(int damage)
+        {
+            CurrentHealth -= damage;
+        }
+
+        public void TakeDamageUsingAttack(int damage)
+        {
+            CurrentHealth -= damage;
+        }
+
+        public void SpendMana(int value)
+        {
+            CurrentMana -= value;
+        }
+
+        public Entity entity { get; set; }
+        public abstract void MoveAction(IMove deactiveEntity,IMove activeEntity);
     }
 }

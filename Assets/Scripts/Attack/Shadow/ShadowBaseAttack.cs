@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using BaseEntity;
+using Enums;
 using Interfaces;
 
 namespace Attack.Shadow
@@ -8,6 +9,6 @@ namespace Attack.Shadow
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
 
-        public abstract void AttackAction();
+        public abstract void AttackAction(IMove deactiveEntity,IMove activeEntity);
     }
 }

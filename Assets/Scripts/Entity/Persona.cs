@@ -1,10 +1,11 @@
+using Interfaces;
 using UnityEngine;
 
-namespace Entity
+namespace BaseEntity
 {
     public class Persona : Entity
     {
-        public override void MoveAction()
+        public override void MoveAction(IMove deactiveEntity,IMove activeEntity)
         {
             Debug.Log("Persona Turn");
             Debug.Log("Select Persona Move");
@@ -12,10 +13,11 @@ namespace Entity
             
             int random = Helper.GetRandomNumber(0, 3);
             
+            
             if (random == 0)
             {
                 Debug.Log("Persona is Attacking");    
-                EntityAttacks[Helper.GetRandomNumber(0, EntityAttacks.Count)].Attack.AttackAction();
+                EntityAttacks[Helper.GetRandomNumber(0, EntityAttacks.Count)].Attack.AttackAction(deactiveEntity,activeEntity);
             }
             else if(random == 1)
             {

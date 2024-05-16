@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using BaseEntity;
+using Enums;
 using Interfaces;
 
 namespace Attack.Persona
@@ -7,6 +8,6 @@ namespace Attack.Persona
     {
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
-        public abstract void AttackAction();
+        public abstract void AttackAction(IMove deactiveEntity,IMove activeEntity);
     }
 }
