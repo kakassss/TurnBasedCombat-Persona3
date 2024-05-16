@@ -1,11 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using BaseEntity;
-using Interfaces;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class BattleAction : MonoBehaviour
 {

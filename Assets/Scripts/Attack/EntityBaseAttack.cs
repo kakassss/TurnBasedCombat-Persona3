@@ -1,7 +1,5 @@
-using EntityData;
 using Enums;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Attack
 {

@@ -1,5 +1,4 @@
-﻿using BaseEntity;
-using Enums;
+﻿using Enums;
 using Interfaces;
 
 namespace Attack.Persona
