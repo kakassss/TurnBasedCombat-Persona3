@@ -7,6 +7,6 @@ namespace Defence.Shadow
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
-        public abstract void DefenceAction();
+        public abstract void DefenceAction(IMove deactiveEntity);
     }
 }

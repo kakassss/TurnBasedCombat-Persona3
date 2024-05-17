@@ -4,7 +4,7 @@ namespace Interfaces
 {
     public interface IDefence
     {
-        void DefenceAction();
+        void DefenceAction(IMove deactiveEntity);
         Stat Stat { get; }
         DefenceTypes DefenceTypes { get; }
     }

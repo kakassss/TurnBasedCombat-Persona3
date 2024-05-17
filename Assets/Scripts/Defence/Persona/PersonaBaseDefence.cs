@@ -1,5 +1,7 @@
-﻿using Enums;
+﻿using System;
+using Enums;
 using Interfaces;
+using UnityEngine;
 
 namespace Defence.Persona
 {
@@ -7,6 +9,26 @@ namespace Defence.Persona
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
-        public abstract void DefenceAction();
+
+        public virtual void DefenceAction(IMove deactiveEntity)
+        {
+            switch (DefenceTypes)
+            {
+                case DefenceTypes.Normal:
+                    Debug.Log("This persona has " + Stat + " " + DefenceTypes + " defence");
+                    break;
+                case DefenceTypes.Weakness:
+                    Debug.Log("This persona has " + Stat + " " + DefenceTypes + " defence");
+                    break;
+                case DefenceTypes.Reflect:
+                    Debug.Log("This persona has " + Stat + " " + DefenceTypes + " defence");
+                    break;
+                case DefenceTypes.Resistance:
+                    Debug.Log("This persona has " + Stat + " " + DefenceTypes + " defence");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }
