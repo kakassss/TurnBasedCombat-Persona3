@@ -1,3 +1,4 @@
+using Attack.Persona;
 using Enums;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,6 +13,5 @@ namespace Attack
         
         [SerializeField] protected Stat _stat;
         [SerializeField] protected AttackTypes _attackTypes;
-        
     }
 }

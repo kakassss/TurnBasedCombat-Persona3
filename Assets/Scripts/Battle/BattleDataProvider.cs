@@ -1,6 +1,5 @@
 using Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BattleDataProvider : MonoBehaviour
 {
