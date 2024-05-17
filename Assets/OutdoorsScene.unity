@@ -645,8 +645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _battleDataProvider: {fileID: 2061071637}
-  _personaHealth: {fileID: 241213919}
-  _shadowHealth: {fileID: 536324773}
+  _personaHealthText: {fileID: 241213919}
+  _shadowHealthText: {fileID: 536324773}
 --- !u!1 &432432459
 GameObject:
   m_ObjectHideFlags: 0

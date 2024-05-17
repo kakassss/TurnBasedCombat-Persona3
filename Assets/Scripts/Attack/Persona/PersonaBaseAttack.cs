@@ -1,5 +1,6 @@
 ﻿using Enums;
 using Interfaces;
+using UnityEngine;
 
 namespace Attack.Persona
 {
@@ -10,13 +11,12 @@ namespace Attack.Persona
         public virtual void AttackAction(IMove activeEntity,IMove deactiveEntity)
         {
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
-            deactiveEntity.entity.TakeDamage(deactiveEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy);
+            deactiveEntity.entity.TakeDamage(activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy);
             
-            EventBus<OnHealthChanged>.Fire(new OnHealthChanged
-            {
-                HealthPersona = deactiveEntity.entity.CurrentHealth,
-                HealthShadow = activeEntity.entity.CurrentHealth
-            });
+            
+            Debug.Log(deactiveEntity.GetType().Name + " " + deactiveEntity.entity.CurrentHealth + activeEntity.GetType().Name + " " +  activeEntity.entity.CurrentHealth);
+
+            EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
         }
     }
 }

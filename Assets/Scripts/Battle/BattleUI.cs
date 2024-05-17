@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BattleUI : MonoBehaviour
 {
@@ -8,14 +9,17 @@ public class BattleUI : MonoBehaviour
 
     [SerializeField] private BattleDataProvider _battleDataProvider;
     
-    [SerializeField] private TextMeshProUGUI _personaHealth;
-    [SerializeField] private TextMeshProUGUI _shadowHealth;
+    [SerializeField] private TextMeshProUGUI _personaHealthText;
+    [SerializeField] private TextMeshProUGUI _shadowHealthText;
     
     private EventBinding<OnHealthChanged> _takeDamage;
+
+    private int _personaHealth;
+    private int _shadowHealth;
     
     private void Start()
     {
-        InitUI();
+        SetUI();
         EnableEventBus();
     }
 
@@ -35,22 +39,13 @@ public class BattleUI : MonoBehaviour
         EventBus<OnHealthChanged>.Unsubscribe(_takeDamage);
     }
 
-    private void InitUI()
+    private void SetUI()
     {
-        var personaHealth = _battleDataProvider.GetPersona().entity.CurrentHealth;
-        var shadowHealth = _battleDataProvider.GetShadow().entity.CurrentHealth;
+        _personaHealth = _battleDataProvider.GetPersona().entity.CurrentHealth;
+        _shadowHealth = _battleDataProvider.GetShadow().entity.CurrentHealth;
 
-        _personaHealth.text = PersonaHealth + personaHealth.ToString();
-        _shadowHealth.text = ShadowHealth + shadowHealth.ToString();
-    }
-
-    private void SetUI(OnHealthChanged healthChanged)
-    {
-        var personaHealth = healthChanged.HealthPersona;
-        var shadowHealth = healthChanged.HealthShadow;
-
-        _personaHealth.text = PersonaHealth + personaHealth.ToString();
-        _shadowHealth.text = ShadowHealth + shadowHealth.ToString();
+        _personaHealthText.text = PersonaHealth + _personaHealth.ToString();
+        _shadowHealthText.text = ShadowHealth + _shadowHealth.ToString();
     }
     
 }

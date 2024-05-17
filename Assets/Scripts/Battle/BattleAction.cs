@@ -12,7 +12,6 @@ public class BattleAction : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Current Entity Made his move");
             var activeEntity = _battleDataProvider.GetActiveEntity().entity;
             var deactiveEntity = _battleDataProvider.GetDeactiveEntity().entity;
             

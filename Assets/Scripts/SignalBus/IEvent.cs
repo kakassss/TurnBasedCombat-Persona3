@@ -7,6 +7,6 @@ public interface IEvent
 
 public struct OnHealthChanged : IEvent
 {
-    public int HealthPersona;
-    public int HealthShadow;
+    public int ActiveEntity;
+    public int DeactiveEntity;
 }
