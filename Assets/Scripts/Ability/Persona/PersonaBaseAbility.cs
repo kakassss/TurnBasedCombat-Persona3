@@ -7,6 +7,6 @@ namespace Ability.Persona
     {
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
-        public abstract void AbilityAction();
+        public abstract void AbilityAction(IMove activeEntity,IMove deactiveEntity);
     }
 }
