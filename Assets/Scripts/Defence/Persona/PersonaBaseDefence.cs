@@ -3,7 +3,7 @@ using Interfaces;
 
 namespace Defence.Persona
 {
-    public abstract class PersonaBaseDefence : EntityBaseDefence, IPersonaDefence
+    public abstract class PersonaBaseDefence : EntityBaseDefenceData, IPersonaDefence
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;

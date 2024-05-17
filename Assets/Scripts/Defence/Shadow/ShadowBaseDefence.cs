@@ -3,7 +3,7 @@ using Interfaces;
 
 namespace Defence.Shadow
 {
-    public abstract class ShadowBaseDefence : EntityBaseDefence, IShadowDefence
+    public abstract class ShadowBaseDefence : EntityBaseDefenceData, IShadowDefence
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
