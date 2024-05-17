@@ -1,4 +1,5 @@
 using Enums;
+using Interfaces;
 using UnityEngine;
 
 namespace Attack
@@ -11,5 +12,6 @@ namespace Attack
         
         [SerializeField] protected Stat _stat;
         [SerializeField] protected AttackTypes _attackTypes;
+        
     }
 }

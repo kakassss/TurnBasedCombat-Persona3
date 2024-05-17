@@ -5,7 +5,7 @@ namespace BaseEntity
 {
     public class Shadow : Entity
     {
-        public override void MoveAction(IMove deactiveEntity,IMove activeEntity)
+        public override void MoveAction(IMove activeEntity,IMove deactiveEntity)
         {
             Debug.Log("Shadow Turn");
             Debug.Log("Shadow choose his moves");
@@ -17,12 +17,12 @@ namespace BaseEntity
             if (random == 0)
             {
                 Debug.Log("Shadow is Attacking");    
-                EntityAttacks[Helper.GetRandomNumber(0, EntityAttacks.Count)].Attack.AttackAction(deactiveEntity,activeEntity);
+                EntityAttacks[Helper.GetRandomNumber(0, EntityAttacks.Count)].Attack.AttackAction(activeEntity,deactiveEntity);
             }
             else if(random == 1)
             {
                 Debug.Log("Shadow is using his ability");
-                EntityAbilities[Helper.GetRandomNumber(0, EntityAbilities.Count)].Ability.AbilityAction();
+                EntityAbilities[Helper.GetRandomNumber(0, EntityAbilities.Count)].Ability.AbilityAction(activeEntity,deactiveEntity);
             }
             else if(random == 2)
             {

@@ -9,6 +9,6 @@ namespace Interfaces
     public interface IMove
     {
         Entity entity { get; }
-        void MoveAction(IMove deactiveEntity,IMove activeEntity);
+        void MoveAction(IMove activeEntity,IMove deactiveEntity);
     }
 }
