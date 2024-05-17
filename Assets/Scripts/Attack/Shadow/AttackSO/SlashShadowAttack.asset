@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: SlashShadowAttack
   m_EditorClassIdentifier: 
   AttackName: 
+  _attackDamageToEnemy: 0
+  _attackDamageToItself: 0
   _stat: 0
-  _attackTypes: 0
+  _attackTypes: 2

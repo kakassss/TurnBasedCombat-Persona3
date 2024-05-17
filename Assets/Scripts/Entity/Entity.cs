@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using EntityData;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 namespace BaseEntity
@@ -10,13 +11,16 @@ namespace BaseEntity
     {
         public EntityBaseSO entityBaseSo;
     
-        public int CurrentHealth;
-        public int CurrentMana;
+        protected int _currentHealth;
+        protected int _currentMana;
 
-        public float CurrentAttackPower;
-        public float CurrentAbilityPower;
-        public float CurrentDefencePower;
-        
+        protected float _currentAttackPower;
+        protected float _currentAbilityPower;
+        protected float _currentDefencePower;
+
+
+        public int CurrentHealth => _currentHealth;
+        public int CurrentMana => _currentMana;
         
         [Header("Stats")]
         public List<InterfaceWrapperIAbility> EntityAbilities;
@@ -35,12 +39,12 @@ namespace BaseEntity
             entityBaseSo.SetDatas();
             
             
-            CurrentHealth = entityBaseSo.Health;
-            CurrentMana = entityBaseSo.Mana;
+            _currentHealth = entityBaseSo.Health;
+            _currentMana = entityBaseSo.Mana;
 
-            CurrentAttackPower = (entityBaseSo.Level * entityBaseSo.BaseAttackValue) / 2;
-            CurrentAbilityPower = (entityBaseSo.Level * entityBaseSo.BaseAbilityValue) / 2;
-            CurrentDefencePower = (entityBaseSo.Level * entityBaseSo.BaseDefenceValue) / 2;
+            _currentAttackPower = (entityBaseSo.Level * entityBaseSo.BaseAttackValue) / 2;
+            _currentAbilityPower = (entityBaseSo.Level * entityBaseSo.BaseAbilityValue) / 2;
+            _currentDefencePower = (entityBaseSo.Level * entityBaseSo.BaseDefenceValue) / 2;
             
             //Debug.Log("Entity name is " + entityBaseSo.Name);
             //Debug.Log("Entity total power is " + entityBaseSo.TotalPower);
@@ -48,17 +52,17 @@ namespace BaseEntity
 
         public void TakeDamage(int damage)
         {
-            CurrentHealth -= damage;
+            _currentHealth -= damage;
         }
 
         public void TakeDamageUsingAttack(int damage)
         {
-            CurrentHealth -= damage;
+            _currentHealth -= damage;
         }
 
         public void SpendMana(int value)
         {
-            CurrentMana -= value;
+            _currentMana -= value;
         }
 
         public Entity entity { get; set; }

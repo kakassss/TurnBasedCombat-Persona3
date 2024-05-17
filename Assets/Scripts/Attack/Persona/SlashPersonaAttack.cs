@@ -9,7 +9,6 @@ namespace Attack.Persona
         public override void AttackAction(IMove activeEntity,IMove deactiveEntity)
         {
             base.AttackAction(activeEntity,deactiveEntity);
-            Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy);
         }
     }
 }
