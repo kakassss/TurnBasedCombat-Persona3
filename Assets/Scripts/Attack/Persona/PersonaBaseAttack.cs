@@ -9,8 +9,8 @@ namespace Attack.Persona
         public AttackTypes AttackTypes => _attackTypes;
         public virtual void AttackAction(IMove activeEntity,IMove deactiveEntity)
         {
-            deactiveEntity.entity.TakeDamage(deactiveEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy);
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
+            deactiveEntity.entity.TakeDamage(deactiveEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy);
             
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged
             {

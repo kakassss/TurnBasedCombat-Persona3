@@ -1,22 +1,26 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BattleAction : MonoBehaviour
 {
-    [SerializeField] private BattleDataProvider _battleData;
+    [SerializeField] private BattleDataProvider _battleDataProvider;
+    [SerializeField] private BattleDataAction _battleDataAction;
+    
+    
     
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Current Entity Made his move");
-            var activeEntity = _battleData.GetActiveEntity().entity;
-            var deactiveEntity = _battleData.GetDeactiveEntity().entity;
+            var activeEntity = _battleDataProvider.GetActiveEntity().entity;
+            var deactiveEntity = _battleDataProvider.GetDeactiveEntity().entity;
             
-            activeEntity.MoveAction(deactiveEntity,activeEntity);
+            activeEntity.MoveAction(activeEntity,deactiveEntity);
+            _battleDataAction.Swap();
+            //_battleData.
         }
     }
-
-    
     /*
      *
      * bütün düşmanları ve karakterleri belirle

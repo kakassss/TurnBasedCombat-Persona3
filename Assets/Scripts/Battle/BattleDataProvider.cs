@@ -1,27 +1,28 @@
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BattleDataProvider : MonoBehaviour
 {
-    [SerializeField] private BattleData _data;
+    public BattleData BattleData;
     
     public IMove GetActiveEntity()
     {
-        return _data.GetActiveEntity;
+        return BattleData.GetActiveEntity;
     }
     
     public IMove GetDeactiveEntity()
     {
-        return _data.GetDeactiveEntity;
+        return BattleData.GetDeactiveEntity;
     }
     
     public IMove GetPersona()
     {
-        return _data.GetPersona;
+        return BattleData.GetPersona;
     }
     
     public IMove GetShadow()
     {
-        return _data.GetShadow;
+        return BattleData.GetShadow;
     }
 }

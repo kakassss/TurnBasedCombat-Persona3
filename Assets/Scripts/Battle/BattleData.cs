@@ -36,13 +36,12 @@ public class BattleData : MonoBehaviour
             
         _activeEntity = random ? _allShadows[0] : _allPersona[0];
         _deactiveEntity = !random ? _allShadows[0] : _allPersona[0];
-            
-            
+        
         Debug.Log("Active Entity " + _activeEntity.GetType().Name);
         Debug.Log("Deactive Entity " + _deactiveEntity.GetType().Name);
     }
     
-    private void SwapTurn()
+    public void SwapTurn()
     {
         (_activeEntity, _deactiveEntity) = (_deactiveEntity, _activeEntity);
     }

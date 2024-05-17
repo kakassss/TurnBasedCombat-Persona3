@@ -62,6 +62,6 @@ namespace BaseEntity
         }
 
         public Entity entity { get; set; }
-        public abstract void MoveAction(IMove deactiveEntity,IMove activeEntity);
+        public abstract void MoveAction(IMove activeEntity,IMove deactiveEntity);
     }
 }
