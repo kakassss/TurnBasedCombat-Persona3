@@ -42,7 +42,7 @@ public class BattleUI : MonoBehaviour
     private void SetUI()
     {
         _personaHealth = _battleDataProvider.GetPersona().entity.CurrentHealth;
-        _shadowHealth = _battleDataProvider.GetShadow().entity.CurrentMana;
+        _shadowHealth = _battleDataProvider.GetShadow().entity.CurrentHealth;
 
         _personaHealthText.text = PersonaHealth + _personaHealth.ToString();
         _shadowHealthText.text = ShadowHealth + _shadowHealth.ToString();

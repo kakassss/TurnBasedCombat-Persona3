@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7a56b04e8dc412682bcfac9b5efeeb4, type: 3}
   m_Name: StrikePersonaAbility
   m_EditorClassIdentifier: 
-  _stat: 1
   AbilityName: 
   AbilitySprite: {fileID: 0}
+  _stat: 1
+  _attackTypes: 1

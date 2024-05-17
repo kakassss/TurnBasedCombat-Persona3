@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PiercePersonaAttack
   m_EditorClassIdentifier: 
   AttackName: 
-  _attackDamageToEnemy: 0
-  _attackDamageToItself: 0
+  _attackDamageToEnemy: 10
+  _attackDamageToItself: 5
   _stat: 1
   _attackTypes: 1

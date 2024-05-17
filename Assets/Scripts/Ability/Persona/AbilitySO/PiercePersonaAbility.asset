@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dd687e19caf4fb3b437569cc977b551, type: 3}
   m_Name: PiercePersonaAbility
   m_EditorClassIdentifier: 
-  _stat: 2
   AbilityName: 
   AbilitySprite: {fileID: 0}
+  _stat: 2
+  _attackTypes: 1

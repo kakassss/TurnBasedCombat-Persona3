@@ -2,8 +2,6 @@ using System.Collections.Generic;
 using EntityData;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
-
 
 namespace BaseEntity
 {
@@ -17,9 +15,11 @@ namespace BaseEntity
         protected float _currentAttackPower;
         protected float _currentAbilityPower;
         protected float _currentDefencePower;
-
-
-        public int CurrentHealth => _currentHealth;
+        
+        public int CurrentHealth
+        {
+            get => _currentHealth;
+        }
         public int CurrentMana => _currentMana;
         
         [Header("Stats")]
