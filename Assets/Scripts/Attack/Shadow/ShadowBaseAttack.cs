@@ -3,7 +3,7 @@ using Interfaces;
 
 namespace Attack.Shadow
 {
-    public abstract class ShadowBaseAttack : EntityBaseAttack, IShadowAttack
+    public abstract class ShadowBaseAttack : EntityBaseAttackData, IShadowAttack
     {
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
