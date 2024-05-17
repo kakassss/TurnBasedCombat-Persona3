@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d205d4466f347778b7bc974f3f476d2, type: 3}
   m_Name: StrikeShadowAttack
   m_EditorClassIdentifier: 
-  AttackName: 
+  _attackName: NOJUTSU
   _attackDamageToEnemy: 10
   _attackDamageToItself: 10
   _stat: 1

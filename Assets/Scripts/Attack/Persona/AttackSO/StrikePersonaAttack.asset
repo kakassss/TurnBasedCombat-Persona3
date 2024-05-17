@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0f7d4a9f4ea4cbe99cee69e5930ea68, type: 3}
   m_Name: StrikePersonaAttack
   m_EditorClassIdentifier: 
-  AttackName: 
+  _attackName: Mugetsu
   _attackDamageToEnemy: 5
   _attackDamageToItself: 25
   _stat: 1

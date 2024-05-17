@@ -16,10 +16,7 @@ namespace BaseEntity
         protected float _currentAbilityPower;
         protected float _currentDefencePower;
         
-        public int CurrentHealth
-        {
-            get => _currentHealth;
-        }
+        public int CurrentHealth => _currentHealth;
         public int CurrentMana => _currentMana;
         
         [Header("Stats")]

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: ReturnOfWassapDOGG
   Level: 57
-  Health: 100
+  Health: 555
   Mana: 100
   Prefab: {fileID: 0}
   BaseAttackValue: 15
   BaseAbilityValue: 10
   BaseDefenceValue: 25
-  TotalPower: 2750
+  TotalPower: 2850

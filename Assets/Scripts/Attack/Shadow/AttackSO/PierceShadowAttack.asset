@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55cc75aa72ed4dc491a997cd080898de, type: 3}
   m_Name: PierceShadowAttack
   m_EditorClassIdentifier: 
-  AttackName: 
+  _attackName: Goku
   _attackDamageToEnemy: 20
   _attackDamageToItself: 5
   _stat: 2

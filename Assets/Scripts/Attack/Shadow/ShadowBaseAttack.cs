@@ -6,6 +6,7 @@ namespace Attack.Shadow
 {
     public abstract class ShadowBaseAttack : EntityBaseAttackData, IShadowAttack
     {
+        public string AttackName => _attackName;
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
         public virtual void AttackAction(IMove activeEntity,IMove deactiveEntity)

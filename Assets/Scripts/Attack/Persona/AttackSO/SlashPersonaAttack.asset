@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76f17719f8504fe19348c8812384636a, type: 3}
   m_Name: SlashPersonaAttack
   m_EditorClassIdentifier: 
-  AttackName: 
+  _attackName: TENSHOOO
   _attackDamageToEnemy: 5
   _attackDamageToItself: 5
   _stat: 0

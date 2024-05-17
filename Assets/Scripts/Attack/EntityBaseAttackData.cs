@@ -1,11 +1,12 @@
 using Enums;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Attack
 {
     public abstract class EntityBaseAttackData : ScriptableObject
     {
-        public string AttackName;
+        [SerializeField] protected string _attackName;
         [SerializeField] protected int _attackDamageToEnemy;
         [SerializeField] protected int _attackDamageToItself;
         

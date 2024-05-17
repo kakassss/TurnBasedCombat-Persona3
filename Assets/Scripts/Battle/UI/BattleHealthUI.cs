@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BattleUI : MonoBehaviour
+public class BattleHealthUI : MonoBehaviour
 {
     private readonly string PersonaHealth = "PersonaHealth: ";
     private readonly string ShadowHealth = "ShadowHealth: ";
