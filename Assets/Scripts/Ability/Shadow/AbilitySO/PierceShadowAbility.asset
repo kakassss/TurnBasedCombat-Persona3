@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37f3a9ecb690450fbcc7bc1a7fabcd4c, type: 3}
   m_Name: PierceShadowAbility
   m_EditorClassIdentifier: 
-  AbilityName: 
-  AbilitySprite: {fileID: 0}
+  _abilityName: Apocalypse
+  _abilityDamageToEnemy: 50
+  _manaCost: 25
   _stat: 2
-  _attackTypes: 0
+  _abilityTypes: 2

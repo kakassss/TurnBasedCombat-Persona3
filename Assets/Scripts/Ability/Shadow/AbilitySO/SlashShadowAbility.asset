@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: caeb842b81ba408981c60604db4ea8c8, type: 3}
   m_Name: SlashShadowAbility
   m_EditorClassIdentifier: 
-  AbilityName: 
-  AbilitySprite: {fileID: 0}
+  _abilityName: Rain
+  _abilityDamageToEnemy: 25
+  _manaCost: 5
   _stat: 0
+  _abilityTypes: 1

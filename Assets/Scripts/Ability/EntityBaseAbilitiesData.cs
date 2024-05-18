@@ -5,10 +5,13 @@ namespace Ability
 {
     public abstract class EntityBaseAbilitiesData : ScriptableObject
     {
-        public string AbilityName;
-        public Sprite AbilitySprite;
+        [SerializeField] protected string _abilityName;
+        [SerializeField] protected int _abilityDamageToEnemy;
+        [SerializeField] protected int _manaCost;
+       
+        //public Sprite AbilitySprite;
     
         [SerializeField] protected Stat _stat;
-        [SerializeField] protected AttackTypes _attackTypes;
+        [SerializeField] protected AbilityTypes _abilityTypes;
     }
 }

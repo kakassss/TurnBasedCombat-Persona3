@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0bc4abe1b842e088beff542615abe3, type: 3}
   m_Name: SlashPersonaAbility
   m_EditorClassIdentifier: 
-  AbilityName: 
-  AbilitySprite: {fileID: 0}
+  _abilityName: Ghost
+  _abilityDamageToEnemy: 25
+  _manaCost: 10
   _stat: 0
-  _attackTypes: 3
+  _abilityTypes: 2

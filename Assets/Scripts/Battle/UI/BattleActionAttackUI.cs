@@ -13,7 +13,6 @@ public class BattleActionAttackUI : BattleBaseActionUI
             var currentActionButton = _actionButtons[i];
             _actionButtons[i].gameObject.SetActive(true);
             
-            Debug.Log("111111111111 "  + listAction.Count + actions.entity.name);
             var i1 = i;
             currentActionButton.onClick.AddListener(() =>
             {

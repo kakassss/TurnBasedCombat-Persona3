@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04952baefd6742c2a31fc2e4603612da, type: 3}
   m_Name: StrikeShadowAbility
   m_EditorClassIdentifier: 
-  AbilityName: 
-  AbilitySprite: {fileID: 0}
+  _abilityName: High&Low
+  _abilityDamageToEnemy: 30
+  _manaCost: 15
   _stat: 1
-  _attackTypes: 0
+  _abilityTypes: 3

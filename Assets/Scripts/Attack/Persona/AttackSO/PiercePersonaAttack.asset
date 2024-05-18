@@ -15,5 +15,5 @@ MonoBehaviour:
   _attackName: Getsuga
   _attackDamageToEnemy: 10
   _attackDamageToItself: 5
-  _stat: 1
+  _stat: 2
   _attackTypes: 1

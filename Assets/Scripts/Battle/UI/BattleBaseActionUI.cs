@@ -13,9 +13,6 @@ public abstract class BattleBaseActionUI : MonoBehaviour
     protected const string SPACE = " ";
     
     [SerializeField] protected BattleDataProvider _battleDataProvider;
-    [SerializeField] protected Transform _actionGroup;
-    [SerializeField] protected Button _actionButton;
-
     [SerializeField] protected List<Button> _actionButtons;
     
     private EventBinding<OnMoveActionTurn> _moveAction;
