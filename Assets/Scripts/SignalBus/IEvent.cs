@@ -10,3 +10,8 @@ public struct OnHealthChanged : IEvent
     public int ActiveEntity;
     public int DeactiveEntity;
 }
+
+public class OnMoveActionTurn : IEvent
+{
+    
+}

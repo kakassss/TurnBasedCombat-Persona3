@@ -52,6 +52,11 @@ namespace BaseEntity
             _currentHealth -= damage;
         }
 
+        public virtual void MoveAction()
+        {
+            EventBus<OnMoveActionTurn>.Fire(new OnMoveActionTurn());
+        }
+        
         public void TakeDamageUsingAttack(int damage)
         {
             _currentHealth -= damage;
@@ -63,6 +68,6 @@ namespace BaseEntity
         }
 
         public Entity entity { get; set; }
-        public abstract void MoveAction(IMove activeEntity,IMove deactiveEntity);
+        
     }
 }

@@ -15,9 +15,9 @@ namespace Attack.Persona
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
             deactiveEntity.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
             
-            Debug.Log(deactiveEntity.GetType().Name + " " + deactiveEntity.entity.CurrentHealth + activeEntity.GetType().Name + " " +  activeEntity.entity.CurrentHealth);
             Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
             
+            activeEntity.MoveAction();
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
         }
     }

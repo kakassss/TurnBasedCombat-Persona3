@@ -1,5 +1,6 @@
 using Interfaces;
 using TMPro;
+using UnityEngine;
 
 public class BattleActionAttackUI : BattleBaseActionUI
 {
@@ -7,21 +8,22 @@ public class BattleActionAttackUI : BattleBaseActionUI
     {
         var listAction = actions.entity.EntityAttacks;
         
-        foreach (var action in listAction)
+        for (int i = 0; i < listAction.Count; i++)
         {
-            var currentActionButton = Instantiate(_actionButton, _actionGroup.transform);
-                
+            var currentActionButton = _actionButtons[i];
+            _actionButtons[i].gameObject.SetActive(true);
+            
+            Debug.Log("111111111111 "  + listAction.Count + actions.entity.name);
+            var i1 = i;
             currentActionButton.onClick.AddListener(() =>
             {
-                action.Attack.AttackAction(
+                listAction[i1].Attack.AttackAction(
                     _battleDataProvider.GetActiveEntity(),
                     _battleDataProvider.GetDeactiveEntity());
             });
-            currentActionButton.name = BUTTON_INIT_NAME + action.Attack.Stat;
+            currentActionButton.name = BUTTON_INIT_NAME + listAction[i].Attack.Stat;
             currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text
-                = action.Attack.AttackName + SPACE + action.Attack.AttackDamageToItself.ToString() + SPACE + HEALTH;
+                = listAction[i].Attack.AttackName + SPACE + listAction[i].Attack.AttackDamageToItself.ToString() + SPACE + HEALTH;
         }
-        
-        
     }
 }
