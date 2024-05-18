@@ -6,11 +6,9 @@ using UnityEngine;
 public class InterfaceWrapperIAttack : ISerializationCallbackReceiver
 {
     [SerializeField] private ScriptableObject _attackSO;
-   
     
     [NonSerialized]
     public IAttack Attack;
-   
     
     public void OnAfterDeserialize()
     {

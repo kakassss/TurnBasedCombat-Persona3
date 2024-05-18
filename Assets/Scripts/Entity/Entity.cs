@@ -25,7 +25,6 @@ namespace BaseEntity
         public List<InterfaceWrapperIAttack> EntityAttacks;
         public List<InterfaceWrapperIDefence> EntityDefences;
 
-
         protected virtual void Awake()
         {
             entity = this;
@@ -63,6 +62,16 @@ namespace BaseEntity
             _currentHealth -= damage;
         }
 
+        public void Heal(int value)
+        {
+            _currentHealth += value;
+        }
+
+        public void IncreaseMana(int value)
+        {
+            _currentMana += value;
+        }
+        
         public void SpendMana(int value)
         {
             _currentMana -= value;

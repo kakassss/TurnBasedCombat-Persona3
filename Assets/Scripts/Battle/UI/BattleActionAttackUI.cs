@@ -1,27 +1,30 @@
 using Interfaces;
 using TMPro;
 
-public class BattleActionAttackUI : BattleBaseActionUI
+namespace Battle.UI
 {
-    protected override void InstantiateActionButton(IMove actions)
+    public class BattleActionAttackUI : BattleBaseActionUI
     {
-        var listAction = actions.entity.EntityAttacks;
-        
-        for (int i = 0; i < listAction.Count; i++)
+        protected override void InstantiateActionButton(IMove actions)
         {
-            var currentActionButton = _actionButtons[i];
-            _actionButtons[i].gameObject.SetActive(true);
-            
-            var i1 = i;
-            currentActionButton.onClick.AddListener(() =>
+            var listAction = actions.entity.EntityAttacks;
+        
+            for (int i = 0; i < listAction.Count; i++)
             {
-                listAction[i1].Attack.AttackAction(
-                    _battleDataProvider.GetActiveEntity(),
-                    _battleDataProvider.GetDeactiveEntity());
-            });
-            currentActionButton.name = BUTTON_INIT_NAME + listAction[i].Attack.Stat;
-            currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text
-                = listAction[i].Attack.AttackName + SPACE + listAction[i].Attack.AttackDamageToItself.ToString() + SPACE + HEALTH;
+                var currentActionButton = _actionButtons[i];
+                _actionButtons[i].gameObject.SetActive(true);
+            
+                var i1 = i;
+                currentActionButton.onClick.AddListener(() =>
+                {
+                    listAction[i1].Attack.AttackAction(
+                        _battleDataProvider.GetActiveEntity(),
+                        _battleDataProvider.GetDeactiveEntity());
+                });
+                currentActionButton.name = BUTTON_INIT_NAME + listAction[i].Attack.Stat;
+                currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text
+                    = listAction[i].Attack.AttackName + SPACE + listAction[i].Attack.AttackDamageToItself.ToString() + SPACE + HEALTH;
+            }
         }
     }
 }

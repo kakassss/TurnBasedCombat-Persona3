@@ -1,28 +1,31 @@
 using Interfaces;
 using TMPro;
 
-public class BattleActionAbilityUI : BattleBaseActionUI
+namespace Battle.UI
 {
-    protected override void InstantiateActionButton(IMove actions)
+    public class BattleActionAbilityUI : BattleBaseActionUI
     {
-        var listAction = actions.entity.EntityAbilities;
-        
-        for (int i = 0; i < listAction.Count; i++)
+        protected override void InstantiateActionButton(IMove actions)
         {
-            var currentActionButton = _actionButtons[i];
-            _actionButtons[i].gameObject.SetActive(true);
-            
-            var i1 = i;
-            currentActionButton.onClick.AddListener(() =>
+            var listAction = actions.entity.EntityAbilities;
+        
+            for (int i = 0; i < listAction.Count; i++)
             {
-                listAction[i1].Ability.AbilityAction(
-                    _battleDataProvider.GetActiveEntity(),
-                    _battleDataProvider.GetDeactiveEntity());
-            });
-            currentActionButton.name = BUTTON_INIT_NAME + listAction[i].Ability.Stat;
-            currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text
-                = listAction[i].Ability.AbilityName + SPACE + listAction[i].Ability.ManaCost.ToString() + SPACE + MANA;
+                var currentActionButton = _actionButtons[i];
+                _actionButtons[i].gameObject.SetActive(true);
+            
+                var i1 = i;
+                currentActionButton.onClick.AddListener(() =>
+                {
+                    listAction[i1].Ability.AbilityAction(
+                        _battleDataProvider.GetActiveEntity(),
+                        _battleDataProvider.GetDeactiveEntity());
+                });
+                currentActionButton.name = BUTTON_INIT_NAME + listAction[i].Ability.Stat;
+                currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text
+                    = listAction[i].Ability.AbilityName + SPACE + listAction[i].Ability.ManaCost.ToString() + SPACE + MANA;
+            }
         }
-    }
     
+    }
 }

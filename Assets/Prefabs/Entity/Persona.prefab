@@ -45,11 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityBaseSo: {fileID: 11400000, guid: 8e5b39b39193da444b5906c3eb4fc28f, type: 2}
-  CurrentHealth: 0
-  CurrentMana: 0
-  CurrentAttackPower: 0
-  CurrentAbilityPower: 0
-  CurrentDefencePower: 0
   EntityAbilities:
   - _abilitySO: {fileID: 11400000, guid: e318a1fcfae08b942a33bd7c9f554a56, type: 2}
   - _abilitySO: {fileID: 11400000, guid: 55cf412c601e5ec4d84bdb4450b05758, type: 2}
@@ -62,3 +57,6 @@ MonoBehaviour:
   - _defenceSO: {fileID: 11400000, guid: f70f666a23510674ab1e2acca1eff123, type: 2}
   - _defenceSO: {fileID: 11400000, guid: 21b262fd4dea79440b973262f3bfb96c, type: 2}
   - _defenceSO: {fileID: 11400000, guid: 7c94a9204c591ad4881ae64c69223f76, type: 2}
+  PersonaConsumableItems:
+  - _itemSO: {fileID: 11400000, guid: 9e0b32f77357c6f4b924c9007dcf4264, type: 2}
+  - _itemSO: {fileID: 11400000, guid: a597702fcfad4024096f3497fca44454, type: 2}

@@ -4,56 +4,64 @@ using SignalBus;
 using UnityEngine;
 using UnityEngine.UI;
 
-public abstract class BattleBaseActionUI : MonoBehaviour
+namespace Battle.UI
 {
-    protected const string BUTTON_INIT_NAME = "Button_";
-    protected const string HEALTH = "HP";
-    protected const string MANA = "MP";
-    protected const string SPACE = " ";
+    public abstract class BattleBaseActionUI : MonoBehaviour
+    {
+        protected const string BUTTON_INIT_NAME = "Button_";
+        protected const string HEALTH = "HP";
+        protected const string MANA = "MP";
+        protected const string SPACE = " ";
     
-    [SerializeField] protected BattleDataProvider _battleDataProvider;
-    [SerializeField] protected List<Button> _actionButtons;
+        [SerializeField] protected BattleDataProvider _battleDataProvider;
+        [SerializeField] protected List<Button> _actionButtons;
     
-    private EventBinding<OnMoveActionTurn> _moveAction;
+        private EventBinding<OnMoveActionTurn> _moveAction;
     
-    private void OnEnable()
-    {
-        EnableEventBus();
-        SetActionUI();
-    }
-    
-    private void OnDisable()
-    {
-        DisableEventBus();
-    }
-
-    private void EnableEventBus()
-    {
-        _moveAction = new EventBinding<OnMoveActionTurn>(SetActionUI);
-        EventBus<OnMoveActionTurn>.Subscribe(_moveAction);
-    }
-
-    private void DisableEventBus()
-    {
-        EventBus<OnMoveActionTurn>.Unsubscribe(_moveAction);
-    }
-    
-    private void SetActionUI()
-    {
-        ResetButtons();
-        InstantiateActionButton(_battleDataProvider.GetActiveEntity());
-    }
-
-    private void ResetButtons()
-    {
-        foreach (var button in _actionButtons)
+        protected virtual void OnEnable()
         {
-            button.gameObject.SetActive(false);
-            button.onClick.RemoveAllListeners();
+            EnableEventBus();
+            SetActionUI();
         }
-    }
     
-    protected abstract void InstantiateActionButton(IMove actions);
+        private void OnDisable()
+        {
+            DisableEventBus();
+        }
+
+        private void EnableEventBus()
+        {
+            _moveAction = new EventBinding<OnMoveActionTurn>(SetActionUI);
+            EventBus<OnMoveActionTurn>.Subscribe(_moveAction);
+        }
+
+        private void DisableEventBus()
+        {
+            EventBus<OnMoveActionTurn>.Unsubscribe(_moveAction);
+        }
+    
+        private void SetActionUI()
+        {
+            ResetButtons();
+            InstantiateActionButton(_battleDataProvider.GetActiveEntity());
+        }
+
+        private void ResetButtons()
+        {
+            foreach (var button in _actionButtons)
+            {
+                button.gameObject.SetActive(false);
+                button.onClick.RemoveAllListeners();
+            }
+        }
+
+        protected bool IsPersonActive()
+        {
+            return _battleDataProvider.GetActiveEntity() == _battleDataProvider.GetPersona();
+        }
+        
+        protected abstract void InstantiateActionButton(IMove actions);
+    }
 }
 
 

@@ -1,7 +1,5 @@
-using Attack.Persona;
 using Enums;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Attack
 {
