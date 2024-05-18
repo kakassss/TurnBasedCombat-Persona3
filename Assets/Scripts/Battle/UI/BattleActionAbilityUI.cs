@@ -11,8 +11,8 @@ public class BattleActionAbilityUI : BattleBaseActionUI
         {
             var currentActionButton = _actionButtons[i];
             _actionButtons[i].gameObject.SetActive(true);
-            var i1 = i;
             
+            var i1 = i;
             currentActionButton.onClick.AddListener(() =>
             {
                 listAction[i1].Ability.AbilityAction(

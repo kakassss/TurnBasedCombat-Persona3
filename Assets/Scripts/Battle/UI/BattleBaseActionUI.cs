@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
+using SignalBus;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,17 +15,13 @@ public abstract class BattleBaseActionUI : MonoBehaviour
     [SerializeField] protected List<Button> _actionButtons;
     
     private EventBinding<OnMoveActionTurn> _moveAction;
-
+    
     private void OnEnable()
     {
         EnableEventBus();
-    }
-
-    private void Start()
-    {
         SetActionUI();
     }
-
+    
     private void OnDisable()
     {
         DisableEventBus();
@@ -43,7 +38,7 @@ public abstract class BattleBaseActionUI : MonoBehaviour
         EventBus<OnMoveActionTurn>.Unsubscribe(_moveAction);
     }
     
-    protected virtual void SetActionUI()
+    private void SetActionUI()
     {
         ResetButtons();
         InstantiateActionButton(_battleDataProvider.GetActiveEntity());

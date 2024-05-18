@@ -1,6 +1,5 @@
-using System;
+using SignalBus;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BattleAction : MonoBehaviour
 {
@@ -34,18 +33,5 @@ public class BattleAction : MonoBehaviour
     {
         _battleDataAction.Swap();
         Debug.Log("Action Swap");
-    }
-    
-    private void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     var activeEntity = _battleDataProvider.GetActiveEntity().entity;
-        //     var deactiveEntity = _battleDataProvider.GetDeactiveEntity().entity;
-        //     
-        //     activeEntity.MoveAction();
-        //     _battleDataAction.Swap();
-        //     //_battleData.
-        // }
     }
 }

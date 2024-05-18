@@ -1,5 +1,6 @@
 ﻿using Enums;
 using Interfaces;
+using SignalBus;
 using UnityEngine;
 
 namespace Ability.Persona

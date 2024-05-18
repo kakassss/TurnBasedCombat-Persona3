@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SignalBus;
 using UnityEngine;
 
 public static class EventBus<T> where T : IEvent

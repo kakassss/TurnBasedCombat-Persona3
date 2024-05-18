@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using EntityData;
 using Interfaces;
+using SignalBus;
 using UnityEngine;
 
 namespace BaseEntity
