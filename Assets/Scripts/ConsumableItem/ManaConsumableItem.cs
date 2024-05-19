@@ -4,12 +4,12 @@ using UnityEngine;
 namespace ConsumableItem
 {
     [CreateAssetMenu(fileName = "ManaConsumableItem", menuName = "ScriptableObjets/ConsumableItems/ManaConsumableItem")]
-    public class ManaConsumableItem : EntityConsumableItem
+    public class ManaConsumableItem : EntityBaseConsumableItem
     {
         public override void ItemAction(IMove activeEntity)
         {
-            base.ItemAction(activeEntity);
             activeEntity.entity.IncreaseMana(_itemValue);
+            base.ItemAction(activeEntity);
         }
     }
 }

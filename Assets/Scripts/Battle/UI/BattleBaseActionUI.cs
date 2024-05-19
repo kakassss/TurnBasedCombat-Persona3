@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using Interfaces;
 using SignalBus;
@@ -21,9 +23,13 @@ namespace Battle.UI
         protected virtual void OnEnable()
         {
             EnableEventBus();
+        }
+
+        private void Start()
+        {
             SetActionUI();
         }
-    
+
         private void OnDisable()
         {
             DisableEventBus();
@@ -45,7 +51,7 @@ namespace Battle.UI
             ResetButtons();
             InstantiateActionButton(_battleDataProvider.GetActiveEntity());
         }
-
+        
         private void ResetButtons()
         {
             foreach (var button in _actionButtons)

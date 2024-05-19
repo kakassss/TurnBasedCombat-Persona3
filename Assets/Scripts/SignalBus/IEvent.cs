@@ -5,7 +5,7 @@ namespace SignalBus
     
     }
 
-    public struct OnHealthChanged : IEvent
+    public class OnHealthChanged : IEvent
     {
         public int ActiveEntity;
         public int DeactiveEntity;

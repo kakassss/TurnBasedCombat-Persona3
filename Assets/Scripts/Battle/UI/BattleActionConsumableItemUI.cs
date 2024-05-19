@@ -10,21 +10,17 @@ namespace Battle.UI
         [SerializeField] private GameObject _consumableItemUI;
         [SerializeField] private GameObject _consumableItemButton;
         
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            CheckCurrentEntity();
-        }
-
-        private void CheckCurrentEntity()
+        private bool CheckCurrentEntity()
         {
             _consumableItemUI.gameObject.SetActive(IsPersonActive());
             _consumableItemButton.gameObject.SetActive(IsPersonActive());
+
+            return IsPersonActive();
         }
 
         protected override void InstantiateActionButton(IMove actions)
         {
-            if(IsPersonActive() == false) return;
+            if(CheckCurrentEntity() == false) return;
 
             Persona personaItem = null;
             var listAction = actions.entity;
