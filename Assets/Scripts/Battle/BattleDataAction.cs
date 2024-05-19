@@ -8,6 +8,14 @@ public class BattleDataAction : MonoBehaviour
 
     public void Swap()
     {
-        _data.BattleData.SwapTurn();
+        //_data.BattleData.SwapTurn(); 
+        
+        /*
+         * Swap mekaniğini gözden geçirmemiz lazım.
+         * şuanki çalısma mantıgı ile 2 tarafı da biz kontrol ediyoruz
+         *
+         *
+         * 
+         */
     }
 }

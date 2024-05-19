@@ -10,17 +10,17 @@ namespace Battle.UI
         [SerializeField] private GameObject _consumableItemUI;
         [SerializeField] private GameObject _consumableItemButton;
         
-        private bool CheckCurrentEntity()
-        {
-            _consumableItemUI.gameObject.SetActive(IsPersonActive());
-            _consumableItemButton.gameObject.SetActive(IsPersonActive());
-
-            return IsPersonActive();
-        }
+        // private bool CheckCurrentEntity()
+        // {
+        //     _consumableItemUI.gameObject.SetActive(IsPersonActive());
+        //     _consumableItemButton.gameObject.SetActive(IsPersonActive());
+        //
+        //     return IsPersonActive();
+        // }
         
         protected override void InstantiateActionButton(IMove actions)
         {
-            if(CheckCurrentEntity() == false) return;
+            //if(CheckCurrentEntity() == false) return;
 
             Persona personaItem = null;
             var listAction = actions.entity;
@@ -38,7 +38,7 @@ namespace Battle.UI
                 var i1 = i;
                 currentActionButton.onClick.AddListener(() =>
                 {
-                    personaItemList[i1].Item.ItemAction(_battleDataProvider.GetActiveEntity());
+                    personaItemList[i1].Item.ItemAction(_battleDataProvider.GetActivePersona());
                 });
                 currentActionButton.name = BUTTON_INIT_NAME + personaItemList[i].Item.ItemName;
                 currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text

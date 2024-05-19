@@ -18,8 +18,8 @@ namespace Battle.UI
                 currentActionButton.onClick.AddListener(() =>
                 {
                     listAction[i1].Attack.AttackAction(
-                        _battleDataProvider.GetActiveEntity(),
-                        _battleDataProvider.GetDeactiveEntity());
+                        _battleDataProvider.GetActivePersona(),
+                        _battleDataProvider.GetActiveShadow());
                 });
                 currentActionButton.name = BUTTON_INIT_NAME + listAction[i].Attack.Stat;
                 currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text

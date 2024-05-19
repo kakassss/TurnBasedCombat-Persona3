@@ -20,6 +20,7 @@ namespace Attack.Shadow
             
             activeEntity.MoveAction();
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
+            EventBus<OnTakeDamage>.Fire(new OnTakeDamage());
         }
     }
 }

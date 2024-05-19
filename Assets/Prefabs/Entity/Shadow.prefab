@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1546410512441766319}
   - component: {fileID: 4669713055909143347}
+  - component: {fileID: 6244467662833688204}
   m_Layer: 0
   m_Name: Shadow
   m_TagString: Untagged
@@ -45,11 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityBaseSo: {fileID: 11400000, guid: 2549a7fec2cb79f4ebc0b913e094c894, type: 2}
-  CurrentHealth: 0
-  CurrentMana: 0
-  CurrentAttackPower: 0
-  CurrentAbilityPower: 0
-  CurrentDefencePower: 0
   EntityAbilities:
   - _abilitySO: {fileID: 11400000, guid: 4c3546d5e4a5e45439b1b463fa5284f6, type: 2}
   - _abilitySO: {fileID: 11400000, guid: 5e430ea47e90a5f48a8e20675149ff0e, type: 2}
@@ -62,3 +58,16 @@ MonoBehaviour:
   - _defenceSO: {fileID: 11400000, guid: 5a5bff46a8efdcf42a507c442a5dfc94, type: 2}
   - _defenceSO: {fileID: 11400000, guid: c9668d25b9d395c4eaa910e3ed1dcca8, type: 2}
   - _defenceSO: {fileID: 11400000, guid: 96fcd765fb05f2140b58df9e4d770b46, type: 2}
+--- !u!114 &6244467662833688204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493535574325727531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831e77ff93313b243b6afd45eb69b296, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _battleDataProvider: {fileID: 0}

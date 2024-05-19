@@ -1,3 +1,6 @@
+using Enums;
+using Interfaces;
+
 namespace SignalBus
 {
     public interface IEvent
@@ -7,12 +10,17 @@ namespace SignalBus
 
     public class OnHealthChanged : IEvent
     {
-        public int ActiveEntity;
-        public int DeactiveEntity;
+        
     }
 
     public class OnMoveActionTurn : IEvent
     {
     
+    }
+
+    public struct OnTakeDamage : IEvent
+    {
+        public IMove deactive;
+        public Stat Stat;
     }
 }

@@ -9,9 +9,11 @@ namespace Defence.Shadow
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
-
-        public virtual void DefenceAction(IMove deactiveEntity)
+        public virtual void DefenceAction(IMove deactiveEntity, Stat stat)
         {
+            stat = _stat;
+            
+            Debug.Log("current stat damaged " + stat);
             switch (DefenceTypes)
             {
                 case DefenceTypes.Normal:

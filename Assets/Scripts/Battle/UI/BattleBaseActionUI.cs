@@ -47,7 +47,7 @@ namespace Battle.UI
         private void SetActionUI()
         {
             ResetButtons();
-            InstantiateActionButton(_battleDataProvider.GetActiveEntity());
+            InstantiateActionButton(_battleDataProvider.GetActivePersona());
         }
         
         private void ResetButtons()
@@ -59,10 +59,10 @@ namespace Battle.UI
             }
         }
 
-        protected bool IsPersonActive()
-        {
-            return _battleDataProvider.GetActiveEntity() == _battleDataProvider.GetPersona();
-        }
+        // protected bool IsPersonActive()
+        // {
+        //     return _battleDataProvider.GetActivePersona() == _battleDataProvider.GetActivePersona();
+        // }
         
         protected abstract void InstantiateActionButton(IMove actions);
     }

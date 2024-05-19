@@ -5,23 +5,14 @@ public class BattleDataProvider : MonoBehaviour
 {
     public BattleData BattleData;
     
-    public IMove GetActiveEntity()
+    
+    public IMove GetActivePersona()
     {
-        return BattleData.GetActiveEntity;
+        return BattleData.GetActivePersona;
     }
     
-    public IMove GetDeactiveEntity()
+    public IMove GetActiveShadow()
     {
-        return BattleData.GetDeactiveEntity;
-    }
-    
-    public IMove GetPersona()
-    {
-        return BattleData.GetPersona;
-    }
-    
-    public IMove GetShadow()
-    {
-        return BattleData.GetShadow;
+        return BattleData.GetActiveShadow;
     }
 }

@@ -10,8 +10,9 @@ namespace Defence.Persona
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
 
-        public virtual void DefenceAction(IMove deactiveEntity)
+        public virtual void DefenceAction(IMove deactiveEntity, Stat stat)
         {
+            
             switch (DefenceTypes)
             {
                 case DefenceTypes.Normal:
