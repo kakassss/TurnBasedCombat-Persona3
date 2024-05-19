@@ -1,4 +1,3 @@
-using System;
 using SignalBus;
 using UnityEngine;
 
@@ -6,7 +5,7 @@ namespace Defence.DefenceAction
 {
     public abstract class EntityDefenceAction : MonoBehaviour, ITakeDamage
     {
-        [SerializeField] protected BattleDataProvider _battleDataProvider;
+        protected BattleDataProvider _battleDataProvider;
         private EventBinding<OnTakeDamage> _defenceAction;
 
         private void Awake()

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Interfaces;
 using SignalBus;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Battle.UI
@@ -15,7 +16,8 @@ namespace Battle.UI
     
         [SerializeField] protected BattleDataProvider _battleDataProvider;
         [SerializeField] protected List<Button> _actionButtons;
-    
+        [SerializeField] protected List<GameObject> _actionUIElements;
+        
         private EventBinding<OnMoveActionTurn> _moveAction;
     
         protected virtual void OnEnable()
@@ -46,8 +48,18 @@ namespace Battle.UI
     
         private void SetActionUI()
         {
+            SetUIElementsState(ActiveEntity() != true);
+
             ResetButtons();
             InstantiateActionButton(_battleDataProvider.GetActivePersona());
+        }
+
+        private void SetUIElementsState(bool state)
+        {
+            foreach (var ui in _actionUIElements)
+            {
+                ui.SetActive(state);
+            }
         }
         
         private void ResetButtons()
@@ -59,10 +71,10 @@ namespace Battle.UI
             }
         }
 
-        // protected bool IsPersonActive()
-        // {
-        //     return _battleDataProvider.GetActivePersona() == _battleDataProvider.GetActivePersona();
-        // }
+        private bool ActiveEntity()
+        {
+            return _battleDataProvider.GetActiveEntity() == _battleDataProvider.GetActiveShadow();
+        }
         
         protected abstract void InstantiateActionButton(IMove actions);
     }

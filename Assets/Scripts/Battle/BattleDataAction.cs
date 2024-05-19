@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BattleDataAction : MonoBehaviour
@@ -8,14 +6,15 @@ public class BattleDataAction : MonoBehaviour
 
     public void Swap()
     {
-        //_data.BattleData.SwapTurn(); 
-        
-        /*
-         * Swap mekaniğini gözden geçirmemiz lazım.
-         * şuanki çalısma mantıgı ile 2 tarafı da biz kontrol ediyoruz
-         *
-         *
-         * 
-         */
+        if (_data.BattleData.GetCurrentEntityCount() == 1)
+        {
+            _data.BattleData.SwapTurnToEnemy(); 
+            Debug.Log("onur 2");
+        }
+        else
+        {
+            Debug.Log("onur 3");
+            _data.BattleData.SwapTurnCurrentEntity();
+        }
     }
 }

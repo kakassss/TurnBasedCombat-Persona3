@@ -43,7 +43,6 @@ namespace Battle.UI
 
         private void SetUI()
         {
-            Debug.Log("1111");
             _personaHealth = _battleDataProvider.GetActivePersona().entity.CurrentHealth;
             _shadowHealth = _battleDataProvider.GetActiveShadow().entity.CurrentHealth;
 
