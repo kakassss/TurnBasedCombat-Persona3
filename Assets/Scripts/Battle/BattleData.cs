@@ -65,6 +65,7 @@ public class BattleData : MonoBehaviour
         if (_currentEntity < _currentEntityRound)
         {
             _currentEntity++;
+            SetPersona(); // son personadaki ui kısmı değişecek mi diye koydun ---> değişti
         }
         
         if (_currentEntity != _currentEntityRound) return;
@@ -77,6 +78,10 @@ public class BattleData : MonoBehaviour
      * SwapTurn mekaniğinin şuan çalısma hali
      * 4 tane persona var. 4 kere action yapıyoruz sonrasında shadow listesine geçiyor
      * şuanlık shadow bi şey yapmadıgı için öyle kalıyor.
+     *
+     * şuanlık personalar kendi içinde dönmüyor, hep ilk persona hamle yapıyor
+     * yukarıda koydugun setpersona ile test ettin, o sayede dönebiliyor ama tabi
+     * buradaki kod ağır bok oldu
      * 
      */
     
