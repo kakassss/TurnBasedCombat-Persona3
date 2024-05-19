@@ -17,7 +17,7 @@ namespace Battle.UI
 
             return IsPersonActive();
         }
-
+        
         protected override void InstantiateActionButton(IMove actions)
         {
             if(CheckCurrentEntity() == false) return;
