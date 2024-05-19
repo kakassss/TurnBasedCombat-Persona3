@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ShadowActionAI : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    /*
+     * Bunun için çok bi şey düşünmedik.
+     * belki bi base olabilir onda işte current shadowun hangi skilleri taşıdıgı vs olur
+     * çok bi fikrin yok idi
+     * 
+     */
 }

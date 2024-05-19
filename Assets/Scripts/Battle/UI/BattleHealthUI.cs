@@ -49,6 +49,5 @@ namespace Battle.UI
             _personaHealthText.text = PersonaHealth + _personaHealth.ToString();
             _shadowHealthText.text = ShadowHealth + _shadowHealth.ToString();
         }
-    
     }
 }
