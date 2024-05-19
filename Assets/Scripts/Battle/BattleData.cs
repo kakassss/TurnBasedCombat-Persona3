@@ -65,25 +65,27 @@ public class BattleData : MonoBehaviour
         if (_currentEntity < _currentEntityRound)
         {
             _currentEntity++;
-            Debug.Log("onur y " + _currentEntity);
-        }
-
-        if (_currentEntity == _currentEntityRound)
-        {
-            _currentEntity = 0;    
-            SwapTurnToEnemy();
-            Debug.Log("onur 1");
         }
         
-
+        if (_currentEntity != _currentEntityRound) return;
+        
+        _currentEntity = 0;    
+        SwapTurnToEnemy();
     }
+    
+    /*
+     * SwapTurn mekaniğinin şuan çalısma hali
+     * 4 tane persona var. 4 kere action yapıyoruz sonrasında shadow listesine geçiyor
+     * şuanlık shadow bi şey yapmadıgı için öyle kalıyor.
+     * 
+     */
+    
     
     public void SwapTurnToEnemy()
     {
         _activeEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
         SetShadow();
         SetCurrentEntityRound();
-        Debug.Log("onur ac2 " + _activeEntity);
     }
     
 }
