@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using BaseEntity;
 using Interfaces;
+using SignalBus;
 using UnityEngine;
 
 public class BattleData : MonoBehaviour
@@ -47,6 +48,7 @@ public class BattleData : MonoBehaviour
         _activeShadow = _allShadows[_currentEntity];
         _activeEntity = _activeShadow;
         _currentEntityRound = _shadowCount -1;
+        EventBus<OnShadowTurn>.Fire(new OnShadowTurn());
     }
     
     private void SetEntity(IMove entity)

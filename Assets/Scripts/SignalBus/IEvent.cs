@@ -18,6 +18,11 @@ namespace SignalBus
     
     }
 
+    public class OnShadowTurn : IEvent
+    {
+        
+    }
+
     public struct OnTakeDamage : IEvent
     {
         public IMove deactive;
