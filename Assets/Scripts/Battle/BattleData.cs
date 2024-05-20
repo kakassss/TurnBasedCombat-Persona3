@@ -46,7 +46,6 @@ public class BattleData : MonoBehaviour
         
         _personaCount = _allPersona.Count;
         _shadowCount = _allShadows.Count;
-        _activeShadow = _allShadows[0]; // if removed, Battle Health UI gave null ref. currenlty there is no valid health UI
         
         SetPersona();
     }

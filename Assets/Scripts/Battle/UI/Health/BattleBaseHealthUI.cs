@@ -35,7 +35,7 @@ namespace Battle.UI.Health
             EventBus<OnHealthChanged>.Unsubscribe(_takeDamage);
         }
 
-        protected void ResetTexts()
+        protected void CloseTexts()
         {
             foreach (var text in _entityHealthTexts)
             {
