@@ -8,7 +8,7 @@ namespace Battle.UI
         protected override void InstantiateActionButton(IMove actions)
         {
             var listAction = actions.entity.EntityAttacks;
-        
+            
             for (int i = 0; i < listAction.Count; i++)
             {
                 var currentActionButton = _actionButtons[i];
@@ -19,7 +19,7 @@ namespace Battle.UI
                 {
                     listAction[i1].Attack.AttackAction(
                         _battleDataProvider.GetActivePersona(),
-                        _battleDataProvider.GetActiveShadow());
+                        _battleDataProvider.GetAllShadows());
                 });
                 currentActionButton.name = BUTTON_INIT_NAME + listAction[i].Attack.Stat;
                 currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text

@@ -1,7 +1,8 @@
-﻿namespace Interfaces
+﻿
+namespace Interfaces
 {
     public interface IShadowAttack : IAttack
     {
-    
+        
     }
 }

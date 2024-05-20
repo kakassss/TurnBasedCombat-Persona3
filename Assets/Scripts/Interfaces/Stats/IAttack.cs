@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using System.Collections.Generic;
+using Enums;
 
 namespace Interfaces
 {
@@ -6,7 +7,7 @@ namespace Interfaces
     {
         string AttackName { get; }
         int AttackDamageToItself { get; }
-        void AttackAction(IMove activeEntity,IMove deactiveEntity);
+        void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities);
         Stat Stat { get; }
         AttackTypes AttackTypes { get; }
     }

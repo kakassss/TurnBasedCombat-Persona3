@@ -9,6 +9,9 @@ public class BattleData : MonoBehaviour
     [SerializeField] private List<Shadow> _allShadows;
     [SerializeField] private List<Persona> _allPersona;
     
+    private List<IMove> _iAllPersonas = new List<IMove>();
+    private List<IMove> _iAllShadows = new List<IMove>();
+    
     private IMove _activeEntity;
     private IMove _activePersona;
     private IMove _activeShadow;
@@ -27,15 +30,40 @@ public class BattleData : MonoBehaviour
         return _currentEntityRound;
     }
     
+    public List<IMove> GetAllPersonas()
+    {
+        return _iAllPersonas;
+    }
+    
+    public List<IMove> GetAllShadows()
+    {
+        return _iAllShadows;
+    }
+    
     private void Awake()
     {
+        SetEntities();
+        
         _personaCount = _allPersona.Count;
         _shadowCount = _allShadows.Count;
-        _activeShadow = _allShadows[0];
+        _activeShadow = _allShadows[0]; // if removed, Battle Health UI gave null ref. currenlty there is no valid health UI
         
         SetPersona();
     }
 
+    private void SetEntities()
+    {
+        foreach (var persona in _allPersona)
+        {
+            _iAllPersonas.Add(persona);    
+        }
+        
+        foreach (var shadow in _allShadows)
+        {
+            _iAllShadows.Add(shadow);    
+        }
+    }
+    
     private void SetPersona()
     {
         _activePersona = _allPersona[_currentEntity];
@@ -76,7 +104,6 @@ public class BattleData : MonoBehaviour
             _currentEntity++;
             SetEntity(_activeEntity);
         }
-        
     }
     
     public void SwapTurnToEnemy()

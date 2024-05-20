@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using System.Collections.Generic;
+using Enums;
 using Interfaces;
 using SignalBus;
 using UnityEngine;
@@ -11,10 +12,15 @@ namespace Attack.Persona
         public AttackTypes AttackTypes => _attackTypes;
         public string AttackName => _attackName;
         public int AttackDamageToItself => _attackDamageToItself;
-        public virtual void AttackAction(IMove activeEntity,IMove deactiveEntity) 
+        
+        private int _randomShadow;
+        public virtual void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
+            _randomShadow = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
+            var targetShadow = allDeactiveEntities[_randomShadow];
+            
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
-            deactiveEntity.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
+            targetShadow.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
             
             Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
             

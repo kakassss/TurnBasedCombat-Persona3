@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using System.Collections.Generic;
+using Enums;
 using Interfaces;
 using SignalBus;
 using UnityEngine;
@@ -11,10 +12,15 @@ namespace Ability.Persona
         public AbilityTypes AbilityTypes => _abilityTypes;
         public string AbilityName => _abilityName;
         public int ManaCost => _manaCost;
-        public virtual void AbilityAction(IMove activeEntity, IMove deactiveEntity)
+        
+        private int _randomShadow;
+        public virtual void AbilityAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
+            _randomShadow = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
+            var targetShadow = allDeactiveEntities[_randomShadow];
+            
             activeEntity.entity.SpendMana(_manaCost);
-            deactiveEntity.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAbilityValue + _abilityDamageToEnemy) * (int)_abilityTypes);
+            targetShadow.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAbilityValue + _abilityDamageToEnemy) * (int)_abilityTypes);
             
             Debug.Log("Persona " + Stat + " Ability! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _abilityDamageToEnemy) * (int)_abilityTypes);
             

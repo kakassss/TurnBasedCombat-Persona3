@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using System.Collections.Generic;
+using Enums;
 using Interfaces;
 using SignalBus;
 using UnityEngine;
@@ -11,10 +12,15 @@ namespace Attack.Shadow
         public AttackTypes AttackTypes => _attackTypes;
         public string AttackName => _attackName;
         public int AttackDamageToItself => _attackDamageToItself;
-        public virtual void AttackAction(IMove activeEntity,IMove deactiveEntity)
+        
+        private int _randomPersona;
+        public virtual void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
+            _randomPersona = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
+            var targetPersona = allDeactiveEntities[_randomPersona];
+            
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
-            deactiveEntity.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
+            targetPersona.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
             
             Debug.Log("Shadow " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
             
@@ -22,5 +28,6 @@ namespace Attack.Shadow
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnTakeDamage>.Fire(new OnTakeDamage());
         }
+
     }
 }

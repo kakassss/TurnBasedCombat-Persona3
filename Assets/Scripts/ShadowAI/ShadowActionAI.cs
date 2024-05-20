@@ -10,7 +10,6 @@ public class ShadowActionAI : MonoBehaviour
     private List<InterfaceWrapperIAttack> _shadowAttacks = new List<InterfaceWrapperIAttack>();
     private List<InterfaceWrapperIAbility> _shadowAbilities = new List<InterfaceWrapperIAbility>();
 
-    private int _currentShadowIndex;
     private int _maxShadowIndex;
     private Coroutine shadowActionCor;
     
@@ -43,44 +42,28 @@ public class ShadowActionAI : MonoBehaviour
         _shadowAbilities = _data.GetActiveShadow().entity.EntityAbilities;
 
         _maxShadowIndex = _data.BattleData.GetCurrentEntityCount();
-        _currentShadowIndex = 0;
-        Debug.Log("shadow Action _maxShadowIndex " + _maxShadowIndex);
         shadowActionCor = StartCoroutine(IEShadowAction());
-
     }
 
     private IEnumerator IEShadowAction()
     {
-        for (int i = 0; i <= _maxShadowIndex; i++)
-        {
-            Debug.Log("shadow Action Start " + i);
+        Debug.Log("shadow Action Start ");
+        yield return new WaitForSeconds(0.3f);
             
-            yield return new WaitForSeconds(0.3f);
-            
-            var randomAction = Random.Range(0, 2);// Currently there are only two actions.
-            var randomActionMove = Random.Range(0, _shadowAttacks.Count);
+        var randomAction = Random.Range(0, 2);// Currently there are only two actions.
+        var randomActionMove = Random.Range(0, _shadowAttacks.Count);
         
-            if (randomAction == 0)
-            {
-                _shadowAttacks[randomActionMove].Attack.AttackAction(_data.GetActiveShadow(),
-                    _data.GetActivePersona());    
-            }
-            else
-            {
-                _shadowAbilities[randomActionMove].Ability.AbilityAction(_data.GetActiveShadow(),
-                    _data.GetActivePersona());
-            }
+        if (randomAction == 0)
+        {
+            _shadowAttacks[randomActionMove].Attack.AttackAction(_data.GetActiveShadow(),
+                _data.GetAllPersonas());    
+        }
+        else
+        {
+            _shadowAbilities[randomActionMove].Ability.AbilityAction(_data.GetActiveShadow(),
+                _data.GetAllPersonas());
         }
         
         Debug.Log("shadow Action end ");
     }
-    
-    
-    
-    /*
-     * Bunun için çok bi şey düşünmedik.
-     * belki bi base olabilir onda işte current shadowun hangi skilleri taşıdıgı vs olur
-     * çok bi fikrin yok idi
-     *
-     */
 }

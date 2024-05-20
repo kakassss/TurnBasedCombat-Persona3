@@ -19,7 +19,7 @@ namespace Battle.UI
                 {
                     listAction[i1].Ability.AbilityAction(
                         _battleDataProvider.GetActivePersona(),
-                        _battleDataProvider.GetActiveShadow());
+                        _battleDataProvider.GetAllShadows());
                 });
                 currentActionButton.name = BUTTON_INIT_NAME + listAction[i].Ability.Stat;
                 currentActionButton.GetComponentInChildren<TextMeshProUGUI>().text

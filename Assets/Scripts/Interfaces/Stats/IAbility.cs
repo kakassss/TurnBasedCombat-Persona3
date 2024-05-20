@@ -1,4 +1,5 @@
-﻿using Enums;
+﻿using System.Collections.Generic;
+using Enums;
 
 namespace Interfaces
 {
@@ -6,7 +7,7 @@ namespace Interfaces
     {
         string AbilityName { get; }
         int ManaCost { get; }
-        void AbilityAction(IMove activeEntity,IMove deactiveEntity);
+        void AbilityAction(IMove activeEntity,List<IMove> allDeactiveEntities);
         Stat Stat { get; }
         AbilityTypes AbilityTypes { get; }
     }
