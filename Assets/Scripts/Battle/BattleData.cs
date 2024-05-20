@@ -40,8 +40,6 @@ public class BattleData : MonoBehaviour
         _activePersona = _allPersona[_currentEntity];
         _activeEntity = _activePersona;
         _currentEntityRound = _personaCount -1;
-        Debug.Log("onur " + _currentEntity);
-        Debug.Log("onurx " + _activeEntity.entity.name);
     }
 
     private void SetShadow()
@@ -63,16 +61,6 @@ public class BattleData : MonoBehaviour
         }
     }
     
-    /*
-     * SwapTurn mekaniğinin şuan çalısma hali
-     * 4 tane persona var. 4 kere action yapıyoruz sonrasında shadow listesine geçiyor
-     * şuanlık shadow bi şey yapmadıgı için öyle kalıyor.
-     *
-     * şuanlık personalar kendi içinde dönmüyor, hep ilk persona hamle yapıyor
-     * yukarıda koydugun setpersona ile test ettin, o sayede dönebiliyor ama tabi
-     * buradaki kod ağır bok oldu
-     * 
-     */
     public void SwapTurnCurrentEntity()
     {
         if (_currentEntity == _currentEntityRound)
@@ -93,6 +81,5 @@ public class BattleData : MonoBehaviour
     {
         _activeEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
         SetEntity(_activeEntity);
-        Debug.Log("onur next " + _activeEntity.entity.name);
     }
 }
