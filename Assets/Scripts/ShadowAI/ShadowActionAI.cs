@@ -42,13 +42,14 @@ public class ShadowActionAI : MonoBehaviour
         _shadowAbilities = _data.GetActiveShadow().entity.EntityAbilities;
 
         _maxShadowIndex = _data.BattleData.GetCurrentEntityCount();
-        shadowActionCor = StartCoroutine(IEShadowAction());
+        //shadowActionCor = StartCoroutine(IEShadowAction());
+        IEShadowAction();
     }
 
-    private IEnumerator IEShadowAction()
+    private void IEShadowAction()
     {
         Debug.Log("shadow Action Start ");
-        yield return new WaitForSeconds(0.3f);
+        //yield return new WaitForSeconds(0.3f);
             
         var randomAction = Random.Range(0, 2);// Currently there are only two actions.
         var randomActionMove = Random.Range(0, _shadowAttacks.Count);

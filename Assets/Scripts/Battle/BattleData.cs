@@ -75,6 +75,7 @@ public class BattleData : MonoBehaviour
         _activeShadow = _allShadows[_currentEntity];
         _activeEntity = _activeShadow;
         _currentEntityRound = _shadowCount -1;
+        Debug.Log("onur shadows " + _activeEntity.entity.name);
         EventBus<OnShadowTurn>.Fire(new OnShadowTurn());
     }
     
@@ -94,8 +95,9 @@ public class BattleData : MonoBehaviour
     {
         if (_currentEntity == _currentEntityRound)
         {
-            _currentEntity = 0;    
+            _currentEntity = 0;  
             SwapTurnToEnemy();
+            return;
         }
         
         if (_currentEntity < _currentEntityRound)
@@ -109,5 +111,6 @@ public class BattleData : MonoBehaviour
     {
         _activeEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
         SetEntity(_activeEntity);
+        
     }
 }
