@@ -33,45 +33,34 @@ public class BattleData : MonoBehaviour
         _activeShadow = _allShadows[0];
         
         SetPersona();
-        SetCurrentEntityRound();
     }
 
     private void SetPersona()
     {
         _activePersona = _allPersona[_currentEntity];
         _activeEntity = _activePersona;
+        _currentEntityRound = _personaCount -1;
+        Debug.Log("onur " + _currentEntity);
+        Debug.Log("onurx " + _activeEntity.entity.name);
     }
 
     private void SetShadow()
     {
         _activeShadow = _allShadows[_currentEntity];
         _activeEntity = _activeShadow;
+        _currentEntityRound = _shadowCount -1;
     }
     
-    private void SetCurrentEntityRound()
+    private void SetEntity(IMove entity)
     {
-        if (_activeEntity == _activePersona)
+        if (entity == _activePersona)
         {
-            _currentEntityRound = _personaCount;
+            SetPersona();
         }
-        else if (_activeEntity == _activeShadow)
+        else
         {
-            _currentEntityRound = _shadowCount;
+            SetShadow();
         }
-    }
-    
-    public void SwapTurnCurrentEntity()
-    {
-        if (_currentEntity < _currentEntityRound)
-        {
-            _currentEntity++;
-            SetPersona(); // son personadaki ui kısmı değişecek mi diye koydun ---> değişti
-        }
-        
-        if (_currentEntity != _currentEntityRound) return;
-        
-        _currentEntity = 0;    
-        SwapTurnToEnemy();
     }
     
     /*
@@ -84,13 +73,26 @@ public class BattleData : MonoBehaviour
      * buradaki kod ağır bok oldu
      * 
      */
-    
+    public void SwapTurnCurrentEntity()
+    {
+        if (_currentEntity == _currentEntityRound)
+        {
+            _currentEntity = 0;    
+            SwapTurnToEnemy();
+        }
+        
+        if (_currentEntity < _currentEntityRound)
+        {
+            _currentEntity++;
+            SetEntity(_activeEntity);
+        }
+        
+    }
     
     public void SwapTurnToEnemy()
     {
         _activeEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
-        SetShadow();
-        SetCurrentEntityRound();
+        SetEntity(_activeEntity);
+        Debug.Log("onur next " + _activeEntity.entity.name);
     }
-    
 }
