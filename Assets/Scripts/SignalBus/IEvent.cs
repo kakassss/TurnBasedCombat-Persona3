@@ -23,7 +23,7 @@ namespace SignalBus
         
     }
 
-    public struct OnTakeDamage : IEvent
+    public struct OnTakeDamage : IEvent // TODO: SHADOW IMPLEMENT STILL NOT DONE
     {
         public IMove deactive;
         public Stat Stat;
