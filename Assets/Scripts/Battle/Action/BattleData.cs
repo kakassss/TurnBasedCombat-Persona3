@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using BaseEntity;
 using Interfaces;
+using SelectShadow;
 using SignalBus;
 using UnityEngine;
 
@@ -13,10 +14,11 @@ namespace Battle.Action
     
         private List<IMove> _iAllPersonas = new List<IMove>();
         private List<IMove> _iAllShadows = new List<IMove>();
-    
+        
         private IMove _activeEntity;
         private IMove _activePersona;
         private IMove _activeShadow;
+        private IMove _selectedShadow;
     
         private int _personaCount;
         private int _shadowCount;
@@ -26,6 +28,7 @@ namespace Battle.Action
         public IMove GetActivePersona => _activePersona;
         public IMove GetActiveShadow => _activeShadow;
         public IMove GetActiveEntity => _activeEntity;
+        public IMove GetSelectedShadow => _selectedShadow;
     
         public int GetCurrentEntityCount()
         {
@@ -70,6 +73,8 @@ namespace Battle.Action
             _activePersona = _allPersona[_currentEntity];
             _activeEntity = _activePersona;
             _currentEntityRound = _personaCount -1;
+            
+            //_selectedShadow = _allShadows[SelectTargetShadow.CurrentShadowIndex];
         }
 
         private void SetShadow()
@@ -77,7 +82,7 @@ namespace Battle.Action
             _activeShadow = _allShadows[_currentEntity];
             _activeEntity = _activeShadow;
             _currentEntityRound = _shadowCount -1;
-            Debug.Log("onur shadows " + _activeEntity.entity.name);
+            
             EventBus<OnShadowTurn>.Fire(new OnShadowTurn());
         }
     

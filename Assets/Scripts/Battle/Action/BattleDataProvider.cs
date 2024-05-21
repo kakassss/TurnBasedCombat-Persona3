@@ -7,7 +7,12 @@ namespace Battle.Action
     public class BattleDataProvider : MonoBehaviour
     {
         public BattleData BattleData;
-    
+
+        public int GetCurrentEntityCount()
+        {
+            return BattleData.GetCurrentEntityCount();
+        }
+        
         public IMove GetActivePersona()
         {
             return BattleData.GetActivePersona;
@@ -23,11 +28,16 @@ namespace Battle.Action
             return BattleData.GetActiveEntity;
         }
 
+        public IMove GetSelectedShadow()
+        {
+            return BattleData.GetSelectedShadow;
+        }
+
         public List<IMove> GetAllPersonas()
         {
             return BattleData.GetAllPersonas();
         }
-    
+        
         public List<IMove> GetAllShadows()
         {
             return BattleData.GetAllShadows();

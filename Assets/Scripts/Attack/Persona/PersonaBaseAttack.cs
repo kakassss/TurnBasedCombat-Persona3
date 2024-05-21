@@ -2,6 +2,7 @@
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
+using SelectShadow;
 using SignalBus;
 using UnityEngine;
 
@@ -18,7 +19,9 @@ namespace Attack.Persona
         public virtual void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
             _randomShadow = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
-            var targetShadow = allDeactiveEntities[_randomShadow];
+            
+            Debug.Log("onur burda " + SelectTargetShadow.CurrentShadowIndex);
+            var targetShadow = allDeactiveEntities[SelectTargetShadow.CurrentShadowIndex];
             
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
             targetShadow.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
