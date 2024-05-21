@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using SignalBus;
 using UnityEngine;
@@ -10,7 +9,6 @@ public class ShadowActionAI : MonoBehaviour
     private List<InterfaceWrapperIAttack> _shadowAttacks = new List<InterfaceWrapperIAttack>();
     private List<InterfaceWrapperIAbility> _shadowAbilities = new List<InterfaceWrapperIAbility>();
 
-    private int _maxShadowIndex;
     private Coroutine shadowActionCor;
     
     private EventBinding<OnShadowTurn> _shadowAction;
@@ -41,7 +39,6 @@ public class ShadowActionAI : MonoBehaviour
         _shadowAttacks = _data.GetActiveShadow().entity.EntityAttacks;
         _shadowAbilities = _data.GetActiveShadow().entity.EntityAbilities;
 
-        _maxShadowIndex = _data.BattleData.GetCurrentEntityCount();
         //shadowActionCor = StartCoroutine(IEShadowAction());
         IEShadowAction();
     }

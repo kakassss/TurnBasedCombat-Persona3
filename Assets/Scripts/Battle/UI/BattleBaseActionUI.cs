@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using Interfaces;
 using SignalBus;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Battle.UI
