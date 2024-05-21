@@ -18,7 +18,6 @@ namespace Battle.Action
         private IMove _activeEntity;
         private IMove _activePersona;
         private IMove _activeShadow;
-        private IMove _selectedShadow;
     
         private int _personaCount;
         private int _shadowCount;
@@ -28,7 +27,6 @@ namespace Battle.Action
         public IMove GetActivePersona => _activePersona;
         public IMove GetActiveShadow => _activeShadow;
         public IMove GetActiveEntity => _activeEntity;
-        public IMove GetSelectedShadow => _selectedShadow;
     
         public int GetCurrentEntityCount()
         {
@@ -73,8 +71,6 @@ namespace Battle.Action
             _activePersona = _allPersona[_currentEntity];
             _activeEntity = _activePersona;
             _currentEntityRound = _personaCount -1;
-            
-            //_selectedShadow = _allShadows[SelectTargetShadow.CurrentShadowIndex];
         }
 
         private void SetShadow()

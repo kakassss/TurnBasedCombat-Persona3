@@ -27,12 +27,7 @@ namespace Battle.Action
         {
             return BattleData.GetActiveEntity;
         }
-
-        public IMove GetSelectedShadow()
-        {
-            return BattleData.GetSelectedShadow;
-        }
-
+        
         public List<IMove> GetAllPersonas()
         {
             return BattleData.GetAllPersonas();
