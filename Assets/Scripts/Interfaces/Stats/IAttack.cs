@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Enums;
 
-namespace Interfaces
+namespace Interfaces.Stats
 {
     public interface IAttack
     {

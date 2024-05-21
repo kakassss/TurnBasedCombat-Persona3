@@ -1,6 +1,6 @@
 ﻿using Enums;
 
-namespace Interfaces
+namespace Interfaces.Stats
 {
     public interface IDefence
     {

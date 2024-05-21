@@ -1,6 +1,7 @@
 ﻿using System;
 using Enums;
 using Interfaces;
+using Interfaces.Stats;
 using UnityEngine;
 
 namespace Defence.Shadow

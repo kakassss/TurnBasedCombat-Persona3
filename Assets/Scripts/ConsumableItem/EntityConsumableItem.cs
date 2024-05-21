@@ -1,4 +1,5 @@
 using Interfaces;
+using Interfaces.Stats;
 using SignalBus;
 
 namespace ConsumableItem

@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using Interfaces.Stats;
 using UnityEngine;
 
 [Serializable]

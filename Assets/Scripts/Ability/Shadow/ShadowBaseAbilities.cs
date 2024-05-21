@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Enums;
 using Interfaces;
+using Interfaces.Stats;
 using SignalBus;
 using UnityEngine;
 

@@ -1,5 +1,5 @@
 ﻿
-namespace Interfaces
+namespace Interfaces.Stats
 {
     public interface IShadowAttack : IAttack
     {
