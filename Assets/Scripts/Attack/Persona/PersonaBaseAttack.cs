@@ -26,10 +26,12 @@ namespace Attack.Persona
             Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + totalDamage);
             
             activeEntity.MoveAction();
+            
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
-            EventBus<OnTakeDamage>.Fire(new OnTakeDamage
+            EventBus<OnShadowTakeDamage>.Fire(new OnShadowTakeDamage
             {
                 Stat =  _stat,
+                deactive = activeEntity
             });
         }
     }

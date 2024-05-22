@@ -5,7 +5,7 @@ namespace Battle.UI.Defence
 {
     public class PersonaDefenceUI : BattleBaseDefenceUI
     {
-        public override void TakeDamage(OnDefenceActionUI deactiveEntity)
+        protected override void TakeDamage(OnDefenceActionUI deactiveEntity)
         {
             
         }

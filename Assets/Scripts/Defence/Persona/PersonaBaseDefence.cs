@@ -2,7 +2,7 @@
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
-using UnityEngine;
+using SignalBus;
 
 namespace Defence.Persona
 {
@@ -10,27 +10,29 @@ namespace Defence.Persona
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
-
+        private string _defence;
         public virtual void DefenceAction(IMove deactiveEntity, Stat stat)
         {
-            
+            //kendi kendi verdiği hasardan buraya girebiliyor
             switch (DefenceTypes)
             {
                 case DefenceTypes.Normal:
-                    Debug.Log("This persona has " + Stat + " " + DefenceTypes + " defence");
                     break;
                 case DefenceTypes.Weakness:
-                    Debug.Log("This persona has " + Stat + " " + DefenceTypes + " defence");
                     break;
                 case DefenceTypes.Reflect:
-                    Debug.Log("This persona has " + Stat + " " + DefenceTypes + " defence");
                     break;
                 case DefenceTypes.Resistance:
-                    Debug.Log("This persona has " + Stat + " " + DefenceTypes + " defence");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            EventBus<OnDefenceActionUI>.Fire(new OnDefenceActionUI
+            {
+                attackName = _defence
+            });
+            
         }
     }
 }

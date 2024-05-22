@@ -10,7 +10,10 @@ namespace Battle.UI.Defence
     {
         [SerializeField] protected List<TextMeshProUGUI> _defenceTexts;
         protected BattleDataProvider _battleDataProvider;
+        
+        
         private EventBinding<OnDefenceActionUI> _defenceAction;
+        
 
         private void Awake()
         {
@@ -56,6 +59,6 @@ namespace Battle.UI.Defence
             }
         }
     
-        public abstract void TakeDamage(OnDefenceActionUI deactiveEntity);
+        protected abstract void TakeDamage(OnDefenceActionUI deactiveEntity);
     }
 }

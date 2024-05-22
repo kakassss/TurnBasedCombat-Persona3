@@ -5,9 +5,33 @@ namespace Defence.DefenceAction
 {
     public class PersonaDefenceAction : EntityDefenceAction
     {
-        public override void TakeDamage(OnTakeDamage deactiveEntity)
+        private EventBinding<OnPersonaTakeDamage> _personaDefenceAction;
+        
+        private void OnEnable()
         {
-            var activeDefence = _battleDataProvider.GetActivePersona().entity.EntityDefences; 
+            EnableEventBus();
+        }
+    
+        private void OnDisable()
+        {
+            DisableEventBus();
+        }
+    
+        private void EnableEventBus()
+        {
+            _personaDefenceAction = new EventBinding<OnPersonaTakeDamage>(TakeDamage);
+            EventBus<OnPersonaTakeDamage>.Subscribe(_personaDefenceAction);
+        }
+
+        private void DisableEventBus()
+        {
+            EventBus<OnPersonaTakeDamage>.Unsubscribe(_personaDefenceAction);
+        }
+        
+        private void TakeDamage(OnPersonaTakeDamage deactiveEntity)
+        {
+            var activeDefence = _battleDataProvider.GetActivePersona().entity.EntityDefences;
+            
             var takenDamageStat = deactiveEntity.Stat;
             
             foreach (var defenceType in activeDefence.Where(defenceType => defenceType.Defence.Stat == takenDamageStat))

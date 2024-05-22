@@ -23,10 +23,26 @@ namespace SignalBus
         
     }
 
-    public struct OnTakeDamage : IEvent // TODO: SHADOW IMPLEMENT STILL NOT DONE
+    public class OnPersonaTurn : IEvent
+    {
+        
+    }
+
+    public struct OnShadowTakeDamage : IEvent
     {
         public IMove deactive;
         public Stat Stat;
+    }
+
+    public struct OnPersonaTakeDamage : IEvent
+    {
+        public IMove deactive;
+        public Stat Stat;
+    }
+
+    public struct OnTakeDamage : IEvent // TODO: SHADOW IMPLEMENT STILL NOT DONE
+    {
+        
     }
 
     public struct OnDefenceActionUI : IEvent

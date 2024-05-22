@@ -27,9 +27,10 @@ namespace Ability.Persona
             
             activeEntity.MoveAction();
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
-            EventBus<OnTakeDamage>.Fire(new OnTakeDamage
+            EventBus<OnShadowTakeDamage>.Fire(new OnShadowTakeDamage
             {
-                Stat =  _stat
+                Stat =  _stat,
+                deactive = activeEntity
             });
         }
     }
