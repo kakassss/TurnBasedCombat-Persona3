@@ -32,8 +32,8 @@ namespace SelectShadow
         {
             if (_battleDataProvider.GetActiveEntity() != _battleDataProvider.GetActivePersona()) return;
 
-            HandleInput(KeyCode.UpArrow, 1);
-            HandleInput(KeyCode.DownArrow, -1);
+            HandleInput(KeyCode.UpArrow, -1);
+            HandleInput(KeyCode.DownArrow, 1);
         }
 
         private void HandleInput(KeyCode key, int direction)
