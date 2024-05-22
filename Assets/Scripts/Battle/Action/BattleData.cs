@@ -123,7 +123,7 @@ namespace Battle.Action
         {
             _activeEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
             SetEntity(_activeEntity);
-        
+            Debug.Log("active entity " + _activeEntity.entity.name);
         }
     }
 }

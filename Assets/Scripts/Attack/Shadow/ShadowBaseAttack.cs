@@ -20,7 +20,7 @@ namespace Attack.Shadow
             _randomPersona = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
             var targetPersona = allDeactiveEntities[_randomPersona];
             
-            activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
+            //activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
             targetPersona.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
             
             Debug.Log("Shadow " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
