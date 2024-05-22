@@ -52,20 +52,29 @@ namespace Battle.Action
         
             SetPersona();
         }
-
+        
         private void SetEntities()
+        {
+            SetPersonas();
+            SetShadows();
+        }
+        
+        private void SetPersonas()
         {
             foreach (var persona in _allPersona)
             {
-                _iAllPersonas.Add(persona);    
-            }
-        
-            foreach (var shadow in _allShadows)
-            {
-                _iAllShadows.Add(shadow);    
+                _iAllPersonas.Add(persona);
             }
         }
-    
+
+        private void SetShadows()
+        {
+            foreach (var shadow in _allShadows)
+            {
+                _iAllShadows.Add(shadow);
+            }
+        }
+        
         private void SetPersona()
         {
             _activePersona = _allPersona[_currentEntity];

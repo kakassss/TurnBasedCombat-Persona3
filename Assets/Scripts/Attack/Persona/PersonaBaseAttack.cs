@@ -15,18 +15,15 @@ namespace Attack.Persona
         public string AttackName => _attackName;
         public int AttackDamageToItself => _attackDamageToItself;
         
-        private int _randomShadow;
         public virtual void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
-            _randomShadow = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
-            
-            Debug.Log("onur burda " + SelectTargetShadow.CurrentShadowIndex);
             var targetShadow = allDeactiveEntities[SelectTargetShadow.CurrentShadowIndex];
+            var totalDamage = activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy * (int)_attackTypes;
             
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
-            targetShadow.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
+            targetShadow.entity.TakeDamage(totalDamage);
             
-            Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
+            Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + totalDamage);
             
             activeEntity.MoveAction();
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
