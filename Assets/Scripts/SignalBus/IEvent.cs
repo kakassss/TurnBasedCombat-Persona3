@@ -28,4 +28,9 @@ namespace SignalBus
         public IMove deactive;
         public Stat Stat;
     }
+
+    public struct OnDefenceActionUI : IEvent
+    {
+        public string attackName;
+    }
 }

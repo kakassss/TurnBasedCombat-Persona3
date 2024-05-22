@@ -29,7 +29,7 @@ namespace Attack.Persona
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnTakeDamage>.Fire(new OnTakeDamage
             {
-                Stat =  _stat
+                Stat =  _stat,
             });
         }
     }

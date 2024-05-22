@@ -6,7 +6,7 @@ namespace Defence.DefenceAction
 {
     public class ShadowDefenceAction : EntityDefenceAction
     {
-        public override void TakeDamage(OnTakeDamage deactiveEntity) // TODO: NEW IMOVE PARAMETRES IMPLEMENT IS NOT WORK WITH HERE
+        public override void TakeDamage(OnTakeDamage deactiveEntity)
         {
             var allShadows = _battleDataProvider.GetAllShadows();
             var activeDefence = allShadows[SelectTargetShadow.CurrentShadowIndex].entity.EntityDefences;

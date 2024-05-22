@@ -5,13 +5,12 @@ namespace Battle.UI.Defence
 {
     public class ShadowDefenceUI : BattleBaseDefenceUI
     {
-        public override void TakeDamage(OnTakeDamage deactiveEntity)
+        public override void TakeDamage(OnDefenceActionUI deactiveEntity)
         {
             var currentShadowTextIndex = SelectTargetShadow.CurrentShadowIndex;
-            var takenDamageStat = deactiveEntity.Stat;
-        
+            
             OpenActiveEntityText(currentShadowTextIndex);
-            SetActiveEntityText(takenDamageStat.ToString(),currentShadowTextIndex);
+            SetActiveEntityText(deactiveEntity.attackName,currentShadowTextIndex);
         }
     }
 }

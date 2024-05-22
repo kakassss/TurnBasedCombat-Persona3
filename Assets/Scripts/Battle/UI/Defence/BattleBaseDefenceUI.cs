@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace Battle.UI.Defence
 {
-    public abstract class BattleBaseDefenceUI : MonoBehaviour, ITakeDamage
+    public abstract class BattleBaseDefenceUI : MonoBehaviour
     {
         [SerializeField] protected List<TextMeshProUGUI> _defenceTexts;
         protected BattleDataProvider _battleDataProvider;
-        private EventBinding<OnTakeDamage> _defenceAction;
+        private EventBinding<OnDefenceActionUI> _defenceAction;
 
         private void Awake()
         {
@@ -29,13 +29,13 @@ namespace Battle.UI.Defence
     
         private void EnableEventBus()
         {
-            _defenceAction = new EventBinding<OnTakeDamage>(TakeDamage);
-            EventBus<OnTakeDamage>.Subscribe(_defenceAction);
+            _defenceAction = new EventBinding<OnDefenceActionUI>(TakeDamage);
+            EventBus<OnDefenceActionUI>.Subscribe(_defenceAction);
         }
 
         private void DisableEventBus()
         {
-            EventBus<OnTakeDamage>.Unsubscribe(_defenceAction);
+            EventBus<OnDefenceActionUI>.Unsubscribe(_defenceAction);
         }
 
         protected void SetActiveEntityText(string text,int index)
@@ -56,6 +56,6 @@ namespace Battle.UI.Defence
             }
         }
     
-        public abstract void TakeDamage(OnTakeDamage deactiveEntity);
+        public abstract void TakeDamage(OnDefenceActionUI deactiveEntity);
     }
 }

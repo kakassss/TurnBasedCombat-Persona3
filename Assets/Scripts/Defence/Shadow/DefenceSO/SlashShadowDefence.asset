@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71779b4a21de48a8a53a93d1c6f6c6dd, type: 3}
   m_Name: SlashShadowDefence
   m_EditorClassIdentifier: 
-  DefenceName: 
+  _defenceName: 
   _stat: 0
-  _defenceTypes: 0
+  _defenceTypes: 1

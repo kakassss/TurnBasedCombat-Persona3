@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44845370d05546a586ab206987254c9c, type: 3}
   m_Name: StrikeShadowDefence
   m_EditorClassIdentifier: 
-  DefenceName: 
+  _defenceName: 
   _stat: 1
-  _defenceTypes: 0
+  _defenceTypes: 3

@@ -52,7 +52,6 @@ namespace SelectShadow
                 _shadowIndex = _shadowTotalCount;
             }
             
-            //_shadowIndex = Mathf.Clamp(_shadowIndex + direction, MinShadowCount, _shadowTotalCount); // belki -1 gelebilir sınırı bi zorla
             CurrentShadowIndex = _shadowIndex;
         }
     }

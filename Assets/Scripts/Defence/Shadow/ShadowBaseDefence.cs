@@ -2,6 +2,7 @@
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
+using SignalBus;
 using UnityEngine;
 
 namespace Defence.Shadow
@@ -10,28 +11,33 @@ namespace Defence.Shadow
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
+        private string _defence;
         public virtual void DefenceAction(IMove deactiveEntity, Stat stat)
         {
             stat = _stat;
-            
-            Debug.Log("current stat damaged " + stat);
             switch (DefenceTypes)
             {
                 case DefenceTypes.Normal:
-                    Debug.Log("This Shadow has " + Stat + " " + DefenceTypes + " defence");
+                    _defence = "Normal";
                     break;
                 case DefenceTypes.Weakness:
-                    Debug.Log("This Shadow has " + Stat + " " + DefenceTypes + " defence");
+                    _defence = "Weakness";
                     break;
                 case DefenceTypes.Reflect:
-                    Debug.Log("This Shadow has " + Stat + " " + DefenceTypes + " defence");
+                    _defence = "Reflect";
                     break;
                 case DefenceTypes.Resistance:
-                    Debug.Log("This Shadow has " + Stat + " " + DefenceTypes + " defence");
+                    _defence = "Resistance";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+            
+            EventBus<OnDefenceActionUI>.Fire(new OnDefenceActionUI
+            {
+                attackName = _defence
+            });
+            
         }
     }
 }
