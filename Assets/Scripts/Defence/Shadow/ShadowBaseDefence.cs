@@ -12,30 +12,41 @@ namespace Defence.Shadow
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
         private string _defence;
-        public virtual void DefenceAction(IMove deactiveEntity, Stat stat)
+        public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat,int totalDamage)
         {
-            stat = _stat;
-            switch (DefenceTypes)
+            var otherStat = stat;
+
+            if (otherStat == _stat)
             {
-                case DefenceTypes.Normal:
-                    _defence = "Normal";
-                    break;
-                case DefenceTypes.Weakness:
-                    _defence = "Weakness";
-                    break;
-                case DefenceTypes.Reflect:
-                    _defence = "Reflect";
-                    break;
-                case DefenceTypes.Resistance:
-                    _defence = "Resistance";
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                switch (DefenceTypes)
+                {
+                    case DefenceTypes.Normal:
+                        _defence = "Normal";
+                        break;
+                    case DefenceTypes.Weakness:
+                        _defence = "Weakness";
+                        var damage = totalDamage / 2;
+                       // deactiveEntity.entity.TakeDamage(damage);
+                       
+                        break;
+                    case DefenceTypes.Reflect:
+                        _defence = "Reflect";
+                        activeEntity.entity.TakeDamage(totalDamage);
+                        Debug.Log("Reflect :DDD");
+                        break;
+                    case DefenceTypes.Resistance:
+                        _defence = "Resistance";
+                        deactiveEntity.entity.Heal(totalDamage);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
             
+            EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnDefenceActionUI>.Fire(new OnDefenceActionUI
             {
-                attackName = _defence
+                defenceType = _defence
             });
             
         }

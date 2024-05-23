@@ -18,21 +18,22 @@ namespace Attack.Persona
         public virtual void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
             var targetShadow = allDeactiveEntities[SelectTargetShadow.CurrentShadowIndex];
-            var totalDamage = activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy * (int)_attackTypes;
-            
+            var TotalDamage = activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy * (int)_attackTypes;
+            Debug.Log("onur reel total damage " + TotalDamage);
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
-            targetShadow.entity.TakeDamage(totalDamage);
+            targetShadow.entity.TakeDamage(TotalDamage);
             
-            Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + totalDamage);
+            //Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + TotalDamage);
             
-            activeEntity.MoveAction();
             
-            EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnShadowTakeDamage>.Fire(new OnShadowTakeDamage
             {
                 Stat =  _stat,
-                deactive = activeEntity
+                persona = activeEntity,
+                shadow = targetShadow,
+                totalDamage = TotalDamage
             });
+            activeEntity.MoveAction();
         }
     }
 }

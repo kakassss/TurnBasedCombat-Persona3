@@ -1,6 +1,7 @@
 using System.Linq;
 using SelectShadow;
 using SignalBus;
+using UnityEngine;
 
 namespace Defence.DefenceAction
 {
@@ -29,16 +30,21 @@ namespace Defence.DefenceAction
             EventBus<OnShadowTakeDamage>.Unsubscribe(_shadowDefenceAction);
         }
         
-        private void TakeDamage(OnShadowTakeDamage deactiveEntity)
+        private void TakeDamage(OnShadowTakeDamage persona)
         {
             var allShadows = _battleDataProvider.GetAllShadows();
             var activeDefence = allShadows[SelectTargetShadow.CurrentShadowIndex].entity.EntityDefences;
-            var takenDamageStat = deactiveEntity.Stat;
-            
-            foreach (var defenceType in activeDefence.Where(defenceType => defenceType.Defence.Stat == takenDamageStat))
+            var takenDamageStat = persona.Stat;
+
+            foreach (var defenceType in activeDefence)
             {
-                defenceType.Defence.DefenceAction(deactiveEntity.deactive,deactiveEntity.Stat);
+                if (defenceType.Defence.Stat == takenDamageStat)
+                {
+                    Debug.Log("onur burda xdddd " + persona.totalDamage);
+                    defenceType.Defence.DefenceAction(persona.persona,persona.shadow,persona.Stat,persona.totalDamage);
+                }
             }
+            
         }
     }
 }

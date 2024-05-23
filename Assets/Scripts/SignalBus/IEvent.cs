@@ -30,14 +30,20 @@ namespace SignalBus
 
     public struct OnShadowTakeDamage : IEvent
     {
-        public IMove deactive;
+        public IMove persona;
+        public IMove shadow;
         public Stat Stat;
+        public string defenceType;
+        public int totalDamage;
     }
 
     public struct OnPersonaTakeDamage : IEvent
     {
-        public IMove deactive;
+        public IMove persona;
+        public IMove shadow;
         public Stat Stat;
+        public string defenceType;
+        public int totalDamage;
     }
 
     public struct OnTakeDamage : IEvent // TODO: SHADOW IMPLEMENT STILL NOT DONE
@@ -47,6 +53,7 @@ namespace SignalBus
 
     public struct OnDefenceActionUI : IEvent
     {
-        public string attackName;
+        public string defenceType;
+        public int totalDamage;
     }
 }

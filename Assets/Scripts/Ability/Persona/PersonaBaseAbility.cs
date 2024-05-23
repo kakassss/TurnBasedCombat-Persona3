@@ -30,7 +30,7 @@ namespace Ability.Persona
             EventBus<OnShadowTakeDamage>.Fire(new OnShadowTakeDamage
             {
                 Stat =  _stat,
-                deactive = activeEntity
+                persona = activeEntity
             });
         }
     }

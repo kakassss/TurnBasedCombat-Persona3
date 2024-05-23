@@ -90,7 +90,6 @@ namespace Battle.Action
             _activeEntity = _activeShadow;
             _currentEntityRound = _shadowCount -1;
             
-            Debug.Log("onur ateş??");
             EventBus<OnShadowTurn>.Fire(new OnShadowTurn());
         }
     

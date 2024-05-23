@@ -11,7 +11,7 @@ namespace Defence.Persona
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
         private string _defence;
-        public virtual void DefenceAction(IMove deactiveEntity, Stat stat)
+        public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat, int totalDamage)
         {
             //kendi kendi verdiği hasardan buraya girebiliyor
             switch (DefenceTypes)
@@ -30,7 +30,7 @@ namespace Defence.Persona
             
             EventBus<OnDefenceActionUI>.Fire(new OnDefenceActionUI
             {
-                attackName = _defence
+                defenceType = _defence
             });
             
         }
