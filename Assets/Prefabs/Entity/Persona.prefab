@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7086383476731197971}
   - component: {fileID: 9190734334414635931}
-  - component: {fileID: 4359479693281555273}
   m_Layer: 0
   m_Name: Persona
   m_TagString: Untagged
@@ -64,15 +63,3 @@ MonoBehaviour:
   PersonaConsumableItems:
   - _itemSO: {fileID: 11400000, guid: 9e0b32f77357c6f4b924c9007dcf4264, type: 2}
   - _itemSO: {fileID: 11400000, guid: a597702fcfad4024096f3497fca44454, type: 2}
---- !u!114 &4359479693281555273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3100892378591237401}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d49ef65abad733f4697b91c659e361e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
