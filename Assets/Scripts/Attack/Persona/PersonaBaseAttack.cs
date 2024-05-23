@@ -25,7 +25,6 @@ namespace Attack.Persona
             
             //Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + TotalDamage);
             
-            
             EventBus<OnShadowTakeDamage>.Fire(new OnShadowTakeDamage
             {
                 Stat =  _stat,

@@ -26,7 +26,7 @@ namespace Defence.Shadow
                     case DefenceTypes.Weakness:
                         _defence = "Weakness";
                         var damage = totalDamage / 2;
-                       // deactiveEntity.entity.TakeDamage(damage);
+                       deactiveEntity.entity.TakeDamage(damage);
                        
                         break;
                     case DefenceTypes.Reflect:

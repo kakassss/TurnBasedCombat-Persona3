@@ -35,12 +35,11 @@ namespace Defence.DefenceAction
             var allShadows = _battleDataProvider.GetAllShadows();
             var activeDefence = allShadows[SelectTargetShadow.CurrentShadowIndex].entity.EntityDefences;
             var takenDamageStat = persona.Stat;
-
+            Debug.Log("onur burda xdddd " + persona.shadow.entity.name);
             foreach (var defenceType in activeDefence)
             {
                 if (defenceType.Defence.Stat == takenDamageStat)
                 {
-                    Debug.Log("onur burda xdddd " + persona.totalDamage);
                     defenceType.Defence.DefenceAction(persona.persona,persona.shadow,persona.Stat,persona.totalDamage);
                 }
             }
