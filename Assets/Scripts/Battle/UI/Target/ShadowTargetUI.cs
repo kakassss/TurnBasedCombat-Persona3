@@ -8,6 +8,8 @@ public class ShadowTargetUI : MonoBehaviour
 {
     [SerializeField] private List<Image> _targetImages;
     private EventBinding<OnShadowTargetChanged> _targetUIAction;
+    private EventBinding<OnPersonaTurn> _personaTurn;
+    private EventBinding<OnShadowTurn> _shadowTurn;
 
     private void OnEnable()
     {
@@ -25,11 +27,19 @@ public class ShadowTargetUI : MonoBehaviour
     {
         _targetUIAction = new EventBinding<OnShadowTargetChanged>(SetTargetUI);
         EventBus<OnShadowTargetChanged>.Subscribe(_targetUIAction);
+        
+        _personaTurn = new EventBinding<OnPersonaTurn>(EnableImageUI);
+        EventBus<OnPersonaTurn>.Subscribe(_personaTurn);
+        
+        _shadowTurn = new EventBinding<OnShadowTurn>(DisableImageUI);
+        EventBus<OnShadowTurn>.Subscribe(_shadowTurn);
     }
     
     private void DisableEventBus()
     {
         EventBus<OnShadowTargetChanged>.Unsubscribe(_targetUIAction);
+        EventBus<OnPersonaTurn>.Unsubscribe(_personaTurn);
+        EventBus<OnShadowTurn>.Unsubscribe(_shadowTurn);
     }
 
     private void InitTargetImageUI()
@@ -49,6 +59,20 @@ public class ShadowTargetUI : MonoBehaviour
         }
         
         _targetImages[shadow.ActiveShadowIndex].gameObject.SetActive(true);
+    }
+
+    
+    private void EnableImageUI()
+    {
+        InitTargetImageUI();
+    }
+
+    private void DisableImageUI()
+    {
+        foreach (var targetImage in _targetImages)
+        {
+            targetImage.gameObject.SetActive(false);
+        }
     }
     
 }
