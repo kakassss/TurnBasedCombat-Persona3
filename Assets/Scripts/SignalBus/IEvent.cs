@@ -63,4 +63,9 @@ namespace SignalBus
         public int totalDamage;
         public int activePersonaIndex;
     }
+    
+    public struct OnShadowTargetChanged : IEvent
+    {
+        public int ActiveShadowIndex;
+    }
 }

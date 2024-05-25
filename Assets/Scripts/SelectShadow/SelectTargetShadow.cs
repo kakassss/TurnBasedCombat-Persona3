@@ -1,5 +1,6 @@
 using System;
 using Battle.Action;
+using SignalBus;
 using UnityEngine;
 
 namespace SelectShadow
@@ -50,8 +51,11 @@ namespace SelectShadow
             {
                 _shadowIndex = _shadowTotalCount;
             }
-
             BattleDataProvider.ActiveShadowIndex  = _shadowIndex;
+            EventBus<OnShadowTargetChanged>.Fire(new OnShadowTargetChanged
+            {
+                ActiveShadowIndex = _shadowIndex
+            });
         }
     }
 }
