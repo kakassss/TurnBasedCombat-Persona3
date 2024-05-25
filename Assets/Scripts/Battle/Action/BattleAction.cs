@@ -34,7 +34,6 @@ namespace Battle.Action
         private void SetActionTurn()
         {
             _battleDataAction.Swap();
-            Debug.Log("Action Swap");
         }
     }
 }

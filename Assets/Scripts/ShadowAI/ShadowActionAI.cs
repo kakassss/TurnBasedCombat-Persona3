@@ -49,7 +49,6 @@ namespace ShadowAI
 
         private IEnumerator IEShadowAction()
         {
-            Debug.Log("shadow Action Start ");
             yield return new WaitForSeconds(0.5f);
             
             var randomAction = Random.Range(0, 2);// Currently there are only two actions.
@@ -66,7 +65,6 @@ namespace ShadowAI
                     _data.GetAllPersonas());
             }
         
-            Debug.Log("shadow Action end ");
             //StopCoroutine(shadowActionCor);
         }
     }
