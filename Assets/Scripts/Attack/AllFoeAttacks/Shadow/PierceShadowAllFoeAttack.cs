@@ -3,7 +3,7 @@
 namespace Attack.AllFoeAttacks.Shadow
 {
     [CreateAssetMenu(fileName = "PierceShadowAllFoeAttack", menuName = "ScriptableObjets/ShadowAllFoeAttack/PierceShadowAllFoeAttack")]
-    public class PierceShadowAllFoeAttack: ShadowBaseAllAttack
+    public class PierceShadowAllFoeAttack: ShadowBaseAllFoeAttack
     {
         
     }

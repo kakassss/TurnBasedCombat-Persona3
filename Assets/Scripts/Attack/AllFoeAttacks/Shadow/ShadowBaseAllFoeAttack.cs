@@ -6,7 +6,7 @@ using SignalBus;
 
 namespace Attack.AllFoeAttacks.Shadow
 {
-    public class ShadowBaseAllAttack : EntityBaseAttackData, IShadowAttack
+    public class ShadowBaseAllFoeAttack : EntityBaseAttackData, IShadowAttack
     {
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
