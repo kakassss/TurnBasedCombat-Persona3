@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using BaseEntity;
 using Battle.Action;
+using Interfaces;
 using SignalBus;
 using TMPro;
 using UnityEngine;

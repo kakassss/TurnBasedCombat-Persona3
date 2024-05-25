@@ -1,9 +1,9 @@
 ﻿using System;
-using Battle.Action;
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
+using UnityEngine;
 
 namespace Defence.Persona
 {
@@ -13,7 +13,7 @@ namespace Defence.Persona
         public DefenceTypes DefenceTypes => _defenceTypes;
         
         private string _defence;
-        public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat, int totalDamage)
+        public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat, int totalDamage,int currentEntityIndex)
         {
             var otherStat = stat;
 
@@ -46,7 +46,7 @@ namespace Defence.Persona
             EventBus<OnPersonaDefenceActionUI>.Fire(new OnPersonaDefenceActionUI
             {
                 defenceType = _defence,
-                activePersonaIndex = BattleDataProvider.ActivePersonaIndex
+                activePersonaIndex = currentEntityIndex
             });
             
         }

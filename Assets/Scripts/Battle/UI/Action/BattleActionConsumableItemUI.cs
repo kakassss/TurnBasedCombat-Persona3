@@ -10,18 +10,8 @@ namespace Battle.UI.Action
         [SerializeField] private GameObject _consumableItemUI;
         [SerializeField] private GameObject _consumableItemButton;
         
-        // private bool CheckCurrentEntity()
-        // {
-        //     _consumableItemUI.gameObject.SetActive(IsPersonActive());
-        //     _consumableItemButton.gameObject.SetActive(IsPersonActive());
-        //
-        //     return IsPersonActive();
-        // }
-        
         protected override void InstantiateActionButton(IMove actions)
         {
-            //if(CheckCurrentEntity() == false) return;
-
             Persona personaItem = null;
             var listAction = actions.entity;
 

@@ -1,10 +1,8 @@
 ﻿using System;
-using Battle.Action;
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
-using UnityEngine;
 
 namespace Defence.Shadow
 {
@@ -14,7 +12,7 @@ namespace Defence.Shadow
         public DefenceTypes DefenceTypes => _defenceTypes;
         
         private string _defence;
-        public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat,int totalDamage)
+        public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat,int totalDamage,int currentEntityIndex)
         {
             var otherStat = stat;
 
@@ -47,9 +45,8 @@ namespace Defence.Shadow
             EventBus<OnShadowDefenceActionUI>.Fire(new OnShadowDefenceActionUI
             {
                 defenceType = _defence,
-                activeShadowIndex = BattleDataProvider.ActiveShadowIndex
+                activeShadowIndex = currentEntityIndex
             });
-            
         }
     }
 }

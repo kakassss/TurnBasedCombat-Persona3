@@ -2,6 +2,6 @@
 {
     public interface IShadowDefence : IDefence
     {
-    
+        
     }
 }

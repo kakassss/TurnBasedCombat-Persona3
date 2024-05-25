@@ -3,7 +3,6 @@ using Battle.Action;
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
-using SelectShadow;
 using SignalBus;
 
 namespace Attack.Persona

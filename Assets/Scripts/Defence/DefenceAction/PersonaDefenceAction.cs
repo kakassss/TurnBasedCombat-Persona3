@@ -30,13 +30,13 @@ namespace Defence.DefenceAction
         
         private void TakeDamage(OnPersonaTakeDamage persona)
         {
-            var allPersonas = _battleDataProvider.GetAllShadows();
+            var allPersonas = _battleDataProvider.GetAllPersonas();
             var activeDefence = allPersonas[persona.currentPersona].entity.EntityDefences;
             var takenDamageStat = persona.Stat;
             
             foreach (var defenceType in activeDefence.Where(defenceType => defenceType.Defence.Stat == takenDamageStat))
             {
-                defenceType.Defence.DefenceAction(persona.shadow,persona.persona,persona.Stat,persona.totalDamage);
+                defenceType.Defence.DefenceAction(persona.shadow,persona.persona,persona.Stat,persona.totalDamage,persona.currentPersona);
             }
         }
     }

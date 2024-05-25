@@ -1,8 +1,5 @@
 using System.Linq;
-using Battle.Action;
-using SelectShadow;
 using SignalBus;
-using UnityEngine;
 
 namespace Defence.DefenceAction
 {
@@ -39,7 +36,7 @@ namespace Defence.DefenceAction
             
             foreach (var defenceType in activeDefence.Where(defenceType => defenceType.Defence.Stat == takenDamageStat))
             {
-                defenceType.Defence.DefenceAction(shadow.persona,shadow.shadow,shadow.Stat,shadow.totalDamage);
+                defenceType.Defence.DefenceAction(shadow.persona,shadow.shadow,shadow.Stat,shadow.totalDamage,shadow.currentShadow);
             }
         }
     }
