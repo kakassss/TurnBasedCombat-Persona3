@@ -29,12 +29,12 @@ namespace Battle.UI.Defence
             CloseAllTexts();
         }
         
-        private void TakeDamage(OnShadowDefenceActionUI deactiveEntity)
+        private void TakeDamage(OnShadowDefenceActionUI shadowUIData)
         {
-            var currentShadowTextIndex = BattleDataProvider.ActiveShadowIndex;
+            var currentShadowTextIndex = shadowUIData.activeShadowIndex;
             
             OpenActiveEntityText(currentShadowTextIndex);
-            SetActiveEntityText(deactiveEntity.defenceType, currentShadowTextIndex);
+            SetActiveEntityText(shadowUIData.defenceType, currentShadowTextIndex);
         }
     }
 }

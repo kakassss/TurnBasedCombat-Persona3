@@ -1,4 +1,5 @@
 ﻿using System;
+using Battle.Action;
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
@@ -44,7 +45,8 @@ namespace Defence.Persona
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnPersonaDefenceActionUI>.Fire(new OnPersonaDefenceActionUI
             {
-                defenceType = _defence
+                defenceType = _defence,
+                activePersonaIndex = BattleDataProvider.ActivePersonaIndex
             });
             
         }

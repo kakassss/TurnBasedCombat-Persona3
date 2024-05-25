@@ -35,6 +35,8 @@ namespace SignalBus
         public Stat Stat;
         public string defenceType;
         public int totalDamage;
+
+        public int currentShadow;
     }
 
     public struct OnPersonaTakeDamage : IEvent
@@ -44,6 +46,8 @@ namespace SignalBus
         public Stat Stat;
         public string defenceType;
         public int totalDamage;
+
+        public int currentPersona;
     }
 
     public struct OnTakeDamage : IEvent // TODO: SHADOW IMPLEMENT STILL NOT DONE
@@ -55,11 +59,13 @@ namespace SignalBus
     {
         public string defenceType;
         public int totalDamage;
+        public int activeShadowIndex;
     }
     
     public struct OnPersonaDefenceActionUI : IEvent
     {
         public string defenceType;
         public int totalDamage;
+        public int activePersonaIndex;
     }
 }

@@ -34,7 +34,7 @@ namespace Defence.DefenceAction
         private void TakeDamage(OnShadowTakeDamage shadow)
         {
             var allShadows = _battleDataProvider.GetAllShadows();
-            var activeDefence = allShadows[BattleDataProvider.ActiveShadowIndex].entity.EntityDefences;
+            var activeDefence = allShadows[shadow.currentShadow].entity.EntityDefences;
             var takenDamageStat = shadow.Stat;
             
             foreach (var defenceType in activeDefence.Where(defenceType => defenceType.Defence.Stat == takenDamageStat))

@@ -32,7 +32,8 @@ namespace Attack.Shadow
                 Stat =  _stat,
                 persona = targetPersona,
                 shadow = activeEntity,
-                totalDamage = damage
+                totalDamage = damage,
+                currentPersona = _randomPersona
             });
             activeEntity.MoveAction();
         }

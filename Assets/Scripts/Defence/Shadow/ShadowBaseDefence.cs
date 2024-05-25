@@ -1,4 +1,5 @@
 ﻿using System;
+using Battle.Action;
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
@@ -45,7 +46,8 @@ namespace Defence.Shadow
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnShadowDefenceActionUI>.Fire(new OnShadowDefenceActionUI
             {
-                defenceType = _defence
+                defenceType = _defence,
+                activeShadowIndex = BattleDataProvider.ActiveShadowIndex
             });
             
         }

@@ -30,7 +30,8 @@ namespace Defence.DefenceAction
         
         private void TakeDamage(OnPersonaTakeDamage persona)
         {
-            var activeDefence = _battleDataProvider.GetActivePersona().entity.EntityDefences;
+            var allPersonas = _battleDataProvider.GetAllShadows();
+            var activeDefence = allPersonas[persona.currentPersona].entity.EntityDefences;
             var takenDamageStat = persona.Stat;
             
             foreach (var defenceType in activeDefence.Where(defenceType => defenceType.Defence.Stat == takenDamageStat))
