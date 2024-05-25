@@ -50,11 +50,6 @@ namespace SignalBus
         public int currentPersona;
     }
 
-    public struct OnTakeDamage : IEvent // TODO: SHADOW IMPLEMENT STILL NOT DONE
-    {
-        
-    }
-
     public struct OnShadowDefenceActionUI : IEvent
     {
         public string defenceType;

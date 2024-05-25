@@ -3,7 +3,6 @@ using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
-using UnityEngine;
 
 namespace Ability.Shadow
 {
@@ -19,15 +18,24 @@ namespace Ability.Shadow
         {
             _randomPersona = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
             var targetPersona = allDeactiveEntities[_randomPersona];
+            var damage = (activeEntity.entity.entityBaseSo.BaseAbilityValue + _abilityDamageToEnemy) * (int)_abilityTypes;
             
             //activeEntity.entity.SpendMana(_manaCost);
-            targetPersona.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAbilityValue + _abilityDamageToEnemy) * (int)_abilityTypes);
+            targetPersona.entity.TakeDamage(damage);
             
-            Debug.Log("Shadow " + Stat + " Ability! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _abilityDamageToEnemy) * (int)_abilityTypes);
+            //Debug.Log("Shadow " + Stat + " Ability! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _abilityDamageToEnemy) * (int)_abilityTypes);
             
-            activeEntity.MoveAction();
+            
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
-            EventBus<OnTakeDamage>.Fire(new OnTakeDamage());
+            EventBus<OnPersonaTakeDamage>.Fire(new OnPersonaTakeDamage
+            {
+                Stat =  _stat,
+                persona = targetPersona,
+                shadow = activeEntity,
+                totalDamage = damage,
+                currentPersona = _randomPersona
+            });
+            activeEntity.MoveAction();
         }
     }
 }

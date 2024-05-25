@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
+using Battle.Action;
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
-using UnityEngine;
 
 namespace Ability.Persona
 {
@@ -14,24 +14,26 @@ namespace Ability.Persona
         public string AbilityName => _abilityName;
         public int ManaCost => _manaCost;
         
-        private int _randomShadow;
         public virtual void AbilityAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
-            _randomShadow = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
-            var targetShadow = allDeactiveEntities[_randomShadow];
+            var targetShadow = allDeactiveEntities[BattleDataProvider.ActiveShadowIndex];
+            var damage = (activeEntity.entity.entityBaseSo.BaseAbilityValue + _abilityDamageToEnemy) * (int)_abilityTypes;
             
             activeEntity.entity.SpendMana(_manaCost);
-            targetShadow.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAbilityValue + _abilityDamageToEnemy) * (int)_abilityTypes);
+            targetShadow.entity.TakeDamage(damage);
             
-            Debug.Log("Persona " + Stat + " Ability! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _abilityDamageToEnemy) * (int)_abilityTypes);
+            //Debug.Log("Persona " + Stat + " Ability! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _abilityDamageToEnemy) * (int)_abilityTypes);
             
-            activeEntity.MoveAction();
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnShadowTakeDamage>.Fire(new OnShadowTakeDamage
             {
                 Stat =  _stat,
-                persona = activeEntity
+                persona = activeEntity,
+                shadow = targetShadow,
+                totalDamage = damage,
+                currentShadow = BattleDataProvider.ActiveShadowIndex
             });
+            activeEntity.MoveAction();
         }
     }
 }
