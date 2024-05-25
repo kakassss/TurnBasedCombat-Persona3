@@ -83,21 +83,6 @@ namespace SignalBus
         public int activePersonaIndex;
     }
     
-    public struct OnAllShadowDefenceActionUI : IEvent
-    {
-        public string defenceType;
-        public int totalDamage;
-        public List<int> allShadowsIndex;
-    }
-    
-    public struct OnAllPersonaDefenceActionUI : IEvent
-    {
-        public string defenceType;
-        public int totalDamage;
-        public List<int> allPersonasIndex;
-    }
-
-    
     public struct OnShadowTargetChanged : IEvent
     {
         public int ActiveShadowIndex;
