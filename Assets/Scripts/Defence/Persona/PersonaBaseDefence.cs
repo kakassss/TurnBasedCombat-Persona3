@@ -3,7 +3,6 @@ using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
-using UnityEngine;
 
 namespace Defence.Persona
 {
@@ -31,7 +30,8 @@ namespace Defence.Persona
                         break;
                     case DefenceTypes.Reflect:
                         _defence = "Reflect";
-                        activeEntity.entity.TakeDamage(totalDamage);
+                        activeEntity.entity.TakeDamage(totalDamage / 4);
+                        deactiveEntity.entity.Heal(totalDamage);
                         break;
                     case DefenceTypes.Resistance:
                         _defence = "Resistance";
@@ -48,7 +48,6 @@ namespace Defence.Persona
                 defenceType = _defence,
                 activePersonaIndex = currentEntityIndex
             });
-            
         }
     }
 }

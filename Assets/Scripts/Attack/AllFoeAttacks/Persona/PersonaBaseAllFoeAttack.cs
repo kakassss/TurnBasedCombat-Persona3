@@ -1,9 +1,9 @@
 using System.Collections.Generic;
+using Battle.Action;
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
-using UnityEngine;
 
 namespace Attack.AllFoeAttacks
 {
@@ -16,21 +16,22 @@ namespace Attack.AllFoeAttacks
     
         public void AttackAction(IMove activeEntity, List<IMove> allDeactiveEntities)
         {
+            var damage = (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes;
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
-            foreach (var deactiveEntity in allDeactiveEntities)
+            
+            foreach (var targetShadow in allDeactiveEntities)
             {
-                deactiveEntity.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
+                targetShadow.entity.TakeDamage(damage);
             }
             
-            Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
-            
-            activeEntity.MoveAction();
-            EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
-            EventBus<OnShadowTakeDamage>.Fire(new OnShadowTakeDamage
+            EventBus<OnAllShadowTakeDamage>.Fire(new OnAllShadowTakeDamage
             {
                 Stat =  _stat,
-                persona = activeEntity
+                persona = activeEntity,
+                shadows = allDeactiveEntities,
+                totalDamage = damage,
             });
+            activeEntity.MoveAction();
         }
     }
 }

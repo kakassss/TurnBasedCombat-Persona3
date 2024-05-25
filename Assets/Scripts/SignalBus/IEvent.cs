@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Enums;
 using Interfaces;
 
@@ -33,7 +34,6 @@ namespace SignalBus
         public IMove persona;
         public IMove shadow;
         public Stat Stat;
-        public string defenceType;
         public int totalDamage;
 
         public int currentShadow;
@@ -44,12 +44,31 @@ namespace SignalBus
         public IMove persona;
         public IMove shadow;
         public Stat Stat;
-        public string defenceType;
         public int totalDamage;
 
         public int currentPersona;
     }
 
+    public struct OnAllShadowTakeDamage : IEvent
+    {
+        public IMove persona;
+        public List<IMove> shadows;
+        public Stat Stat;
+        public int totalDamage;
+        
+        public int currentShadow;
+    }
+    
+    public struct OnAllPersonaTakeDamage : IEvent
+    {
+        public IMove shadow;
+        public List<IMove> personas;
+        public Stat Stat;
+        public int totalDamage;
+        
+        public int currentPersona;
+    }
+    
     public struct OnShadowDefenceActionUI : IEvent
     {
         public string defenceType;
@@ -63,6 +82,21 @@ namespace SignalBus
         public int totalDamage;
         public int activePersonaIndex;
     }
+    
+    public struct OnAllShadowDefenceActionUI : IEvent
+    {
+        public string defenceType;
+        public int totalDamage;
+        public List<int> allShadowsIndex;
+    }
+    
+    public struct OnAllPersonaDefenceActionUI : IEvent
+    {
+        public string defenceType;
+        public int totalDamage;
+        public List<int> allPersonasIndex;
+    }
+
     
     public struct OnShadowTargetChanged : IEvent
     {

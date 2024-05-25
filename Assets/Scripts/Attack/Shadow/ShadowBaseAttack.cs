@@ -3,7 +3,6 @@ using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
-using UnityEngine;
 
 namespace Attack.Shadow
 {
@@ -21,11 +20,8 @@ namespace Attack.Shadow
             var targetPersona = allDeactiveEntities[_randomPersona];
             var damage = (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes;
             
-            //activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
+            activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
             targetPersona.entity.TakeDamage(damage);
-            
-            //Debug.Log("Shadow " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
-            
             
             EventBus<OnPersonaTakeDamage>.Fire(new OnPersonaTakeDamage
             {

@@ -39,6 +39,22 @@ namespace Battle.UI.Defence
             _defenceTexts[index].gameObject.SetActive(true);
         }
 
+        protected void SetAllActiveEntityTexts(string text)
+        {
+            foreach (var defenceText in _defenceTexts)
+            {
+                defenceText.text = text;
+            }
+        }
+
+        protected void OpenAllActiveEntityTexts()
+        {
+            foreach (var defenceText in _defenceTexts)
+            {
+                defenceText.gameObject.SetActive(true);
+            }
+        }
+
         protected void CloseAllTexts()
         {
             foreach (var text in _defenceTexts)

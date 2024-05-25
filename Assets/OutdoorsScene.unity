@@ -6730,6 +6730,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4669713055909143347, guid: 046da7e48e2f6dc429836ded49135aeb,
+        type: 3}
+      propertyPath: EntityDefences.Array.data[2]._defenceSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 830c27d4bc24dd54eaf9033fbb5769e3,
+        type: 2}
     - target: {fileID: 6493535574325727531, guid: 046da7e48e2f6dc429836ded49135aeb,
         type: 3}
       propertyPath: m_Name

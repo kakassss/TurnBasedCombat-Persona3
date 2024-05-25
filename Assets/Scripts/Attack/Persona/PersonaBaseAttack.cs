@@ -19,10 +19,8 @@ namespace Attack.Persona
             var targetShadow = allDeactiveEntities[BattleDataProvider.ActiveShadowIndex];
             var damage = activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy * (int)_attackTypes;
             
-            //activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
+            activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
             targetShadow.entity.TakeDamage(damage);
-            
-            //Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + TotalDamage);
             
             EventBus<OnShadowTakeDamage>.Fire(new OnShadowTakeDamage
             {
