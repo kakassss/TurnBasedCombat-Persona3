@@ -3,7 +3,6 @@ using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
-using UnityEngine;
 
 namespace Defence.Shadow
 {
@@ -27,12 +26,10 @@ namespace Defence.Shadow
                         _defence = "Weakness";
                         var damage = totalDamage / 2;
                        deactiveEntity.entity.TakeDamage(damage);
-                       
                         break;
                     case DefenceTypes.Reflect:
                         _defence = "Reflect";
                         activeEntity.entity.TakeDamage(totalDamage);
-                        Debug.Log("Reflect :DDD");
                         break;
                     case DefenceTypes.Resistance:
                         _defence = "Resistance";

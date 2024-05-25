@@ -13,7 +13,7 @@ namespace Battle.UI.Defence
             base.OnEnable();
             EnableEventBus();
         }
-        protected virtual void OnDisable()
+        protected override void OnDisable()
         {
             base.OnDisable();
             DisableEventBus();

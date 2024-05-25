@@ -1,7 +1,6 @@
 using System.Linq;
 using SelectShadow;
 using SignalBus;
-using UnityEngine;
 
 namespace Defence.DefenceAction
 {
@@ -35,7 +34,7 @@ namespace Defence.DefenceAction
             var allShadows = _battleDataProvider.GetAllShadows();
             var activeDefence = allShadows[SelectTargetShadow.CurrentShadowIndex].entity.EntityDefences;
             var takenDamageStat = persona.Stat;
-            Debug.Log("onur burda xdddd " + persona.shadow.entity.name);
+            
             foreach (var defenceType in activeDefence)
             {
                 if (defenceType.Defence.Stat == takenDamageStat)

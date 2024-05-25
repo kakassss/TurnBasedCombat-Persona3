@@ -4,7 +4,6 @@ using Interfaces;
 using Interfaces.Stats;
 using SelectShadow;
 using SignalBus;
-using UnityEngine;
 
 namespace Attack.Persona
 {
@@ -18,10 +17,10 @@ namespace Attack.Persona
         public virtual void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
             var targetShadow = allDeactiveEntities[SelectTargetShadow.CurrentShadowIndex];
-            var TotalDamage = activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy * (int)_attackTypes;
-            Debug.Log("onur reel total damage " + TotalDamage);
+            var damage = activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy * (int)_attackTypes;
+            
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
-            targetShadow.entity.TakeDamage(TotalDamage);
+            targetShadow.entity.TakeDamage(damage);
             
             //Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + TotalDamage);
             
@@ -30,7 +29,7 @@ namespace Attack.Persona
                 Stat =  _stat,
                 persona = activeEntity,
                 shadow = targetShadow,
-                totalDamage = TotalDamage
+                totalDamage = damage
             });
             activeEntity.MoveAction();
         }
