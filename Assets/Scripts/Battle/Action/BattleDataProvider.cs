@@ -8,6 +8,9 @@ namespace Battle.Action
     {
         public BattleData BattleData;
 
+        public static int ActiveShadowIndex = 0;
+        public static int ActivePersonaIndex = 0;
+        
         public int GetCurrentEntityCount()
         {
             return BattleData.GetCurrentEntityCount();
@@ -37,5 +40,7 @@ namespace Battle.Action
         {
             return BattleData.GetAllShadows();
         }
+
+        
     }
 }

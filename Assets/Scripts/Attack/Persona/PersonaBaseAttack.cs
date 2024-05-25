@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Battle.Action;
 using Enums;
 using Interfaces;
 using Interfaces.Stats;
@@ -16,10 +17,10 @@ namespace Attack.Persona
         
         public virtual void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
-            var targetShadow = allDeactiveEntities[SelectTargetShadow.CurrentShadowIndex];
+            var targetShadow = allDeactiveEntities[BattleDataProvider.ActiveShadowIndex];
             var damage = activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy * (int)_attackTypes;
             
-            activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
+            //activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
             targetShadow.entity.TakeDamage(damage);
             
             //Debug.Log("Persona " + Stat + " Attack! " + "Total Damage: " + TotalDamage);

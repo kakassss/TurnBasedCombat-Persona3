@@ -51,7 +51,13 @@ namespace SignalBus
         
     }
 
-    public struct OnDefenceActionUI : IEvent
+    public struct OnShadowDefenceActionUI : IEvent
+    {
+        public string defenceType;
+        public int totalDamage;
+    }
+    
+    public struct OnPersonaDefenceActionUI : IEvent
     {
         public string defenceType;
         public int totalDamage;

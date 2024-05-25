@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Battle.Action
@@ -6,6 +7,7 @@ namespace Battle.Action
     {
         [SerializeField] private BattleDataProvider _data;
 
+        private Coroutine _swapCor;
         public void Swap()
         {
             if (_data.BattleData.GetCurrentEntityCount() == 1)
@@ -17,5 +19,15 @@ namespace Battle.Action
                 _data.BattleData.SwapTurnCurrentEntity();
             }
         }
+
+        private IEnumerator IESwapTurnCurrentEntity()
+        {
+            Debug.Log("Swapping to next entity");
+            yield return new WaitForSeconds(1f);
+            
+            
+            StopCoroutine(_swapCor);
+        }
+        
     }
 }

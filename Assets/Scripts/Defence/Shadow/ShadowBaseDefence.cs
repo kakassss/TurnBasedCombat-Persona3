@@ -3,6 +3,7 @@ using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
+using UnityEngine;
 
 namespace Defence.Shadow
 {
@@ -10,6 +11,7 @@ namespace Defence.Shadow
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
+        
         private string _defence;
         public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat,int totalDamage)
         {
@@ -41,7 +43,7 @@ namespace Defence.Shadow
             }
             
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
-            EventBus<OnDefenceActionUI>.Fire(new OnDefenceActionUI
+            EventBus<OnShadowDefenceActionUI>.Fire(new OnShadowDefenceActionUI
             {
                 defenceType = _defence
             });

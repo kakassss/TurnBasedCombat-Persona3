@@ -6,7 +6,6 @@ namespace SelectShadow
 {
     public class SelectTargetShadow : MonoBehaviour
     {
-        public static int CurrentShadowIndex = 0;
         private const int MinShadowCount = 0;
     
         private BattleDataProvider _battleDataProvider;
@@ -51,8 +50,8 @@ namespace SelectShadow
             {
                 _shadowIndex = _shadowTotalCount;
             }
-            
-            CurrentShadowIndex = _shadowIndex;
+
+            BattleDataProvider.ActiveShadowIndex  = _shadowIndex;
         }
     }
 }

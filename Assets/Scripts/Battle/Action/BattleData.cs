@@ -32,7 +32,7 @@ namespace Battle.Action
         {
             return _currentEntityRound;
         }
-    
+        
         public List<IMove> GetAllPersonas()
         {
             return _iAllPersonas;
@@ -50,7 +50,9 @@ namespace Battle.Action
             _personaCount = _allPersona.Count;
             _shadowCount = _allShadows.Count;
         
-            SetPersona();
+            SetPersonaData();
+            SetActivePersona();
+            SetShadowData();
         }
         
         private void SetEntities()
@@ -75,33 +77,45 @@ namespace Battle.Action
             }
         }
         
-        private void SetPersona()
+        private void SetPersonaData()
         {
             _activePersona = _allPersona[_currentEntity];
-            _activeEntity = _activePersona;
+            BattleDataProvider.ActivePersonaIndex = _currentEntity;
+        }
+
+        private void SetShadowData()
+        {
+            _activeShadow = _allShadows[_currentEntity];
+            BattleDataProvider.ActiveShadowIndex = _currentEntity;
+        }
+
+        private void SetActivePersona()
+        {
+            _activeEntity = _activePersona; 
             _currentEntityRound = _personaCount -1;
-            
+
             EventBus<OnPersonaTurn>.Fire(new OnPersonaTurn());
         }
 
-        private void SetShadow()
+        private void SetActiveShadow()
         {
-            _activeShadow = _allShadows[_currentEntity];
             _activeEntity = _activeShadow;
             _currentEntityRound = _shadowCount -1;
-            
+
             EventBus<OnShadowTurn>.Fire(new OnShadowTurn());
         }
     
-        private void SetEntity(IMove entity)
+        private void SetActiveEntity(IMove entity)
         {
             if (entity == _activePersona)
             {
-                SetPersona();
+                SetPersonaData();
+                SetActivePersona();
             }
             else
             {
-                SetShadow();
+                SetShadowData();
+                SetActiveShadow();
             }
         }
     
@@ -109,7 +123,7 @@ namespace Battle.Action
         {
             if (_currentEntity == _currentEntityRound)
             {
-                _currentEntity = 0;  
+                _currentEntity = 0;
                 SwapTurnToEnemy();
                 return;
             }
@@ -117,14 +131,14 @@ namespace Battle.Action
             if (_currentEntity < _currentEntityRound)
             {
                 _currentEntity++;
-                SetEntity(_activeEntity);
+                SetActiveEntity(_activeEntity);
             }
         }
     
         public void SwapTurnToEnemy()
         {
             _activeEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
-            SetEntity(_activeEntity);
+            SetActiveEntity(_activeEntity);
             Debug.Log("active entity " + _activeEntity.entity.name);
         }
     }

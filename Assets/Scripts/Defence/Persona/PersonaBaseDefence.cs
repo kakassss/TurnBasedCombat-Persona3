@@ -10,25 +10,39 @@ namespace Defence.Persona
     {
         public Stat Stat => _stat;
         public DefenceTypes DefenceTypes => _defenceTypes;
+        
         private string _defence;
         public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat, int totalDamage)
         {
-            //kendi kendi verdiği hasardan buraya girebiliyor
-            switch (DefenceTypes)
+            var otherStat = stat;
+
+            if (otherStat == _stat)
             {
-                case DefenceTypes.Normal:
-                    break;
-                case DefenceTypes.Weakness:
-                    break;
-                case DefenceTypes.Reflect:
-                    break;
-                case DefenceTypes.Resistance:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                switch (DefenceTypes)
+                {
+                    case DefenceTypes.Normal:
+                        _defence = "Normal";
+                        break;
+                    case DefenceTypes.Weakness:
+                        _defence = "Weakness";
+                        var damage = totalDamage / 2;
+                        deactiveEntity.entity.TakeDamage(damage);
+                        break;
+                    case DefenceTypes.Reflect:
+                        _defence = "Reflect";
+                        activeEntity.entity.TakeDamage(totalDamage);
+                        break;
+                    case DefenceTypes.Resistance:
+                        _defence = "Resistance";
+                        deactiveEntity.entity.Heal(totalDamage);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             }
             
-            EventBus<OnDefenceActionUI>.Fire(new OnDefenceActionUI
+            EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
+            EventBus<OnPersonaDefenceActionUI>.Fire(new OnPersonaDefenceActionUI
             {
                 defenceType = _defence
             });

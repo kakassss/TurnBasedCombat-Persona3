@@ -19,15 +19,22 @@ namespace Attack.Shadow
         {
             _randomPersona = Helper.GetRandomNumber(0, allDeactiveEntities.Count);
             var targetPersona = allDeactiveEntities[_randomPersona];
+            var damage = (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes;
             
             //activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);
-            targetPersona.entity.TakeDamage((activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
+            targetPersona.entity.TakeDamage(damage);
             
-            Debug.Log("Shadow " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
+            //Debug.Log("Shadow " + Stat + " Attack! " + "Total Damage: " + (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes);
             
+            
+            EventBus<OnPersonaTakeDamage>.Fire(new OnPersonaTakeDamage
+            {
+                Stat =  _stat,
+                persona = targetPersona,
+                shadow = activeEntity,
+                totalDamage = damage
+            });
             activeEntity.MoveAction();
-            EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
-            EventBus<OnTakeDamage>.Fire(new OnTakeDamage());
         }
 
     }

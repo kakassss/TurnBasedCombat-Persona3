@@ -40,7 +40,6 @@ namespace ShadowAI
     
         private void SetMoves()
         {
-            Debug.Log("Shadow Turns");
             _shadowAttacks = _data.GetActiveShadow().entity.EntityAttacks;
             _shadowAbilities = _data.GetActiveShadow().entity.EntityAbilities;
 

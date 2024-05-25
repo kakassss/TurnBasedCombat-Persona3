@@ -28,15 +28,14 @@ namespace Defence.DefenceAction
             EventBus<OnPersonaTakeDamage>.Unsubscribe(_personaDefenceAction);
         }
         
-        private void TakeDamage(OnPersonaTakeDamage shadow)
+        private void TakeDamage(OnPersonaTakeDamage persona)
         {
             var activeDefence = _battleDataProvider.GetActivePersona().entity.EntityDefences;
-            
-            var takenDamageStat = shadow.Stat;
+            var takenDamageStat = persona.Stat;
             
             foreach (var defenceType in activeDefence.Where(defenceType => defenceType.Defence.Stat == takenDamageStat))
             {
-                defenceType.Defence.DefenceAction(shadow.shadow,shadow.persona,shadow.Stat,shadow.totalDamage);
+                defenceType.Defence.DefenceAction(persona.shadow,persona.persona,persona.Stat,persona.totalDamage);
             }
         }
     }
