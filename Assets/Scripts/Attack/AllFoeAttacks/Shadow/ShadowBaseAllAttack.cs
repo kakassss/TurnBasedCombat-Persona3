@@ -4,9 +4,9 @@ using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
 
-namespace Attack.AllFoeAttacks.Persona
+namespace Attack.AllFoeAttacks.Shadow
 {
-    public class PersonaBaseAllFoeAttack : EntityBaseAttackData, IPersonaAttack
+    public class ShadowBaseAllAttack : EntityBaseAttackData, IShadowAttack
     {
         public Stat Stat => _stat;
         public AttackTypes AttackTypes => _attackTypes;
@@ -23,11 +23,11 @@ namespace Attack.AllFoeAttacks.Persona
                 targetShadow.entity.TakeDamage(damage);
             }
             
-            EventBus<OnAllShadowTakeDamage>.Fire(new OnAllShadowTakeDamage
+            EventBus<OnAllPersonaTakeDamage>.Fire(new OnAllPersonaTakeDamage
             {
                 Stat =  _stat,
-                persona = activeEntity,
-                shadows = allDeactiveEntities,
+                shadow = activeEntity,
+                personas = allDeactiveEntities,
                 totalDamage = damage,
             });
             activeEntity.MoveAction();
