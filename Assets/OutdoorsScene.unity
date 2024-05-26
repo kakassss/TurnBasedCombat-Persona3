@@ -879,6 +879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9190734334414635931, guid: 51a4749871eed974abaa15c6df42407b,
         type: 3}
+      propertyPath: isDisable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190734334414635931, guid: 51a4749871eed974abaa15c6df42407b,
+        type: 3}
       propertyPath: EntityAttacks.Array.size
       value: 2
       objectReference: {fileID: 0}
@@ -6233,6 +6238,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9190734334414635931, guid: 51a4749871eed974abaa15c6df42407b,
+        type: 3}
+      propertyPath: isDisable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
