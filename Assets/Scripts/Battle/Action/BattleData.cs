@@ -9,6 +9,7 @@ namespace Battle.Action
 {
     public class BattleData : MonoBehaviour
     {
+        public static IMove ActiveEntity;
         [SerializeField] private List<Shadow> _allShadows;
         [SerializeField] private List<Persona> _allPersona;
     

@@ -8,8 +8,9 @@ namespace BaseEntity
 {
     public abstract class Entity : MonoBehaviour, IEntity,IMove
     {
+        public bool isDisable; 
+        
         public EntityBaseSO entityBaseSo;
-    
         protected int _currentHealth;
         protected int _currentMana;
 

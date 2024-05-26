@@ -48,7 +48,7 @@ namespace Defence.DefenceAction
         private void TakeAllShadowDamage(OnAllPersonaTakeDamage allPersonas)
         {
             var personas = allPersonas.personas;
-
+            
             foreach (var persona in personas)
             {
                 foreach (var defence in persona.entity.EntityDefences.Where(defence => defence.Defence.Stat == allPersonas.Stat))
