@@ -8766,7 +8766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1634b625fc4e88b4e89a3ace5352cee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BattleData: {fileID: 1562567317}
+  battleDataManager: {fileID: 1562567317}
 --- !u!1001 &2063129043
 PrefabInstance:
   m_ObjectHideFlags: 0

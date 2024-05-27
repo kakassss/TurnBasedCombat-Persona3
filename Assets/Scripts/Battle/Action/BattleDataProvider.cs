@@ -1,46 +1,48 @@
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Battle.Action
 {
     public class BattleDataProvider : MonoBehaviour
     {
-        public BattleData BattleData;
+        public BattleDataManager battleDataManager;
 
         public static int ActiveShadowIndex = 0;
         public static int ActivePersonaIndex = 0;
         
-        public int GetCurrentEntityCount()
-        {
-            return BattleData.GetCurrentEntityCount();
-        }
         
         public IMove GetActivePersona()
         {
-            return BattleData.GetActivePersona;
+            return battleDataManager.GetActivePersona();
         }
     
         public IMove GetActiveShadow()
         {
-            return BattleData.GetActiveShadow;
+            return battleDataManager.GetActiveShadow();
         }
 
         public IMove GetActiveEntity()
         {
-            return BattleData.GetActiveEntity;
+            return BattleDataManager.ActiveEntity;
         }
         
         public List<IMove> GetAllPersonas()
         {
-            return BattleData.GetAllPersonas();
+            return battleDataManager.GetAllPersonas();
         }
         
         public List<IMove> GetAllShadows()
         {
-            return BattleData.GetAllShadows();
+            return battleDataManager.GetAllShadows();
         }
 
+
+        public int GetShadowCount()
+        {
+            return battleDataManager.GetShadowCount();
+        }
         
     }
 }

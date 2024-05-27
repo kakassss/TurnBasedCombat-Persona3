@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using BaseEntity;
 using Interfaces;
-using SelectShadow;
 using SignalBus;
 using UnityEngine;
 
@@ -10,136 +9,93 @@ namespace Battle.Action
     public class BattleDataManager : MonoBehaviour
     {
         public static IMove ActiveEntity;
+
+        private EventBinding<OnTurnEntity> _onTurnEntity;
+        
         [SerializeField] private List<Shadow> _allShadows;
         [SerializeField] private List<Persona> _allPersona;
-    
-        private List<IMove> _iAllPersonas = new List<IMove>();
-        private List<IMove> _iAllShadows = new List<IMove>();
         
-        private IMove _activeEntity;
-        private IMove _activePersona;
-        private IMove _activeShadow;
-    
-        private int _personaCount;
-        private int _shadowCount;
-        private int _currentEntityRound;
-        private int _currentEntity = 0;
-    
-        public IMove GetActivePersona => _activePersona;
-        public IMove GetActiveShadow => _activeShadow;
-        public IMove GetActiveEntity => _activeEntity;
-    
-        public int GetCurrentEntityCount()
+        private BattleDataPersona _battleDataPersona;
+        private BattleDataShadow _battleDataShadow;
+
+        public IMove GetActivePersona()
         {
-            return _currentEntityRound;
+            return _battleDataPersona.ActivePersona;
+        }
+
+        public IMove GetActiveShadow()
+        {
+            return _battleDataShadow.ActiveShadow;
         }
         
         public List<IMove> GetAllPersonas()
         {
-            return _iAllPersonas;
+            return _battleDataPersona.GetAllPersonas();
         }
     
         public List<IMove> GetAllShadows()
         {
-            return _iAllShadows;
+            return _battleDataShadow.GetAllShadows();
+        }
+
+        public int GetShadowCount()
+        {
+            return _battleDataShadow.GetAllShadowCount();
         }
     
         private void Awake()
         {
-            SetEntities();
-        
-            _personaCount = _allPersona.Count;
-            _shadowCount = _allShadows.Count;
-        
-            SetPersonaData();
-            SetActivePersona();
-            SetShadowData();
+            _battleDataPersona = new BattleDataPersona();
+            _battleDataShadow = new BattleDataShadow();
+            EnableEventBus();
+            //Current Active entity is persona
+            _battleDataPersona.InitPersona(_allPersona);
+            _battleDataShadow.InitShadow(_allShadows);
+        }
+
+        private void OnDisable()
+        {
+            DisableEventBus();
+        }
+
+        private void EnableEventBus()
+        {
+            _onTurnEntity = new EventBinding<OnTurnEntity>(SwapTurnToEnemy);
+            EventBus<OnTurnEntity>.Subscribe(_onTurnEntity);
         }
         
-        private void SetEntities()
+        private void DisableEventBus()
         {
-            SetPersonas();
-            SetShadows();
+            EventBus<OnTurnEntity>.Unsubscribe(_onTurnEntity);
         }
         
-        private void SetPersonas()
+        
+        private void SetActiveEntity()
         {
-            foreach (var persona in _allPersona)
+            //Main idea: Every entities should do their own work,
+            // manager is here just for the select the right data
+            Debug.Log("onur 1");
+            if (ActiveEntity == _battleDataPersona.ActivePersona)
             {
-                _iAllPersonas.Add(persona);
-            }
-        }
-
-        private void SetShadows()
-        {
-            foreach (var shadow in _allShadows)
-            {
-                _iAllShadows.Add(shadow);
-            }
-        }
-        
-        private void SetPersonaData()
-        {
-            _activePersona = _allPersona[_currentEntity];
-            BattleDataProvider.ActivePersonaIndex = _currentEntity;
-        }
-
-        private void SetShadowData()
-        {
-            _activeShadow = _allShadows[_currentEntity];
-            BattleDataProvider.ActiveShadowIndex = _currentEntity;
-        }
-
-        private void SetActivePersona()
-        {
-            _activeEntity = _activePersona; 
-            _currentEntityRound = _personaCount -1;
-
-            EventBus<OnPersonaTurn>.Fire(new OnPersonaTurn());
-        }
-
-        private void SetActiveShadow()
-        {
-            _activeEntity = _activeShadow;
-            _currentEntityRound = _shadowCount -1;
-
-            EventBus<OnShadowTurn>.Fire(new OnShadowTurn());
-        }
-    
-        private void SetActiveEntity(IMove entity)
-        {
-            if (entity == _activePersona)
-            {
-                SetPersonaData();
-                SetActivePersona();
+                Debug.Log("onur 2");
+                _battleDataPersona.SwapCurrentPersona();
             }
             else
             {
-                SetShadowData();
-                SetActiveShadow();
+                Debug.Log("onur 3");
+                _battleDataShadow.SwapCurrentShadow();
             }
         }
-    
-        public void SwapTurnCurrentEntity()
-        {
-            if (_currentEntity == _currentEntityRound)
-            {
-                _currentEntity = 0;
-                SwapTurnToEnemy();
-                return;
-            }
         
-            if (_currentEntity < _currentEntityRound)
-            {
-                _currentEntity++;
-                SetActiveEntity(_activeEntity);
-            }
-        }
     
         public void SwapTurnToEnemy()
         {
-            ActiveEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
-            SetActiveEntity(_activeEntity);
+            Debug.Log("onur 4");
+            ActiveEntity = ActiveEntity == _battleDataPersona.ActivePersona ?
+                _battleDataShadow.ActiveShadow : _battleDataPersona.ActivePersona;
+            
+            Debug.Log("onur 6" + ActiveEntity);
+            SetActiveEntity();
         }
     }
 }

@@ -10,14 +10,16 @@ namespace Battle.Action
         private Coroutine _swapCor;
         public void Swap()
         {
-            if (_data.BattleData.GetCurrentEntityCount() == 1)
-            {
-                _data.BattleData.SwapTurnToEnemy(); 
-            }
-            else
-            {
-                _data.BattleData.SwapTurnCurrentEntity();
-            }
+            _data.battleDataManager.SwapTurnToEnemy();
+            //Get swap action here
+            // if (_data.battleDataManager.GetCurrentEntityCount() == 1)
+            // {
+            //     _data.battleDataManager.SwapTurnToEnemy(); 
+            // }
+            // else
+            // {
+            //     _data.battleDataManager.SwapTurnCurrentEntity();
+            // }
         }
 
         private IEnumerator IESwapTurnCurrentEntity()

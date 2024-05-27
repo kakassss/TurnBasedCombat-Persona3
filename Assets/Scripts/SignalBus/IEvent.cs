@@ -9,6 +9,11 @@ namespace SignalBus
     
     }
 
+    public class OnTurnEntity : IEvent
+    {
+        
+    }
+    
     public class OnHealthChanged : IEvent
     {
         

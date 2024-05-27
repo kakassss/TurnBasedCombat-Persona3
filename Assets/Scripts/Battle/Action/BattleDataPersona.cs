@@ -1,40 +1,47 @@
+using System;
 using System.Collections.Generic;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
 using UnityEngine;
 
+
 namespace Battle.Action
 {
-    public class BattleDataPersona : MonoBehaviour
+    [Serializable]
+    public class BattleDataPersona
     {
-        //Get reference All personas
-        [SerializeField] private List<Persona> _allPersona;
+        public IMove ActivePersona;
     
         private List<IMove> _allPlayablePersonas = new List<IMove>(); // To select
         private List<IMove> _allPersonas = new List<IMove>(); // To shadow all foe attack
     
-        private IMove _activePersona;
         private int _personaCount;
-    
         private int _personaCurrentEntity;
         private int _personaTotalEntity;
-    
+        
         public List<IMove> GetAllPersonas()
         {
             return _allPersonas;
         }
 
-        private void Awake()
+        public int GetAllPersonaCount()
         {
-            SetPersonas();
-        
+            return _personaCount;
         }
-
-        private void SetPersonas()
+        
+        public void InitPersona(List<Persona> allPersona)
         {
-            foreach (var persona in _allPersona)
+            SetPersonasList(allPersona);
+            
+            SetPlayablePersonas();
+        }
+        
+        private void SetPersonasList(List<Persona> allPersona)
+        {
+            foreach (var persona in allPersona)
             {
+                _allPersonas.Add(persona);
                 if (persona.isDisable == false)
                 {
                     _allPlayablePersonas.Add(persona);
@@ -43,16 +50,22 @@ namespace Battle.Action
 
             _personaCount = _allPlayablePersonas.Count;
         }
+
+        private void SetPlayablePersonas()
+        {
+            SetPersonaData();
+            SetActivePersona();
+        }
     
         private void SetPersonaData()
         {
-            _activePersona = _allPlayablePersonas[_personaCurrentEntity];
+            ActivePersona = _allPlayablePersonas[_personaCurrentEntity];
             BattleDataProvider.ActivePersonaIndex = _personaCurrentEntity;
         }
     
         private void SetActivePersona()
         {
-            BattleData.ActiveEntity = _activePersona; 
+            BattleDataManager.ActiveEntity = ActivePersona; 
             _personaTotalEntity = _personaCount -1;
 
             EventBus<OnPersonaTurn>.Fire(new OnPersonaTurn());
@@ -62,12 +75,17 @@ namespace Battle.Action
         {
             if (_personaCurrentEntity == _personaTotalEntity)
             {
-                //ShadowTurn
+                _personaCurrentEntity = 0;
+                Debug.Log("onur ??");
+                EventBus<OnTurnEntity>.Fire(new OnTurnEntity()); //ShadowTurn
+                return;
             }
 
             if (_personaCurrentEntity < _personaTotalEntity)
             {
-            
+                Debug.Log("onur ??22");
+                _personaCurrentEntity++;
+                SetPlayablePersonas();
             }
         }
     

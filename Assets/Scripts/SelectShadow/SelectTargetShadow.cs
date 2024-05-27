@@ -25,7 +25,7 @@ namespace SelectShadow
 
         private void SetData()
         {
-            _shadowTotalCount = _battleDataProvider.GetCurrentEntityCount();
+            _shadowTotalCount = _battleDataProvider.GetShadowCount();
         }
 
         private void Update()
