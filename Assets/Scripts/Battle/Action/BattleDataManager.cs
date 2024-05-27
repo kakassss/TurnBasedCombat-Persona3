@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Battle.Action
 {
-    public class BattleData : MonoBehaviour
+    public class BattleDataManager : MonoBehaviour
     {
         public static IMove ActiveEntity;
         [SerializeField] private List<Shadow> _allShadows;
@@ -138,7 +138,7 @@ namespace Battle.Action
     
         public void SwapTurnToEnemy()
         {
-            _activeEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
+            ActiveEntity = _activeEntity == _activePersona ? _activeShadow : _activePersona;
             SetActiveEntity(_activeEntity);
         }
     }
