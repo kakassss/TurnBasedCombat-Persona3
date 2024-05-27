@@ -17,6 +17,22 @@ namespace Battle.Action
         
         private BattleDataPersona _battleDataPersona;
         private BattleDataShadow _battleDataShadow;
+        
+        
+        /*
+         * Şuanki bokluklar
+         *
+         * şuan isdisable mantıgı direkt hiç oynatmıyor, disable olan personaya belki disable shadowlar
+         * da bir move yapmıyordur test etmedin.
+         * current persona index 2de tıkanıyor ve hep orda kalıyor, ilk baş ilk elemandan başlıyor fakat
+         * sonrasında bi daha 0lanmıyor.
+         *
+         * şuanlık oyun patlamıyor persona attack yapıyor shadow da herhangi bir move.
+         *
+         *
+         *
+         * 
+         */
 
         public IMove GetActivePersona()
         {
