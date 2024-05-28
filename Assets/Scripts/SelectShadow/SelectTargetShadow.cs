@@ -42,15 +42,19 @@ namespace SelectShadow
 
             _shadowIndex += direction;
             
-            if (_shadowIndex > _shadowTotalCount)
+            
+            
+            if (_shadowIndex >= _shadowTotalCount)
             {
                 _shadowIndex = MinShadowCount;
             }
 
             if (_shadowIndex < MinShadowCount)
             {
-                _shadowIndex = _shadowTotalCount;
+                _shadowIndex = _shadowTotalCount-1;
             }
+            
+            Debug.Log("_shadowTotalCount " + _shadowIndex);
             BattleDataProvider.ActiveShadowIndex  = _shadowIndex;
             EventBus<OnShadowTargetChanged>.Fire(new OnShadowTargetChanged
             {
