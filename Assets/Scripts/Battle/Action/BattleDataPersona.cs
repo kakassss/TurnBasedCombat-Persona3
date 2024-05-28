@@ -76,14 +76,12 @@ namespace Battle.Action
             if (_personaCurrentEntity == _personaTotalEntity)
             {
                 _personaCurrentEntity = 0;
-                Debug.Log("onur ??");
                 EventBus<OnTurnEntity>.Fire(new OnTurnEntity()); //ShadowTurn
                 return;
             }
 
             if (_personaCurrentEntity < _personaTotalEntity)
             {
-                Debug.Log("onur ??22");
                 _personaCurrentEntity++;
                 SetPlayablePersonas();
             }
