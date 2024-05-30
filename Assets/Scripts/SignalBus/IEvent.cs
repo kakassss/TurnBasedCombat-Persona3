@@ -92,4 +92,10 @@ namespace SignalBus
     {
         public int ActiveShadowIndex;
     }
+
+    public struct OnAllOutAttack : IEvent
+    {
+        
+    }
+    
 }

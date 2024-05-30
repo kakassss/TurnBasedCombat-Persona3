@@ -10,6 +10,7 @@
         Electricity,
         Wind,
         Light,
-        Dark
+        Dark,
+        AllOut
     }
 }
