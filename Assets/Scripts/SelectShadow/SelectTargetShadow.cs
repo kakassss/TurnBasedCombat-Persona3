@@ -1,4 +1,3 @@
-using System;
 using Battle.Action;
 using SignalBus;
 using UnityEngine;
@@ -41,8 +40,6 @@ namespace SelectShadow
             if (!Input.GetKeyDown(key)) return;
 
             _shadowIndex += direction;
-            
-            
             
             if (_shadowIndex >= _shadowTotalCount)
             {

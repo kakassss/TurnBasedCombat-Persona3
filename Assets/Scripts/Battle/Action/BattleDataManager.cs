@@ -50,7 +50,6 @@ namespace Battle.Action
             _battleDataShadow = new BattleDataShadow();
             EnableEventBus();
             
-            
             //Current Active entity is persona
             _battleDataPersona.InitPersona(_allPersona);
             _battleDataShadow.InitShadow(_allShadows);
@@ -71,7 +70,6 @@ namespace Battle.Action
         {
             EventBus<OnTurnEntity>.Unsubscribe(_onTurnEntity);
         }
-        
         
         private void SetActiveEntity()
         {

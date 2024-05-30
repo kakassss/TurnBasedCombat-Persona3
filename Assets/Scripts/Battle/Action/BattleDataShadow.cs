@@ -4,7 +4,6 @@ using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
-using UnityEngine;
 
 namespace Battle.Action
 {
@@ -76,7 +75,6 @@ namespace Battle.Action
         {
             ActiveShadow = _allPlayableShadows[_shadowCurrentEntity];
             BattleDataProvider.ActiveShadowIndex = _shadowCurrentEntity;
-            //_shadowTotalPlayableCount = _shadowsTotalCount ;
         }
         
         private void SetActiveShadow()

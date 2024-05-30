@@ -11,15 +11,6 @@ namespace Battle.Action
         public void Swap()
         {
             _data.battleDataManager.SwapTurnToEnemy();
-            //Get swap action here
-            // if (_data.battleDataManager.GetCurrentEntityCount() == 1)
-            // {
-            //     _data.battleDataManager.SwapTurnToEnemy(); 
-            // }
-            // else
-            // {
-            //     _data.battleDataManager.SwapTurnCurrentEntity();
-            // }
         }
 
         private IEnumerator IESwapTurnCurrentEntity()

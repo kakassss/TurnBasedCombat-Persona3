@@ -4,8 +4,6 @@ using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
-using UnityEngine;
-
 
 namespace Battle.Action
 {
@@ -72,10 +70,6 @@ namespace Battle.Action
 
         public void SwapCurrentPersona()
         {
-            Debug.Log("onur burada hz");
-            
-            
-            
             if (_personaCurrentEntity == _personaTotalPlayableCount)
             {
                 _personaCurrentEntity = 0;

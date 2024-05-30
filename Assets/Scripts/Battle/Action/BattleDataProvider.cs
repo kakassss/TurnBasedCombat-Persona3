@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Battle.Action
 {
@@ -11,7 +10,6 @@ namespace Battle.Action
 
         public static int ActiveShadowIndex = 0;
         public static int ActivePersonaIndex = 0;
-        
         
         public IMove GetActivePersona()
         {
@@ -37,8 +35,7 @@ namespace Battle.Action
         {
             return battleDataManager.GetAllShadows();
         }
-
-
+        
         public int GetShadowCount()
         {
             return battleDataManager.GetShadowCount();
