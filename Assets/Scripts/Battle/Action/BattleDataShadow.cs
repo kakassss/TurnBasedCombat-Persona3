@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
@@ -6,6 +8,7 @@ using UnityEngine;
 
 namespace Battle.Action
 {
+    [Serializable]
     public class BattleDataShadow
     {
         public IMove ActiveShadow;
@@ -31,6 +34,7 @@ namespace Battle.Action
         public void InitShadow(List<Shadow> allShadow)
         {
             SetShadowsList(allShadow);
+            SetPlayableShadows(allShadow);
             
             SetPlayableShadowsData();
         }
@@ -40,15 +44,22 @@ namespace Battle.Action
             foreach (var shadow in allShadow)
             {
                 _allShadows.Add(shadow);
-                if (shadow.isDisable == false)
-                {
-                    _allPlayableShadows.Add(shadow);
-                }
+            }
+            _shadowsTotalCount = allShadow.Count;
+        }
+
+        public void SetPlayableShadows(List<Shadow> allShadow)
+        {
+            _allPlayableShadows.Clear();
+            
+            foreach (var shadow in allShadow.Where(shadow => shadow.isDisable == false))
+            {
+                _allPlayableShadows.Add(shadow);
             }
 
-            _shadowsTotalCount = _allShadows.Count;
             _shadowTotalPlayableCount = _allPlayableShadows.Count;
         }
+        
 
         private void SetPlayableShadowsData()
         {
@@ -65,32 +76,30 @@ namespace Battle.Action
         {
             ActiveShadow = _allPlayableShadows[_shadowCurrentEntity];
             BattleDataProvider.ActiveShadowIndex = _shadowCurrentEntity;
+            //_shadowTotalPlayableCount = _shadowsTotalCount ;
         }
         
         private void SetActiveShadow()
         {
             BattleDataManager.ActiveEntity = ActiveShadow;
-            _shadowTotalPlayableCount = _shadowsTotalCount -1;
-            Debug.Log("onur active shadow 1");
+            
             EventBus<OnShadowTurn>.Fire(new OnShadowTurn());
-            Debug.Log("onur active shadow 2");
         }
         
         public void SwapCurrentShadow()
         {
+
             if (_shadowCurrentEntity == _shadowTotalPlayableCount)
             {
                 _shadowCurrentEntity = 0;
-                Debug.Log("onur active shadow 1?");
                 EventBus<OnTurnEntity>.Fire(new OnTurnEntity()); //Persona Turn
                 return;
             }
 
             if (_shadowCurrentEntity < _shadowTotalPlayableCount)
             {
-                _shadowCurrentEntity++;
-                Debug.Log("onur active shadow 2?");
                 SetPlayableShadows();
+                _shadowCurrentEntity++;
             }
         }
         

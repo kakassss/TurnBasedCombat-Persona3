@@ -54,7 +54,6 @@ namespace SelectShadow
                 _shadowIndex = _shadowTotalCount-1;
             }
             
-            Debug.Log("_shadowTotalCount " + _shadowIndex);
             BattleDataProvider.ActiveShadowIndex  = _shadowIndex;
             EventBus<OnShadowTargetChanged>.Fire(new OnShadowTargetChanged
             {

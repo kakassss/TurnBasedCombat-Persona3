@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
@@ -16,9 +17,9 @@ namespace Battle.Action
         private List<IMove> _allPlayablePersonas = new List<IMove>(); // To select
         private List<IMove> _allPersonas = new List<IMove>(); // To shadow all foe attack
     
-        private int _personaCount;
+        private int _personaTotalCount;
         private int _personaCurrentEntity;
-        private int _personaTotalEntity;
+        private int _personaTotalPlayableCount;
         
         public List<IMove> GetAllPersonas()
         {
@@ -27,14 +28,15 @@ namespace Battle.Action
 
         public int GetAllPersonaCount()
         {
-            return _personaCount;
+            return _personaTotalCount;
         }
         
         public void InitPersona(List<Persona> allPersona)
         {
-            SetPersonasList(allPersona);
+            SetPersonasList(allPersona);// Set total number of persona
+            SetPlayablePersonaList(allPersona); // Set total playable number of persona
             
-            SetPlayablePersonas();
+            SwapCurrentPersona();
         }
         
         private void SetPersonasList(List<Persona> allPersona)
@@ -42,48 +44,49 @@ namespace Battle.Action
             foreach (var persona in allPersona)
             {
                 _allPersonas.Add(persona);
-                if (persona.isDisable == false)
-                {
-                    _allPlayablePersonas.Add(persona);
-                }
+            }
+            
+            _personaTotalCount = allPersona.Count;
+        }
+
+        public void SetPlayablePersonaList(List<Persona> allPersona)
+        {
+            _allPlayablePersonas.Clear(); // clear first data
+            
+            foreach (var persona in allPersona.Where(persona => persona.isDisable == false))
+            {
+                _allPlayablePersonas.Add(persona); // add to list playable personas
             }
 
-            _personaCount = _allPlayablePersonas.Count;
+            _personaTotalPlayableCount = _allPlayablePersonas.Count; // set total number of playable persona
         }
-
+        
         private void SetPlayablePersonas()
         {
-            SetPersonaData();
-            SetActivePersona();
-        }
-    
-        private void SetPersonaData()
-        {
-            ActivePersona = _allPlayablePersonas[_personaCurrentEntity];
-            BattleDataProvider.ActivePersonaIndex = _personaCurrentEntity;
-        }
-    
-        private void SetActivePersona()
-        {
-            BattleDataManager.ActiveEntity = ActivePersona; 
-            _personaTotalEntity = _personaCount -1;
-
-            EventBus<OnPersonaTurn>.Fire(new OnPersonaTurn());
+            ActivePersona = _allPlayablePersonas[_personaCurrentEntity]; // Select current active persona and define
+            BattleDataProvider.ActivePersonaIndex = _personaCurrentEntity; // set current persona index
+            
+            BattleDataManager.ActiveEntity = ActivePersona;  // set current active entity to persona
+            EventBus<OnPersonaTurn>.Fire(new OnPersonaTurn()); // fire event
         }
 
         public void SwapCurrentPersona()
         {
-            if (_personaCurrentEntity == _personaTotalEntity)
+            Debug.Log("onur burada hz");
+            
+            
+            
+            if (_personaCurrentEntity == _personaTotalPlayableCount)
             {
                 _personaCurrentEntity = 0;
                 EventBus<OnTurnEntity>.Fire(new OnTurnEntity()); //ShadowTurn
                 return;
             }
 
-            if (_personaCurrentEntity < _personaTotalEntity)
+            if (_personaCurrentEntity < _personaTotalPlayableCount)
             {
-                _personaCurrentEntity++;
                 SetPlayablePersonas();
+                _personaCurrentEntity++;
             }
         }
     

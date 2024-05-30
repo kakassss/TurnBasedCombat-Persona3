@@ -43,7 +43,7 @@ namespace ShadowAI
             _shadowAttacks = _data.GetActiveShadow().entity.EntityAttacks;
             _shadowAbilities = _data.GetActiveShadow().entity.EntityAbilities;
             
-            //Debug.Log("onur active shadow " + _data.GetActiveShadow());
+            Debug.Log("onur active shadow " + _data.GetActiveShadow());
             
             shadowActionCor = StartCoroutine(IEShadowAction());
             IEShadowAction();

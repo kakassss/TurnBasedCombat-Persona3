@@ -19,21 +19,6 @@ namespace Battle.Action
         private BattleDataShadow _battleDataShadow;
         
         
-        /*
-         * Şuanki bokluklar
-         *
-         * şuan isdisable mantıgı direkt hiç oynatmıyor, disable olan personaya belki disable shadowlar
-         * da bir move yapmıyordur test etmedin.
-         * current persona index 2de tıkanıyor ve hep orda kalıyor, ilk baş ilk elemandan başlıyor fakat
-         * sonrasında bi daha 0lanmıyor.
-         *
-         * şuanlık oyun patlamıyor persona attack yapıyor shadow da herhangi bir move.
-         *
-         *
-         *
-         * 
-         */
-
         public IMove GetActivePersona()
         {
             return _battleDataPersona.ActivePersona;
@@ -64,6 +49,8 @@ namespace Battle.Action
             _battleDataPersona = new BattleDataPersona();
             _battleDataShadow = new BattleDataShadow();
             EnableEventBus();
+            
+            
             //Current Active entity is persona
             _battleDataPersona.InitPersona(_allPersona);
             _battleDataShadow.InitShadow(_allShadows);
@@ -76,7 +63,7 @@ namespace Battle.Action
 
         private void EnableEventBus()
         {
-            _onTurnEntity = new EventBinding<OnTurnEntity>(SwapTurnToEnemy);
+            _onTurnEntity = new EventBinding<OnTurnEntity>(Swap);
             EventBus<OnTurnEntity>.Subscribe(_onTurnEntity);
         }
         
@@ -90,27 +77,28 @@ namespace Battle.Action
         {
             //Main idea: Every entities should do their own work,
             // manager is here just for the select the right data
-            Debug.Log("onur 1");
             if (ActiveEntity == _battleDataPersona.ActivePersona)
             {
-                Debug.Log("onur 2");
+                _battleDataPersona.SetPlayablePersonaList(_allPersona);
                 _battleDataPersona.SwapCurrentPersona();
             }
             else
             {
-                Debug.Log("onur 3");
+                _battleDataShadow.SetPlayableShadows(_allShadows);
                 _battleDataShadow.SwapCurrentShadow();
             }
         }
-        
+
+        private void Swap()
+        {
+             ActiveEntity = ActiveEntity == _battleDataPersona.ActivePersona ?
+                 _battleDataShadow.ActiveShadow : _battleDataPersona.ActivePersona; 
+             
+             SetActiveEntity();
+        }
     
         public void SwapTurnToEnemy()
         {
-            Debug.Log("onur 4");
-            ActiveEntity = ActiveEntity == _battleDataPersona.ActivePersona ?
-                _battleDataShadow.ActiveShadow : _battleDataPersona.ActivePersona;
-            
-            Debug.Log("onur 6" + ActiveEntity);
             SetActiveEntity();
         }
     }
