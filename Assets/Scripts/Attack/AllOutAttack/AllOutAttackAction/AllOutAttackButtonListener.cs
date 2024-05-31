@@ -41,6 +41,7 @@ namespace Attack.AllOutAttack.AllOutAttackAction
             foreach (var shadow in _battleDataProvider.GetAllShadows())
             {
                 shadow.entity.IsDisable = false;
+                shadow.entity.IsStunned = false;
             }
         }
     }
