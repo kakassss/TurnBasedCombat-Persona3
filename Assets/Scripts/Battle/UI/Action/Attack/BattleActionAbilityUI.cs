@@ -1,7 +1,7 @@
 using Interfaces;
 using TMPro;
 
-namespace Battle.UI.Action
+namespace Battle.UI.Action.Attack
 {
     public class BattleActionAbilityUI : BattleBaseActionUI
     {

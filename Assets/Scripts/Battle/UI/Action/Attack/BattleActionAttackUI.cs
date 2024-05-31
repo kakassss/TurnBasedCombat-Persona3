@@ -1,8 +1,7 @@
 using Interfaces;
 using TMPro;
-using UnityEngine;
 
-namespace Battle.UI.Action
+namespace Battle.UI.Action.Attack
 {
     public class BattleActionAttackUI : BattleBaseActionUI
     {

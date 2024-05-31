@@ -97,5 +97,10 @@ namespace SignalBus
     {
         
     }
+
+    public class OnCanAllOutAttack : IEvent
+    {
+        
+    }
     
 }

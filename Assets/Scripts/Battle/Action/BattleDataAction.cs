@@ -10,7 +10,7 @@ namespace Battle.Action
         private Coroutine _swapCor;
         public void Swap()
         {
-            _data.battleDataManager.SwapTurnToEnemy();
+            _data.battleDataManager.SwapTurn();
         }
 
         private IEnumerator IESwapTurnCurrentEntity()

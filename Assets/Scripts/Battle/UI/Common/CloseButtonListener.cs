@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,9 +11,12 @@ namespace Battle.UI.Common
         private void Awake()
         {
             _button = GetComponent<Button>();
-            _button.onClick.AddListener(Close);
         }
 
+        private void Start()
+        {
+            _button.onClick.AddListener(Close);
+        }
 
         private void Close()
         {

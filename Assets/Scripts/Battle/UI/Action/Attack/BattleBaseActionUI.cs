@@ -5,7 +5,7 @@ using SignalBus;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Battle.UI.Action
+namespace Battle.UI.Action.Attack
 {
     public abstract class BattleBaseActionUI : MonoBehaviour
     {

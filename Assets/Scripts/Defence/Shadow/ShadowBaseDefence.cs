@@ -16,7 +16,7 @@ namespace Defence.Shadow
         public virtual void DefenceAction(IMove activeEntity,IMove deactiveEntity, Stat stat,int totalDamage,int currentEntityIndex)
         {
             var otherStat = stat;
-
+            
             if (otherStat == _stat)
             {
                 switch (DefenceTypes)
@@ -44,6 +44,7 @@ namespace Defence.Shadow
                 }
             }
             
+            EventBus<OnCanAllOutAttack>.Fire(new OnCanAllOutAttack());
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnShadowDefenceActionUI>.Fire(new OnShadowDefenceActionUI
             {

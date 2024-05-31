@@ -1,8 +1,7 @@
-using System;
 using SignalBus;
 using UnityEngine;
 
-namespace Battle.UI.Action
+namespace Battle.UI.Action.AllOutAttack
 {
     public class BattleActionAllOutAttackUI : MonoBehaviour
     {
@@ -35,5 +34,7 @@ namespace Battle.UI.Action
         {
             _allOutUI.gameObject.SetActive(true);
         }
+
+        
     }
 }

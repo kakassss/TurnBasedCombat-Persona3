@@ -62,7 +62,7 @@ namespace Battle.Action
 
         private void EnableEventBus()
         {
-            _onTurnEntity = new EventBinding<OnTurnEntity>(Swap);
+            _onTurnEntity = new EventBinding<OnTurnEntity>(SwapToEntity);
             EventBus<OnTurnEntity>.Subscribe(_onTurnEntity);
         }
         
@@ -87,7 +87,7 @@ namespace Battle.Action
             }
         }
 
-        private void Swap()
+        private void SwapToEntity()
         {
              ActiveEntity = ActiveEntity == _battleDataPersona.ActivePersona ?
                  _battleDataShadow.ActiveShadow : _battleDataPersona.ActivePersona; 
@@ -95,7 +95,7 @@ namespace Battle.Action
              SetActiveEntity();
         }
     
-        public void SwapTurnToEnemy()
+        public void SwapTurn()
         {
             SetActiveEntity();
         }
