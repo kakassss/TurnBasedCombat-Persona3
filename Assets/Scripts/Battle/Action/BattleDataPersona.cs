@@ -4,6 +4,7 @@ using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
+using UnityEngine;
 
 namespace Battle.Action
 {
@@ -51,7 +52,7 @@ namespace Battle.Action
         {
             _allPlayablePersonas.Clear(); // clear first data
             
-            foreach (var persona in allPersona.Where(persona => persona.isDisable == false))
+            foreach (var persona in allPersona.Where(persona => persona.IsDisable == false))
             {
                 _allPlayablePersonas.Add(persona); // add to list playable personas
             }
@@ -62,12 +63,33 @@ namespace Battle.Action
         private void SetPlayablePersonas()
         {
             ActivePersona = _allPlayablePersonas[_personaCurrentEntity]; // Select current active persona and define
-            BattleDataProvider.ActivePersonaIndex = _personaCurrentEntity; // set current persona index
+            
+            for (int i = 0; i < _allPersonas.Count; i++)
+            {
+                if (_allPersonas[i] == _allPlayablePersonas[_personaCurrentEntity])
+                {
+                    BattleDataProvider.ActivePersonaIndex = i;
+                }
+            }
+            //BattleDataProvider.ActivePersonaIndex = _personaCurrentEntity; // set current persona index
             
             BattleDataManager.ActiveEntity = ActivePersona;  // set current active entity to persona
             EventBus<OnPersonaTurn>.Fire(new OnPersonaTurn()); // fire event
         }
 
+        public void ExtraMovePersona()
+        {
+            _personaCurrentEntity--;
+        }
+
+        public void SwapExtraMovePersona()
+        {
+            if (_personaCurrentEntity >= _personaTotalPlayableCount) return;
+            
+            _personaCurrentEntity--;
+            SetPlayablePersonas();
+        }
+        
         public void SwapCurrentPersona()
         {
             if (_personaCurrentEntity == _personaTotalPlayableCount)
@@ -76,7 +98,7 @@ namespace Battle.Action
                 EventBus<OnTurnEntity>.Fire(new OnTurnEntity()); //ShadowTurn
                 return;
             }
-
+    
             if (_personaCurrentEntity < _personaTotalPlayableCount)
             {
                 SetPlayablePersonas();

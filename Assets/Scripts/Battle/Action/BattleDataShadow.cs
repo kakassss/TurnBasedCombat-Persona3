@@ -51,7 +51,7 @@ namespace Battle.Action
         {
             _allPlayableShadows.Clear();
             
-            foreach (var shadow in allShadow.Where(shadow => shadow.isDisable == false))
+            foreach (var shadow in allShadow.Where(shadow => shadow.IsDisable == false))
             {
                 _allPlayableShadows.Add(shadow);
             }
@@ -74,7 +74,15 @@ namespace Battle.Action
         private void SetShadowData()
         {
             ActiveShadow = _allPlayableShadows[_shadowCurrentEntity];
-            BattleDataProvider.ActiveShadowIndex = _shadowCurrentEntity;
+
+            for (int i = 0; i < _allShadows.Count; i++)
+            {
+                if (_allShadows[i] == _allPlayableShadows[_shadowCurrentEntity])
+                {
+                    BattleDataProvider.ActiveShadowIndex = i;
+                }
+            }
+            //BattleDataProvider.ActiveShadowIndex = _shadowCurrentEntity;
         }
         
         private void SetActiveShadow()
