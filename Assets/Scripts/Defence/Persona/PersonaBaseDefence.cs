@@ -27,7 +27,7 @@ namespace Defence.Persona
                         _defence = "Weakness";
                         var damage = totalDamage / 2;
                         deactiveEntity.entity.TakeDamage(damage);
-                        deactiveEntity.entity.isDisable = true;
+                        deactiveEntity.entity.IsDisable = true;
                         break;
                     case DefenceTypes.Reflect:
                         _defence = "Reflect";

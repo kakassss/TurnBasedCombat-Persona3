@@ -34,7 +34,5 @@ namespace Battle.UI.Action.AllOutAttack
         {
             _allOutUI.gameObject.SetActive(true);
         }
-
-        
     }
 }

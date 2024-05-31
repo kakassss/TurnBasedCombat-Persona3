@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89dcc595688f4a82b0b5596bcdb47c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDisable: 0
   entityBaseSo: {fileID: 11400000, guid: 2549a7fec2cb79f4ebc0b913e094c894, type: 2}
   EntityAbilities:
   - _abilitySO: {fileID: 11400000, guid: 4c3546d5e4a5e45439b1b463fa5284f6, type: 2}
@@ -57,3 +58,4 @@ MonoBehaviour:
   - _defenceSO: {fileID: 11400000, guid: 5a5bff46a8efdcf42a507c442a5dfc94, type: 2}
   - _defenceSO: {fileID: 11400000, guid: c9668d25b9d395c4eaa910e3ed1dcca8, type: 2}
   - _defenceSO: {fileID: 11400000, guid: 96fcd765fb05f2140b58df9e4d770b46, type: 2}
+  - _defenceSO: {fileID: 11400000, guid: 811950fccc217564d885fa2fce0a3864, type: 2}

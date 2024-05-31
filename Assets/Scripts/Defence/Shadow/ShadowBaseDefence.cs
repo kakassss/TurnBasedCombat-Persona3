@@ -3,7 +3,6 @@ using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
-using UnityEngine;
 
 namespace Defence.Shadow
 {
@@ -28,7 +27,12 @@ namespace Defence.Shadow
                         _defence = "Weakness";
                         var damage = totalDamage / 2;
                         deactiveEntity.entity.TakeDamage(damage);
-                        deactiveEntity.entity.isDisable = true;
+                        EventBus<OnShadowStunned>.Fire(new OnShadowStunned
+                        {
+                            shadow = deactiveEntity
+                        });
+                        deactiveEntity.entity.IsDisable = true;
+                        deactiveEntity.entity.IsStunned = true;
                         break;
                     case DefenceTypes.Reflect:
                         _defence = "Reflect";
@@ -51,6 +55,8 @@ namespace Defence.Shadow
                 defenceType = _defence,
                 activeShadowIndex = currentEntityIndex
             });
+            
+            //activeEntity.MoveAction(); // the attacker made his move
         }
     }
 }

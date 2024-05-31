@@ -94,7 +94,6 @@ namespace Battle.Action
         
         public void SwapCurrentShadow()
         {
-
             if (_shadowCurrentEntity == _shadowTotalPlayableCount)
             {
                 _shadowCurrentEntity = 0;

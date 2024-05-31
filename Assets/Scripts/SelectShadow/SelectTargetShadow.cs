@@ -41,6 +41,8 @@ namespace SelectShadow
 
             _shadowIndex += direction;
             
+            Debug.Log("onur shadowIndex " + _shadowIndex);
+            
             if (_shadowIndex >= _shadowTotalCount)
             {
                 _shadowIndex = MinShadowCount;

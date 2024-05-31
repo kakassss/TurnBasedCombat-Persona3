@@ -11,9 +11,15 @@ namespace Attack.AllOutAttack.AllOutAttackAction
         [SerializeField] private PersonaAllOutAttack _allOutAttack;
 
         private Button _button;
+        
         private void Awake()
         {
             _button = GetComponent<Button>();
+        }
+
+        private void OnEnable()
+        {
+            EnemyReturnNormal();
         }
 
         private void Start()
@@ -25,7 +31,17 @@ namespace Attack.AllOutAttack.AllOutAttackAction
         {
             _allOutAttack.AttackAction(_battleDataProvider.GetActivePersona(),
                 _battleDataProvider.GetAllShadows());
-            this.gameObject.SetActive(false);
+            
+            
+            gameObject.SetActive(false);
+        }
+
+        private void EnemyReturnNormal()
+        {
+            foreach (var shadow in _battleDataProvider.GetAllShadows())
+            {
+                shadow.entity.IsDisable = false;
+            }
         }
     }
 }

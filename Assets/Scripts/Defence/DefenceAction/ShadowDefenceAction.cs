@@ -7,6 +7,7 @@ namespace Defence.DefenceAction
     {
         private EventBinding<OnShadowTakeDamage> _shadowDefenceAction;
         private EventBinding<OnAllShadowTakeDamage> _shadowAllDefenceAction;
+        private EventBinding<OnAllOutPersonaTakeDamage> _shadowAllOutDefenceAction;
         
         private void OnEnable()
         {
@@ -25,12 +26,16 @@ namespace Defence.DefenceAction
             
             _shadowAllDefenceAction = new EventBinding<OnAllShadowTakeDamage>(TakeAllShadowDamage);
             EventBus<OnAllShadowTakeDamage>.Subscribe(_shadowAllDefenceAction);
+
+            _shadowAllOutDefenceAction = new EventBinding<OnAllOutPersonaTakeDamage>(TakeAllOutDamage);
+            EventBus<OnAllOutPersonaTakeDamage>.Subscribe(_shadowAllOutDefenceAction);
         }
 
         private void DisableEventBus()
         {
             EventBus<OnShadowTakeDamage>.Unsubscribe(_shadowDefenceAction);
             EventBus<OnAllShadowTakeDamage>.Unsubscribe(_shadowAllDefenceAction);
+            EventBus<OnAllOutPersonaTakeDamage>.Unsubscribe(_shadowAllOutDefenceAction);
         }
         
         private void TakeDamage(OnShadowTakeDamage shadow)
@@ -59,6 +64,11 @@ namespace Defence.DefenceAction
                     allShadows.currentShadow++;
                 }
             }
+        }
+
+        private void TakeAllOutDamage(OnAllOutPersonaTakeDamage allOutShadow)
+        {
+            
         }
     }
 }

@@ -3,12 +3,14 @@ using EntityData;
 using Interfaces;
 using SignalBus;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace BaseEntity
 {
     public abstract class Entity : MonoBehaviour, IEntity,IMove
     {
-        public bool isDisable; 
+        public bool IsDisable;
+        public bool IsStunned;
         
         public EntityBaseSO entityBaseSo;
         protected int _currentHealth;

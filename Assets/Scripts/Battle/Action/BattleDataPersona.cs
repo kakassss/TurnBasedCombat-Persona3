@@ -84,7 +84,7 @@ namespace Battle.Action
 
         public void SwapExtraMovePersona()
         {
-            if (_personaCurrentEntity >= _personaTotalPlayableCount) return;
+            //if (_personaCurrentEntity >= _personaTotalPlayableCount) return;
             
             _personaCurrentEntity--;
             SetPlayablePersonas();

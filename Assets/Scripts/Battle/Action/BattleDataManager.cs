@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
@@ -11,6 +12,7 @@ namespace Battle.Action
         public static IMove ActiveEntity;
 
         private EventBinding<OnTurnEntity> _onTurnEntity;
+        private EventBinding<OnShadowStunned> _onShadowStunned;
         
         [SerializeField] private List<Shadow> _allShadows;
         [SerializeField] private List<Persona> _allPersona;
@@ -18,6 +20,7 @@ namespace Battle.Action
         private BattleDataPersona _battleDataPersona;
         private BattleDataShadow _battleDataShadow;
         
+        private bool _personaExtraMove;
         
         public IMove GetActivePersona()
         {
@@ -64,11 +67,26 @@ namespace Battle.Action
         {
             _onTurnEntity = new EventBinding<OnTurnEntity>(SwapToEntity);
             EventBus<OnTurnEntity>.Subscribe(_onTurnEntity);
+
+            _onShadowStunned = new EventBinding<OnShadowStunned>(PersonaExtraMove);
+            EventBus<OnShadowStunned>.Subscribe(_onShadowStunned);
         }
         
         private void DisableEventBus()
         {
             EventBus<OnTurnEntity>.Unsubscribe(_onTurnEntity);
+            EventBus<OnShadowStunned>.Unsubscribe(_onShadowStunned);
+        }
+        
+        private void PersonaExtraMove(OnShadowStunned shadow)
+        {
+            if (shadow.shadow.entity.IsStunned)
+            {
+                return;
+            }
+            
+            _battleDataPersona.SetPlayablePersonaList(_allPersona);
+            _battleDataPersona.SwapExtraMovePersona();
         }
         
         private void SetActiveEntity()
@@ -85,14 +103,34 @@ namespace Battle.Action
                 _battleDataShadow.SetPlayableShadows(_allShadows);
                 _battleDataShadow.SwapCurrentShadow();
             }
+            
         }
 
+        private void ResetIndexes()
+        {
+            BattleDataProvider.ActiveShadowIndex = 0;
+            BattleDataProvider.ActivePersonaIndex = 0;
+        }
+        
         private void SwapToEntity()
         {
-             ActiveEntity = ActiveEntity == _battleDataPersona.ActivePersona ?
-                 _battleDataShadow.ActiveShadow : _battleDataPersona.ActivePersona; 
-             
-             SetActiveEntity();
+            ActiveEntity = ActiveEntity == _battleDataPersona.ActivePersona ?
+                 _battleDataShadow.ActiveShadow : _battleDataPersona.ActivePersona;
+            
+            ShadowDisableStunning();
+            ResetIndexes();     
+            SetActiveEntity();
+        }
+
+        private void ShadowDisableStunning()
+        {
+            if (ActiveEntity != _battleDataPersona.ActivePersona) return;
+            
+            foreach (var shadow in _allShadows)
+            {
+                shadow.IsStunned = false;
+                shadow.IsDisable = false;
+            }
         }
     
         public void SwapTurn()

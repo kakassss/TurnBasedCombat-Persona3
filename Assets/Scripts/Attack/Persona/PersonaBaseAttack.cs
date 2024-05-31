@@ -4,6 +4,7 @@ using Enums;
 using Interfaces;
 using Interfaces.Stats;
 using SignalBus;
+using UnityEngine;
 
 namespace Attack.Persona
 {
@@ -16,6 +17,7 @@ namespace Attack.Persona
         
         public virtual void AttackAction(IMove activeEntity,List<IMove> allDeactiveEntities)
         {
+            //Debug.Log("onur BattleDataProvider.ActiveShadowIndex " + BattleDataProvider.ActiveShadowIndex);
             var targetShadow = allDeactiveEntities[BattleDataProvider.ActiveShadowIndex];
             var damage = activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy * (int)_attackTypes;
             

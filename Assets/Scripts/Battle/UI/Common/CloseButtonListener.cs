@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +21,5 @@ namespace Battle.UI.Common
         {
             this.gameObject.SetActive(false);
         }
-    
     }
 }

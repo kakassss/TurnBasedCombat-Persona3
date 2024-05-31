@@ -37,7 +37,7 @@ namespace Attack.AllOutAttack.AllOutAttackAction
         {
             var allShadows = _battleDataProvider.GetAllShadows();
             
-            if (allShadows.Any(shadow => shadow.entity.isDisable == false)) return;
+            if (allShadows.Any(shadow => shadow.entity.IsDisable == false)) return;
             
             EventBus<OnAllOutAttack>.Fire(new OnAllOutAttack());
         }
