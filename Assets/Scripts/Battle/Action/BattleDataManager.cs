@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
@@ -88,6 +87,13 @@ namespace Battle.Action
             _battleDataPersona.SetPlayablePersonaList(_allPersona);
             _battleDataPersona.SwapExtraMovePersona();
         }
+        
+        /*
+         *  Target gösterme image mantıgı bozuk hala anlamsız
+         *  2-3 satır zıplayabiliyor veya gösterilen düşmana vurmuyor
+         */
+        
+        
         
         private void SetActiveEntity()
         {
