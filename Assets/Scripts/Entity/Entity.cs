@@ -3,7 +3,6 @@ using EntityData;
 using Interfaces;
 using SignalBus;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace BaseEntity
 {
@@ -42,7 +41,6 @@ namespace BaseEntity
         public virtual void SetEntityData()
         {
             entityBaseSo.SetDatas();
-            
             
             _currentHealth = entityBaseSo.Health;
             _currentMana = entityBaseSo.Mana;

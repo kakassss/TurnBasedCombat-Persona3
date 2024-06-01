@@ -122,5 +122,10 @@ namespace SignalBus
     {
         public IMove shadow;
     }
+
+    public class OnGameWin : IEvent
+    {
+        
+    }
     
 }

@@ -1,5 +1,4 @@
 using SignalBus;
-using UnityEngine;
 
 namespace Battle.UI.Defence
 {
@@ -44,6 +43,5 @@ namespace Battle.UI.Defence
         {
             CloseAllTexts();
         }
-        
     }
 }
