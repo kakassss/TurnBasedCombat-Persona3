@@ -86,6 +86,5 @@ namespace BaseEntity
         }
 
         public Entity entity { get; set; }
-        
     }
 }

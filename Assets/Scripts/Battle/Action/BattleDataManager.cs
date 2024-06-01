@@ -88,13 +88,6 @@ namespace Battle.Action
             _battleDataPersona.SwapExtraMovePersona();
         }
         
-        /*
-         *  Target gösterme image mantıgı bozuk hala anlamsız
-         *  2-3 satır zıplayabiliyor veya gösterilen düşmana vurmuyor
-         */
-        
-        
-        
         private void SetActiveEntity()
         {
             //Main idea: Every entities should do their own work,
@@ -109,7 +102,6 @@ namespace Battle.Action
                 _battleDataShadow.SetPlayableShadows(_allShadows);
                 _battleDataShadow.SwapCurrentShadow();
             }
-            
         }
 
         private void ResetIndexes()

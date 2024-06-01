@@ -56,7 +56,6 @@ namespace Defence.Shadow
                 activeShadowIndex = currentEntityIndex
             });
             
-            //activeEntity.MoveAction(); // the attacker made his move
         }
     }
 }

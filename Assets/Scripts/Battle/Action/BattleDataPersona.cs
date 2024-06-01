@@ -4,7 +4,6 @@ using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
-using UnityEngine;
 
 namespace Battle.Action
 {
@@ -71,7 +70,6 @@ namespace Battle.Action
                     BattleDataProvider.ActivePersonaIndex = i;
                 }
             }
-            //BattleDataProvider.ActivePersonaIndex = _personaCurrentEntity; // set current persona index
             
             BattleDataManager.ActiveEntity = ActivePersona;  // set current active entity to persona
             EventBus<OnPersonaTurn>.Fire(new OnPersonaTurn()); // fire event
@@ -85,7 +83,6 @@ namespace Battle.Action
         public void SwapExtraMovePersona()
         {
             //if (_personaCurrentEntity >= _personaTotalPlayableCount) return;
-            
             _personaCurrentEntity--;
             SetPlayablePersonas();
         }
