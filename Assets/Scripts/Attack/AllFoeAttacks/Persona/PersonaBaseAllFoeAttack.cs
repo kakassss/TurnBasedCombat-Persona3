@@ -13,7 +13,7 @@ namespace Attack.AllFoeAttacks.Persona
         public string AttackName => _attackName;
         public int AttackDamageToItself => _attackDamageToItself;
     
-        public void AttackAction(IMove activeEntity, List<IMove> allDeactiveEntities)
+        public virtual void AttackAction(IMove activeEntity, List<IMove> allDeactiveEntities)
         {
             var damage = (activeEntity.entity.entityBaseSo.BaseAttackValue + _attackDamageToEnemy) * (int)_attackTypes;
             activeEntity.entity.TakeDamageUsingAttack(_attackDamageToItself);

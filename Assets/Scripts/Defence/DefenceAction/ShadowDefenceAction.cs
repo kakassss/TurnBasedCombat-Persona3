@@ -7,7 +7,7 @@ namespace Defence.DefenceAction
     {
         private EventBinding<OnShadowTakeDamage> _shadowDefenceAction;
         private EventBinding<OnAllShadowTakeDamage> _shadowAllDefenceAction;
-        private EventBinding<OnAllOutPersonaTakeDamage> _shadowAllOutDefenceAction;
+        private EventBinding<OnAllOutShadowTakeDamage> _shadowAllOutDefenceAction;
         
         private void OnEnable()
         {
@@ -27,15 +27,15 @@ namespace Defence.DefenceAction
             _shadowAllDefenceAction = new EventBinding<OnAllShadowTakeDamage>(TakeAllShadowDamage);
             EventBus<OnAllShadowTakeDamage>.Subscribe(_shadowAllDefenceAction);
 
-            _shadowAllOutDefenceAction = new EventBinding<OnAllOutPersonaTakeDamage>(TakeAllOutDamage);
-            EventBus<OnAllOutPersonaTakeDamage>.Subscribe(_shadowAllOutDefenceAction);
+            _shadowAllOutDefenceAction = new EventBinding<OnAllOutShadowTakeDamage>(TakeAllOutDamage);
+            EventBus<OnAllOutShadowTakeDamage>.Subscribe(_shadowAllOutDefenceAction);
         }
 
         private void DisableEventBus()
         {
             EventBus<OnShadowTakeDamage>.Unsubscribe(_shadowDefenceAction);
             EventBus<OnAllShadowTakeDamage>.Unsubscribe(_shadowAllDefenceAction);
-            EventBus<OnAllOutPersonaTakeDamage>.Unsubscribe(_shadowAllOutDefenceAction);
+            EventBus<OnAllOutShadowTakeDamage>.Unsubscribe(_shadowAllOutDefenceAction);
         }
         
         private void TakeDamage(OnShadowTakeDamage shadow)
@@ -66,9 +66,19 @@ namespace Defence.DefenceAction
             }
         }
 
-        private void TakeAllOutDamage(OnAllOutPersonaTakeDamage allOutShadow)
+        private void TakeAllOutDamage(OnAllOutShadowTakeDamage allShadows)
         {
+            var shadows = allShadows.shadows;
             
+            foreach (var shadow in shadows)
+            {
+                foreach (var defence in shadow.entity.EntityDefences.Where(defence => defence.Defence.Stat == allShadows.Stat))
+                {
+                    defence.Defence.DefenceAction(allShadows.persona,shadow,
+                        allShadows.Stat,allShadows.totalDamage,allShadows.currentShadow);
+                    allShadows.currentShadow++;
+                }
+            }
         }
     }
 }

@@ -74,14 +74,14 @@ namespace SignalBus
         public int currentPersona;
     }
 
-    public struct OnAllOutPersonaTakeDamage : IEvent
+    public struct OnAllOutShadowTakeDamage : IEvent
     {
-        public IMove shadow;
-        public List<IMove> personas;
+        public IMove persona;
+        public List<IMove> shadows;
         public Stat Stat;
         public int totalDamage;
         
-        public int currentPersona;
+        public int currentShadow;
     }
     
     public struct OnShadowDefenceActionUI : IEvent
@@ -89,6 +89,11 @@ namespace SignalBus
         public string defenceType;
         public int totalDamage;
         public int activeShadowIndex;
+    }
+
+    public struct OnShadowAllOutDefenceActionUI : IEvent
+    {
+        
     }
     
     public struct OnPersonaDefenceActionUI : IEvent
