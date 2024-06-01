@@ -30,7 +30,12 @@ namespace SelectShadow
         private void Update()
         {
             if (_battleDataProvider.GetActiveEntity() != _battleDataProvider.GetActivePersona()) return;
-
+            EventBus<OnShadowTargetChanged>.Fire(new OnShadowTargetChanged
+            {
+                ActiveShadowIndex = _shadowIndex
+            });
+            
+            
             HandleInput(KeyCode.UpArrow, -1);
             HandleInput(KeyCode.DownArrow, 1);
         }
@@ -40,8 +45,6 @@ namespace SelectShadow
             if (!Input.GetKeyDown(key)) return;
 
             _shadowIndex += direction;
-            
-            Debug.Log("onur shadowIndex " + _shadowIndex);
             
             if (_shadowIndex >= _shadowTotalCount)
             {
@@ -54,10 +57,7 @@ namespace SelectShadow
             }
             
             BattleDataProvider.ActiveShadowIndex  = _shadowIndex;
-            EventBus<OnShadowTargetChanged>.Fire(new OnShadowTargetChanged
-            {
-                ActiveShadowIndex = _shadowIndex
-            });
+            
         }
     }
 }
