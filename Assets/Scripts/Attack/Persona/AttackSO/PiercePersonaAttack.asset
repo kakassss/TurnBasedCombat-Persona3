@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PiercePersonaAttack
   m_EditorClassIdentifier: 
   _attackName: Getsuga
-  _attackDamageToEnemy: 10
+  _attackDamageToEnemy: 300
   _attackDamageToItself: 5
   _stat: 2
   _attackTypes: 1

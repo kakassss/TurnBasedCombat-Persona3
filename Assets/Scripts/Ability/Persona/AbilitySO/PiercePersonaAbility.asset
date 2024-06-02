@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PiercePersonaAbility
   m_EditorClassIdentifier: 
   _abilityName: Akira
-  _abilityDamageToEnemy: 50
+  _abilityDamageToEnemy: 300
   _manaCost: 25
   _stat: 2
   _abilityTypes: 2
