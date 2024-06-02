@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Battle.Action;
 using SignalBus;
@@ -17,10 +18,14 @@ namespace Battle.UI.Health
         {
             SetUIData();
             SetUI();
+        }
+
+        protected virtual void OnEnable()
+        {
             EnableEventBus();
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             DisableEventBus();
         }
@@ -36,6 +41,11 @@ namespace Battle.UI.Health
             EventBus<OnHealthChanged>.Unsubscribe(_takeDamage);
         }
 
+        protected void CloseTextAtIndex(int index)
+        {
+            _entityHealthTexts[index].gameObject.SetActive(false);
+        }
+        
         protected void CloseTexts()
         {
             foreach (var text in _entityHealthTexts)

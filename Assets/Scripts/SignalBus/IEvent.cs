@@ -127,5 +127,17 @@ namespace SignalBus
     {
         
     }
+
+    public struct OnIsShadowDead : IEvent
+    {
+        public IMove shadow;
+        public int activeShadowIndex;
+    }
+
+    public struct OnShadowDeadUI : IEvent
+    {
+        public IMove shadow;
+        public int activeShadowIndex;
+    }
     
 }

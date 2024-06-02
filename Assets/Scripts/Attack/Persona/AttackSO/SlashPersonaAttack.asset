@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlashPersonaAttack
   m_EditorClassIdentifier: 
   _attackName: TENSHOOO
-  _attackDamageToEnemy: 5
+  _attackDamageToEnemy: 350
   _attackDamageToItself: 5
   _stat: 0
   _attackTypes: 1

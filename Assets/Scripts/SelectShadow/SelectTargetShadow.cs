@@ -1,3 +1,4 @@
+using System.Linq;
 using Battle.Action;
 using SignalBus;
 using UnityEngine;
@@ -7,10 +8,11 @@ namespace SelectShadow
     public class SelectTargetShadow : MonoBehaviour
     {
         private const int MinShadowCount = 0;
-    
+        
+        private EventBinding<OnShadowDeadUI> _onShadowDead;
         private BattleDataProvider _battleDataProvider;
 
-        private int _shadowTotalCount;
+        private int _shadowTotalCount = 0;
         private int _shadowIndex;
         private void Awake()
         {
@@ -21,10 +23,35 @@ namespace SelectShadow
         {
             SetData();
         }
+        
+        private void OnEnable()
+        {
+            EnableEventBus();
+        }
 
+        private void OnDisable()
+        {
+            DisableEventBus();
+        }
+        
+        private void EnableEventBus()
+        {
+            _onShadowDead = new EventBinding<OnShadowDeadUI>(SetData);
+            EventBus<OnShadowDeadUI>.Subscribe(_onShadowDead);
+        }
+        
+        private void DisableEventBus()
+        {
+            EventBus<OnShadowDeadUI>.Unsubscribe(_onShadowDead);
+        }
+        
         private void SetData()
         {
-            _shadowTotalCount = _battleDataProvider.GetShadowCount();
+            _shadowTotalCount = 0;
+            foreach (var shadow in _battleDataProvider.GetAllShadows().Where(shadow => shadow.entity.IsDead == false))
+            {
+                _shadowTotalCount++;
+            }
         }
 
         private void Update()

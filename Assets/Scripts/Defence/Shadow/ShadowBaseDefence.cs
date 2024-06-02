@@ -48,6 +48,11 @@ namespace Defence.Shadow
                 }
             }
             
+            EventBus<OnIsShadowDead>.Fire(new OnIsShadowDead
+            {
+                activeShadowIndex =  currentEntityIndex,
+                shadow = deactiveEntity
+            });
             EventBus<OnCanAllOutAttack>.Fire(new OnCanAllOutAttack());
             EventBus<OnHealthChanged>.Fire(new OnHealthChanged());
             EventBus<OnShadowDefenceActionUI>.Fire(new OnShadowDefenceActionUI

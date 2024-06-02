@@ -13,7 +13,8 @@ namespace Battle.Action
         public IMove ActiveShadow;
         
         private List<IMove> _allPlayableShadows = new List<IMove>(); // To select
-        private List<IMove> _allShadows = new List<IMove>(); // To shadow all foe attack
+        private List<IMove> _allAliveShadows = new List<IMove>(); // To shadow all foe attack
+        
         
         private int _shadowsTotalCount;
         private int _shadowCurrentEntity;
@@ -21,10 +22,9 @@ namespace Battle.Action
         
         public List<IMove> GetAllShadows()
         {
-            return _allShadows;
+            return _allAliveShadows;
         }
 
-        //It needs total count of shadows not playables
         public int GetAllShadowCount()
         {
             return _shadowsTotalCount;
@@ -38,35 +38,39 @@ namespace Battle.Action
             SetPlayableShadowsData();
         }
 
-        private void SetShadowsList(List<Shadow> allShadow)
+        public void SetShadowsList(List<Shadow> allShadow)
         {
-            foreach (var shadow in allShadow)
+            _allAliveShadows.Clear();
+            
+            foreach (var shadow in allShadow.Where(shadow => shadow.IsDead == false))
             {
-                _allShadows.Add(shadow);
+                _allAliveShadows.Add(shadow);
             }
+
             _shadowsTotalCount = allShadow.Count;
         }
-
+        
         public void SetPlayableShadows(List<Shadow> allShadow)
         {
             _allPlayableShadows.Clear();
             
-            foreach (var shadow in allShadow.Where(shadow => shadow.IsDisable == false))
+            foreach (var shadow in allShadow.Where(shadow => shadow.IsDisable == false && shadow.IsDead == false))
             {
                 _allPlayableShadows.Add(shadow);
             }
-
+            
             _shadowTotalPlayableCount = _allPlayableShadows.Count;
         }
         
 
-        private void SetPlayableShadowsData()
+        public void SetPlayableShadowsData()
         {
             SetShadowData();
         }
 
-        private void SetPlayableShadows()
+        private void SetPlayableShadowsWithSetShadow(List<Shadow> allShadow)
         {
+            SetShadowsList(allShadow);
             SetShadowData();
             SetActiveShadow();
         }
@@ -75,37 +79,32 @@ namespace Battle.Action
         {
             ActiveShadow = _allPlayableShadows[_shadowCurrentEntity];
 
-            for (int i = 0; i < _allShadows.Count; i++)
+            for (int i = 0; i < _allAliveShadows.Count; i++)
             {
-                if (_allShadows[i] == _allPlayableShadows[_shadowCurrentEntity])
+                if (_allAliveShadows[i] == _allPlayableShadows[_shadowCurrentEntity])
                 {
                     BattleDataProvider.ActiveShadowIndex = i;
                 }
             }
-            //BattleDataProvider.ActiveShadowIndex = _shadowCurrentEntity;
         }
         
         private void SetActiveShadow()
         {
             BattleDataManager.ActiveEntity = ActiveShadow;
-            
             EventBus<OnShadowTurn>.Fire(new OnShadowTurn());
         }
         
-        public void SwapCurrentShadow()
+        public void SwapCurrentShadow(List<Shadow> allShadow)
         {
-            if (_shadowCurrentEntity == _shadowTotalPlayableCount)
+            if (_shadowCurrentEntity >= _shadowTotalPlayableCount)
             {
                 _shadowCurrentEntity = 0;
                 EventBus<OnTurnEntity>.Fire(new OnTurnEntity()); //Persona Turn
                 return;
             }
-
-            if (_shadowCurrentEntity < _shadowTotalPlayableCount)
-            {
-                SetPlayableShadows();
-                _shadowCurrentEntity++;
-            }
+            
+            SetPlayableShadowsWithSetShadow(allShadow);
+            _shadowCurrentEntity++;
         }
         
     }

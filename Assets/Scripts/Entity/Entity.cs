@@ -10,6 +10,7 @@ namespace BaseEntity
     {
         public bool IsDisable;
         public bool IsStunned;
+        public bool IsDead;
         
         public EntityBaseSO entityBaseSo;
         protected int _currentHealth;

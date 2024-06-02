@@ -1,4 +1,5 @@
 using SignalBus;
+using UnityEngine;
 
 namespace Battle.UI.Defence
 {
@@ -35,6 +36,7 @@ namespace Battle.UI.Defence
         private void TakeDamage(OnShadowDefenceActionUI shadowUIData)
         {
             var currentShadowTextIndex = shadowUIData.activeShadowIndex;
+            Debug.Log("shadowUIData.activeShadowIndex " + shadowUIData.activeShadowIndex);
             OpenActiveEntityText(currentShadowTextIndex);
             SetActiveEntityText(shadowUIData.defenceType, currentShadowTextIndex);
         }

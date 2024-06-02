@@ -44,7 +44,7 @@ namespace ShadowAI
             _shadowAbilities = _data.GetActiveShadow().entity.EntityAbilities;
             
             shadowActionCor = StartCoroutine(IEShadowAction());
-            IEShadowAction();
+            //IEShadowAction();
         }
 
         private IEnumerator IEShadowAction()
@@ -52,20 +52,19 @@ namespace ShadowAI
             yield return new WaitForSeconds(0.5f);
             
             var randomAction = Random.Range(0, 2);// Currently there are only two actions.
-            var randomActionMove = Random.Range(0, _shadowAttacks.Count);
-        
+            
             if (randomAction == 0)
             {
-                _shadowAttacks[randomActionMove].Attack.AttackAction(_data.GetActiveShadow(),
-                    _data.GetAllPersonas());    
+                var randomActionAttackMove = Random.Range(0, _shadowAttacks.Count);
+                _shadowAttacks[randomActionAttackMove].Attack.AttackAction(_data.GetActiveShadow(),
+                    _data.GetAllPersonas()); 
             }
-            else
+            if(randomAction == 1)
             {
-                _shadowAbilities[randomActionMove].Ability.AbilityAction(_data.GetActiveShadow(),
+                var randomActionAbilityMove = Random.Range(0, _shadowAbilities.Count);
+                _shadowAbilities[randomActionAbilityMove].Ability.AbilityAction(_data.GetActiveShadow(),
                     _data.GetAllPersonas());
             }
-        
-            //StopCoroutine(shadowActionCor);
         }
     }
 }

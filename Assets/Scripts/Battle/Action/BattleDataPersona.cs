@@ -4,6 +4,7 @@ using System.Linq;
 using BaseEntity;
 using Interfaces;
 using SignalBus;
+using UnityEngine;
 
 namespace Battle.Action
 {
@@ -74,12 +75,7 @@ namespace Battle.Action
             BattleDataManager.ActiveEntity = ActivePersona;  // set current active entity to persona
             EventBus<OnPersonaTurn>.Fire(new OnPersonaTurn()); // fire event
         }
-
-        public void ExtraMovePersona()
-        {
-            _personaCurrentEntity--;
-        }
-
+        
         public void SwapExtraMovePersona()
         {
             //if (_personaCurrentEntity >= _personaTotalPlayableCount) return;
@@ -87,21 +83,22 @@ namespace Battle.Action
             SetPlayablePersonas();
         }
         
+        public void SetCurrentPersona()
+        {
+            SetPlayablePersonas();
+        }
+        
         public void SwapCurrentPersona()
         {
-            if (_personaCurrentEntity == _personaTotalPlayableCount)
+            if (_personaCurrentEntity >= _personaTotalPlayableCount)
             {
                 _personaCurrentEntity = 0;
                 EventBus<OnTurnEntity>.Fire(new OnTurnEntity()); //ShadowTurn
                 return;
             }
-    
-            if (_personaCurrentEntity < _personaTotalPlayableCount)
-            {
-                SetPlayablePersonas();
-                _personaCurrentEntity++;
-            }
+            
+            SetPlayablePersonas();
+            _personaCurrentEntity++;
         }
-    
     }
 }
